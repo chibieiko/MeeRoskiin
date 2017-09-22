@@ -21,8 +21,7 @@
     "babel-jest": "21.0.0",
     "babel-preset-react-native": "3.0.2",
     "jest": "21.0.1",
-    "react-test-renderer": "16.0.0-alpha.12",
-    "redux-immutable-state-invariant": "^2.0.0"
+    "react-test-renderer": "16.0.0-alpha.12"
   },
   "jest": {
     "preset": "react-native"
