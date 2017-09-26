@@ -41,7 +41,7 @@ Navigation.startSingleScreenApp({
             },
             {
                 title: 'Kartta',
-                screenId: 'app.CategoryScreen',
+                screenId: 'app.MapScreen',
             }
         ],
     }
