@@ -8,20 +8,24 @@ import configureStore from './store/configureStore';
 
 import {CategoryScreen} from "./modules/appscreens/CategoryScreen";
 
+import * as colors from './res/colors.json';
+import * as dimensions from './res/dimensions.json';
+import * as strings from './res/strings.json';
+
 const store = configureStore();
 registerScreens(store, Provider);
 
 const navigatorStyle = {
-    statusBarColor: '#831d19',
-    navigationBarColor: '#339999',
-    navBarBackgroundColor: '#339999',
-    navBarTextColor: '#ffffff',
-    navBarButtonColor: '#ffffff',
+    statusBarColor: colors.primaryDark,
+    navigationBarColor: 'black',
+    navBarBackgroundColor: colors.primary,
+    navBarTextColor: colors.textLight,
+    navBarButtonColor: colors.textLight,
     statusBarTextColorScheme: 'light',
     navBarHidden: true,
-    tabBarButtonColor: 'red',
-    tabBarSelectedButtonColor: 'red',
-    tabBarBackgroundColor: 'red'
+    tabBarButtonColor: colors.primaryLight,
+    tabBarSelectedButtonColor: colors.primary,
+    tabBarBackgroundColor: colors.primary
 };
 
 class App extends Component {
@@ -36,15 +40,17 @@ class App extends Component {
         Navigation.startTabBasedApp({
             tabs: [
                 {
-                    label: 'One',
+                    label: strings.categoryTab,
                     screen: 'CategoryScreen',
-                    title: 'MeeRoskiin',
+                    title: strings.title,
+                    icon: require('./img/ic_list_white_24px.svg'),
                     navigatorStyle
                 },
                 {
-                    label: 'Two',
-                    screen: 'CategoryScreen',
-                    title: 'MeeRoskiin',
+                    label: strings.mapTab,
+                    screen: 'MapScreen',
+                    title: strings.title,
+                    icon: require('./img/ic_map_white_24px.svg'),
                     navigatorStyle
                 }
             ],

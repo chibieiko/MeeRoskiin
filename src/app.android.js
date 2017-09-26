@@ -7,6 +7,7 @@ import configureStore from './store/configureStore';
 
 import * as colors from './res/colors.json';
 import * as dimensions from './res/dimensions.json';
+import * as strings from './res/strings.json';
 
 const store = configureStore();
 
@@ -32,15 +33,15 @@ const navigatorStyle = {
 Navigation.startSingleScreenApp({
     screen: {
         screen: 'app.CategoryScreen',
-        title: 'MeeRoskiin',
+        title: strings.title,
         navigatorStyle,
         topTabs: [
             {
-                title: 'Kategoriat',
+                title: strings.categoryTab,
                 screenId: 'app.CategoryScreen',
             },
             {
-                title: 'Kartta',
+                title: strings.mapTab,
                 screenId: 'app.MapScreen',
             }
         ],
