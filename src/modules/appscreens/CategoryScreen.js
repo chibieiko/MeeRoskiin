@@ -1,27 +1,46 @@
 import React, {Component} from 'react';
 import {
-    AppRegistry,
-    StyleSheet,
+    Container,
+    Header,
+    Content,
+    List,
+    ListItem,
     Text,
-    View
-} from 'react-native';
+    Icon,
+    Right,
+    Body
+} from "native-base";
 import {mainStyle} from "./styles/CategoryScreenStyles";
+import content from '../../categories';
 
 export class CategoryScreen extends Component {
+    openCategory = id => {
+        console.warn("open ", id);
+    };
+
     render() {
         return (
-            <View style={mainStyle.container}>
-                <Text style={mainStyle.welcome}>
-                    Welcome to React Native!
-                </Text>
-                <Text style={mainStyle.instructions}>
-                    To get started, edit index.android.js
-                </Text>
-                <Text style={mainStyle.instructions}>
-                    Double tap R on your keyboard to reload,{'\n'}
-                    Shake or press menu button for dev menu
-                </Text>
-            </View>
+            <Container>
+                <Content>
+                    <List>
+                        {
+                            _.sortBy(content.categories, 'name').map(category => {
+                                return <ListItem key={category.id} icon onPress={() => this.openCategory(category.id)}>
+                                    <Body>
+                                    <Text>
+                                        {category.name}
+                                    </Text>
+                                    </Body>
+
+                                    <Right>
+                                        <Icon name='ios-arrow-forward'/>
+                                    </Right>
+                                </ListItem>
+                            })
+                        }
+                    </List>
+                </Content>
+            </Container>
         );
     }
 }
