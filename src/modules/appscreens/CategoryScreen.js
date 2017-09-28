@@ -10,12 +10,21 @@ import {
     Right,
     Body
 } from "native-base";
+
 import {mainStyle} from "./styles/CategoryScreenStyles";
 import content from '../../categories';
 
 export class CategoryScreen extends Component {
     openCategory = id => {
-        console.warn("open ", id);
+        let category = content.categories.find(category => category.id == id);
+
+        this.props.navigator.push({
+            screen: 'app.CategoryInformationScreen',
+            title: category.name,
+            passProps: {categoryId: id},
+            animated: false,
+            navigatorStyle: mainStyle.navStyle
+        })
     };
 
     render() {

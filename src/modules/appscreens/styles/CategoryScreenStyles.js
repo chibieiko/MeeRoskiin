@@ -1,20 +1,11 @@
 import {StyleSheet} from 'react-native';
 
+import * as colors from '../../../res/colors.json';
+
 export const mainStyle = {
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
+    navStyle: {
+        navBarBackgroundColor: colors.primary,
+        navBarTextColor: colors.textLight,
+        navBarButtonColor: colors.textLight
     }
 };

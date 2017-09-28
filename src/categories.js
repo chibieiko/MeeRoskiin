@@ -3,13 +3,32 @@ export default {
         {
             id: 100,
             name: "Sekajäte",
-            dos: [
-                "Laita roskiin",
-                "kierrätä"
+            yes: [
+                "kierrätykseen kelpaamattomat materiaalit, esim. likaantuneet paperit, pahvit ja muovipakkaukset",
+                "hehku- ja halogeenilamput",
+                "sulakkeet",
+                "siivousjäte ja imurin pölypussit",
+                "PVC-muovia sisältävät jätteet, esim. puhallettavat lelut, muovipressut, vahakankaat ja sadevaatteet sekä ns. syvävedetyt myyntipakkaukset, kuten tablettien läpipainopakkaukset, lelu- ja autotarvikepakkaukset",
+                "alumiinipinnoitetut muovit, kuten sipsipussit, kahvipaketit",
+                "tuhka ja tupakantumpit",
+                "ikkunalasi, peililasi, posliini, keramiikka ja kristalli sekä kuumuuden kestävä lasi (pyrex)",
+                "kasetit (VHS- ja C-kasetit sekä tyhjät värikasetit)",
+                "tulostimien värikasetit",
+                "valokuvat ja negatiivit",
+                "nahka ja lumput",
+                "kumitavara, kuten polkupyörän renkaat ja lelut",
+                "rikkinäiset kengät ja vaatteet",
+                "kinkunrasva ja muu juokseva rasva pakattuna tiiviisti esim. muovipulloon",
+                "kertakäyttövaipat ja terveyssiteet",
+                "tavallinen ja mineraalipohjainen kissanhiekka",
+                "lemmikkieläinten jätökset"
             ],
-            donts: [
+            no: [
                 "Heitä ruokaa",
                 "Perunan kuoret on ruokaa"
+            ],
+            remember: [
+
             ],
             description: "Test description"
         },
