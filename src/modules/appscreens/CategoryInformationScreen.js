@@ -8,23 +8,26 @@ import {
     Text,
     Icon,
     Right,
-    Body
+    Body,
+    Card,
+    CardItem,
 } from "native-base";
 import {mainStyle} from "./styles/CategoryInformationScreenStyles";
 import content from '../../categories';
+import myTheme from '../../themes/myTheme';
 
 export class CategoryInformationScreen extends Component {
     render() {
+        const category = this.props.category;
         return (
             <Container>
                 <Content>
-                    <List>
-                        <ListItem>
-                            <Text>
-                                {this.props.categoryId}
-                            </Text>
-                        </ListItem>
-                    </List>
+                    <Card>
+                        <CardItem>
+                            <Icon active name='md-checkmark'/>
+                            <Text>{category.name}</Text>
+                        </CardItem>
+                    </Card>
                 </Content>
             </Container>
         );

@@ -21,7 +21,7 @@ export class CategoryScreen extends Component {
         this.props.navigator.push({
             screen: 'app.CategoryInformationScreen',
             title: category.name,
-            passProps: {categoryId: id},
+            passProps: {category: category},
             animated: false,
             navigatorStyle: mainStyle.navStyle
         })
@@ -34,17 +34,20 @@ export class CategoryScreen extends Component {
                     <List>
                         {
                             _.sortBy(content.categories, 'name').map(category => {
-                                return <ListItem key={category.id} icon onPress={() => this.openCategory(category.id)}>
-                                    <Body>
-                                    <Text>
-                                        {category.name}
-                                    </Text>
-                                    </Body>
+                                if (category.showOnCategoryPage) {
+                                    return <ListItem key={category.id} icon
+                                                     onPress={() => this.openCategory(category.id)}>
+                                        <Body>
+                                        <Text>
+                                            {category.name}
+                                        </Text>
+                                        </Body>
 
-                                    <Right>
-                                        <Icon name='ios-arrow-forward'/>
-                                    </Right>
-                                </ListItem>
+                                        <Right>
+                                            <Icon name='ios-arrow-forward'/>
+                                        </Right>
+                                    </ListItem>
+                                }
                             })
                         }
                     </List>
