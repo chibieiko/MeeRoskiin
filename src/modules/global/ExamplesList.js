@@ -23,6 +23,9 @@ export class ExamplesList extends Component {
         const styleProp = this.props.style;
         return (
             <Card>
+                <CardItem header style={mainStyle.cardHeader}>
+                    <Text style={[mainStyle.cardHeaderText, styleProp]}>{this.props.title.toUpperCase()}</Text>
+                </CardItem>
                 {
                     array.map((item, index) => {
                         return <View key={index}>

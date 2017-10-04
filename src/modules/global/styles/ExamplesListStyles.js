@@ -7,5 +7,13 @@ export const mainStyle = {
     },
     exampleType: {
         fontSize: dimensions.fontBig
+    },
+    cardHeader: {
+        flexDirection: 'column',
+        justifyContent: 'center'
+    },
+    cardHeaderText: {
+        fontWeight: 'bold',
+        fontSize: dimensions.fontBig
     }
 };

@@ -1,5 +1,9 @@
 {
   "title": "MeeRoskiin",
   "categoryTab": "Kategoriat",
-  "mapTab": "Kartta"
+  "mapTab": "Kartta",
+  
+  "yesTitle": "Kyllä",
+  "noTitle": "Ei",
+  "rememberTitle": "Huom"
 }
