@@ -1,5 +1,7 @@
 {
   "indicatorHeight": 8,
+  "sideMargin": 8,
+  "cardMargin": 26,
 
   "fontBig": 20
 }

@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
 import * as colors from '../../../res/colors.json';
+import * as dimensions from '../../../res/dimensions.json';
 
 export const mainStyle = {
     positive: {
@@ -10,5 +10,9 @@ export const mainStyle = {
     },
     neutral: {
         color: colors.iconNeutral
-    }
+    },
+    content: {
+        paddingLeft: dimensions.sideMargin,
+        paddingRight: dimensions.sideMargin
+    },
 };

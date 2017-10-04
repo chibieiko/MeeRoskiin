@@ -8,6 +8,9 @@ export const mainStyle = {
     exampleType: {
         fontSize: dimensions.fontBig
     },
+    example: {
+        paddingRight: dimensions.cardMargin
+    },
     cardHeader: {
         flexDirection: 'column',
         justifyContent: 'center'

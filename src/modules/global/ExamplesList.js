@@ -41,7 +41,7 @@ export class ExamplesList extends Component {
 
                             {
                                 item.examples && item.examples.map((example, i) => {
-                                    return <CardItem key={index + i}>
+                                    return <CardItem key={index + i} style={mainStyle.example}>
                                         <Icon active
                                               android={this.props.androidIcon}
                                               ios={this.props.iosIcon}
@@ -60,7 +60,7 @@ export class ExamplesList extends Component {
                                                     }
                                                 </List>
                                                 :
-                                                <Text>{example}</Text>
+                                                <Text style={mainStyle.example}>{example}</Text>
                                         }
                                     </CardItem>
                                 })

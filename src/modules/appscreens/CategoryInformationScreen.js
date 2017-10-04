@@ -24,7 +24,7 @@ export class CategoryInformationScreen extends Component {
         const category = this.props.category;
         return (
             <Container>
-                <Content>
+                <Content style={mainStyle.content}>
                     {
                         category.yes.length > 0 && <ExamplesList array={category.yes}
                                                       androidIcon='md-checkmark'
