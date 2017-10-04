@@ -20,6 +20,7 @@ import {mainStyle} from "./styles/ExamplesListStyles";
 export class ExamplesList extends Component {
     render() {
         const array = this.props.array;
+        const styleProp = this.props.style;
         return (
             <Card>
                 {
@@ -28,7 +29,8 @@ export class ExamplesList extends Component {
                             {
                                 item.type &&
                                 <CardItem>
-                                    <Text style={mainStyle.exampleType}>
+                                    <Text
+                                        style={[mainStyle.exampleType, styleProp]}>
                                         {item.type}
                                     </Text>
                                 </CardItem>
@@ -36,16 +38,19 @@ export class ExamplesList extends Component {
 
                             {
                                 item.examples && item.examples.map((example, i) => {
-                                    return <CardItem key={i}>
+                                    return <CardItem key={index + i}>
                                         <Icon active
                                               android={this.props.androidIcon}
-                                              ios={this.props.iosIcon}/>
+                                              ios={this.props.iosIcon}
+                                              style={styleProp}/>
                                         {
                                             Array.isArray(example) ?
                                                 <List>
                                                     {
                                                         example.map((value, j) => {
-                                                            return <ListItem key={j} style={mainStyle.listItem}>
+                                                            return <ListItem
+                                                                key={index + i + j}
+                                                                style={mainStyle.listItem}>
                                                                 <Text>{value}</Text>
                                                             </ListItem>
                                                         })

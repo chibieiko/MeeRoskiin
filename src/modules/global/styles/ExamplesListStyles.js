@@ -1,11 +1,11 @@
 import {StyleSheet} from 'react-native';
+import * as dimensions from '../../../res/dimensions.json';
 
 export const mainStyle = {
     listItem: {
         borderBottomWidth: 0
     },
     exampleType: {
-        fontWeight: 'bold',
-        fontSize: 24
+        fontSize: dimensions.fontBig
     }
 };

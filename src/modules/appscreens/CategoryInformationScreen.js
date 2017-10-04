@@ -24,9 +24,17 @@ export class CategoryInformationScreen extends Component {
         return (
             <Container>
                 <Content>
-                    <ExamplesList array={category.yes} androidIcon='md-checkmark' iosIcon='ios-checkmark'/>
-                    <ExamplesList array={category.no} androidIcon='md-close' iosIcon='ios-close'/>
-                    <ExamplesList array={category.remember} androidIcon='md-information-circle' iosIcon='ios-information-circle-outline'/>
+                    <ExamplesList array={category.yes}
+                                  androidIcon='md-checkmark'
+                                  iosIcon='ios-checkmark'
+                                  style={mainStyle.positive}/>
+                    <ExamplesList array={category.no} androidIcon='md-close'
+                                  iosIcon='ios-close'
+                                  style={mainStyle.negative}/>
+                    <ExamplesList array={category.remember}
+                                  androidIcon='md-information-circle'
+                                  iosIcon='ios-information-circle-outline'
+                                  style={mainStyle.neutral}/>
                 </Content>
             </Container>
         );

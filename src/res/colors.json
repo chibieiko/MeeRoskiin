@@ -5,5 +5,9 @@
 
   "textLight": "#fafafa",
   "textDark": "#212121",
-  "textSecondary": "#81c784"
+  "textSecondary": "#81c784",
+
+  "iconPositive": "#2E7D32",
+  "iconNegative": "#c62828",
+  "iconNeutral": "#1565C0"
 }
