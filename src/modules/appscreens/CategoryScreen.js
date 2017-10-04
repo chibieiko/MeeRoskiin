@@ -22,7 +22,7 @@ export class CategoryScreen extends Component {
             screen: 'app.CategoryInformationScreen',
             title: category.name,
             passProps: {category: category},
-            animated: false,
+            animated: true,
             navigatorStyle: mainStyle.navStyle
         })
     };
@@ -44,7 +44,7 @@ export class CategoryScreen extends Component {
                                         </Body>
 
                                         <Right>
-                                            <Icon name='ios-arrow-forward'/>
+                                            <Icon ios='ios-arrow-forward' android='md-arrow-forward'/>
                                         </Right>
                                     </ListItem>
                                 }

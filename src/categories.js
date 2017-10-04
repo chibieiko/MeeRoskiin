@@ -30,8 +30,12 @@ export default {
                 }
             ],
             no: [
-                "ongelmajätteitä",
-                "kierrätykseen lajiteltavissa olevia materiaaleja"
+                {
+                    examples: [
+                        "ongelmajätteitä",
+                        "kierrätykseen lajiteltavissa olevia materiaaleja"
+                    ]
+                }
             ],
             remember: [],
             description: "Test description"
@@ -60,19 +64,21 @@ export default {
                     ]
                 }
             ],
-            no: [
-                "muovikasseja ja -pusseja -> seka- tai energiajätteeseen tai muovikassien keräykseen",
-                "ruokaöljyjä ja muita juoksevia rasvoja -> sekajätteeseen tiiviiseen muovipulloon pakattuna",
-                "liemiä, nesteitä -> viemäriin",
-                "tuhkaa, tupakantumppeja -> sekajätteeseen",
-                "imurin pölypusseja -> sekajätteeseen",
-                "vaippoja, terveyssiteitä -> sekajätteeseen",
-                "maito- ja mehutölkkejä -> keräyskartonkiin",
-                "lääkkeitä -> apteekkiin",
-                "tavallista tai mineraalipohjaista kissanhiekkaa -> sekajätteeseen",
-                "lemmikkieläinten jätöksiä -> sekajätteeseen",
-                "muita maatumattomia tai haitallisia materiaaleja",
-            ],
+            no: [{
+                examples: [
+                    "muovikasseja ja -pusseja -> seka- tai energiajätteeseen tai muovikassien keräykseen",
+                    "ruokaöljyjä ja muita juoksevia rasvoja -> sekajätteeseen tiiviiseen muovipulloon pakattuna",
+                    "liemiä, nesteitä -> viemäriin",
+                    "tuhkaa, tupakantumppeja -> sekajätteeseen",
+                    "imurin pölypusseja -> sekajätteeseen",
+                    "vaippoja, terveyssiteitä -> sekajätteeseen",
+                    "maito- ja mehutölkkejä -> keräyskartonkiin",
+                    "lääkkeitä -> apteekkiin",
+                    "tavallista tai mineraalipohjaista kissanhiekkaa -> sekajätteeseen",
+                    "lemmikkieläinten jätöksiä -> sekajätteeseen",
+                    "muita maatumattomia tai haitallisia materiaaleja",
+                ]
+            }],
             remember: [],
             description: "Test description"
         },
@@ -86,8 +92,8 @@ export default {
                     examples: [
                         "Nuolikolmion sisällä olevalla numerotunnuksella 01, 02, 04, 05 ja 06 merkityt muovit",
                         "Nuolikolmion sisällä olevalla numerotunnuksella 07 merkityt pakkausmuovit",
-                        "Esimerkiksi seuraavat tuotteet",
                         [
+                            "Esimerkiksi seuraavat tuotteet:",
                             "elintarvikkeiden, kuten juustojen ja leikkeleiden, muovikääreet",
                             "elintarvikkeiden muoviset pakkaukset huuhdeltuina, kuten kuten viili- ja jogurttipurkit, voi- ja margariinirasiat",
                             "kiriste- ja kutistemuovit",
@@ -131,52 +137,54 @@ export default {
                     ]
                 }
             ],
-            no: [
-                "PVC-muovi (nuolikolmion sisällä on numerotunnus 03, aina tunnusta ei kuitenkaan ole)",
-                [
-                    "johdot, putket, letkut",
-                    "keinonahka",
-                    "kontaktimuovi, ruskea pakkausteippi, jotkut tarrat",
-                    "lateksihansikkaat ja muut suojavaatteet",
-                    "mapit, muovitaskut, piirtoheitinkalvot",
-                    "muovikortit, esim. luottokortit",
-                    "muovipressut ja –ritilät",
-                    "puhallettavat lelut",
-                    "uimapatjat ja -renkaat",
-                    "rakentamisessa käytetyt muovit, kuten tapetit, lattiapäällysteet, listat ja kattokourut",
-                    "sadetakit, suihkumyssyt ja -verhot",
-                    "suojatossut, esiliinat, kerniliinat",
-                    "ns. syvävedetyt myyntipakkaukset, kuten tablettien läpilyöntilevyt, lelu- ja autotarvikepakkaukset",
-                    "äänilevyt"
-                ],
-                "Nuolikolmion sisällä olevalla numerotunnuksella 07 merkityt, muut kuin pakkausmuovit",
-                "Muut tunnistamattomat muoviset esineet",
-                "Muut energiajakeeseen soveltumattomat jätteet",
-                [
-                    "alumiinia sisältävä materiaali, kuten foliovuoratut sipsipussit ja -purkit, mehutölkit, makkaranpaistopussit, kahvipaketit",
-                    "biojäte",
-                    "fluoria sisältävät esineet",
-                    "haltex-levyt",
-                    "hammastahnaputkilot ja -harjat",
-                    "kasetit (VHS-, C- ja värikasetit)",
-                    "keramiikka",
-                    "kumi",
-                    "lahopuu",
-                    "lasi",
-                    "metallit",
-                    "nahka",
-                    "ongelmajätteet",
-                    "painekyllästetty puu",
-                    "painepakkaukset, kuten hiuslakat, spraymaalit, deodorantit",
-                    "paristot",
-                    "posliini",
-                    "puurakenteet joissa tervapaperia, betonia tai PVC:tä",
-                    "pölyävä jäte, kuten siivousjäte, pölynimuripussit ja tuhka",
-                    "sähkö- ja elektroniikkaromu",
-                    "sähkölamput",
-                    "vaipat, siteet"
-                ],
-            ],
+            no: [{
+                examples: [
+                    "PVC-muovi (nuolikolmion sisällä on numerotunnus 03, aina tunnusta ei kuitenkaan ole)",
+                    [
+                        "johdot, putket, letkut",
+                        "keinonahka",
+                        "kontaktimuovi, ruskea pakkausteippi, jotkut tarrat",
+                        "lateksihansikkaat ja muut suojavaatteet",
+                        "mapit, muovitaskut, piirtoheitinkalvot",
+                        "muovikortit, esim. luottokortit",
+                        "muovipressut ja –ritilät",
+                        "puhallettavat lelut",
+                        "uimapatjat ja -renkaat",
+                        "rakentamisessa käytetyt muovit, kuten tapetit, lattiapäällysteet, listat ja kattokourut",
+                        "sadetakit, suihkumyssyt ja -verhot",
+                        "suojatossut, esiliinat, kerniliinat",
+                        "ns. syvävedetyt myyntipakkaukset, kuten tablettien läpilyöntilevyt, lelu- ja autotarvikepakkaukset",
+                        "äänilevyt"
+                    ],
+                    "Nuolikolmion sisällä olevalla numerotunnuksella 07 merkityt, muut kuin pakkausmuovit",
+                    "Muut tunnistamattomat muoviset esineet",
+                    "Muut energiajakeeseen soveltumattomat jätteet",
+                    [
+                        "alumiinia sisältävä materiaali, kuten foliovuoratut sipsipussit ja -purkit, mehutölkit, makkaranpaistopussit, kahvipaketit",
+                        "biojäte",
+                        "fluoria sisältävät esineet",
+                        "haltex-levyt",
+                        "hammastahnaputkilot ja -harjat",
+                        "kasetit (VHS-, C- ja värikasetit)",
+                        "keramiikka",
+                        "kumi",
+                        "lahopuu",
+                        "lasi",
+                        "metallit",
+                        "nahka",
+                        "ongelmajätteet",
+                        "painekyllästetty puu",
+                        "painepakkaukset, kuten hiuslakat, spraymaalit, deodorantit",
+                        "paristot",
+                        "posliini",
+                        "puurakenteet joissa tervapaperia, betonia tai PVC:tä",
+                        "pölyävä jäte, kuten siivousjäte, pölynimuripussit ja tuhka",
+                        "sähkö- ja elektroniikkaromu",
+                        "sähkölamput",
+                        "vaipat, siteet"
+                    ],
+                ]
+            }],
             remember: [],
             description: "Test description"
         },
@@ -198,18 +206,22 @@ export default {
                     ]
                 }
             ],
-            no: [
-                "märkää tai likaista paperia",
-                "pahvia ja ruskeaa paperia, ruskeita paperikasseja",
-                "kartonkitölkkejä, kuten maito- ja mehupurkkeja",
-                "muovia",
-                "alumiini-, vaha- tai lahjapaperia",
-            ],
-            remember: [
-                "Niittejä tai paperiliittimiä ei tarvitse poistaa",
-                "Älä niputa lehtiä narulla tai pakkausteipillä",
-                "Älä heitä lehtipussia keräyslaatikkoon, ellet käytä valkoista paperikassia"
-            ],
+            no: [{
+                examples: [
+                    "märkää tai likaista paperia",
+                    "pahvia ja ruskeaa paperia, ruskeita paperikasseja",
+                    "kartonkitölkkejä, kuten maito- ja mehupurkkeja",
+                    "muovia",
+                    "alumiini-, vaha- tai lahjapaperia"
+                ]
+            }],
+            remember: [{
+                examples: [
+                    "Niittejä tai paperiliittimiä ei tarvitse poistaa",
+                    "Älä niputa lehtiä narulla tai pakkausteipillä",
+                    "Älä heitä lehtipussia keräyslaatikkoon, ellet käytä valkoista paperikassia"
+                ]
+            }],
             description: "Test description"
         },
         {
@@ -246,13 +258,17 @@ export default {
                     ]
                 }
             ],
-            no: [
-                "Muovia, esim. muovipusseja, -kasseja ja -kääreitä, styroksia, kuplamuovia"
-            ],
-            remember: [
-                "Palauta pakkaukset tyhjinä, puhtaina, kuivina, litistettyinä ja sisäkkäin pakattuina",
-                "Vie vaarallisten aineiden jäämiä tai painetta sisältävät pakkaukset (esim. maalit, kemikaalit, lääkkeet, hiuslakka) paikkakuntasi vaarallisten jätteiden keräykseen",
-            ],
+            no: [{
+                examples: [
+                    "Muovia, esim. muovipusseja, -kasseja ja -kääreitä, styroksia, kuplamuovia"
+                ]
+            }],
+            remember: [{
+                examples: [
+                    "Palauta pakkaukset tyhjinä, puhtaina, kuivina, litistettyinä ja sisäkkäin pakattuina",
+                    "Vie vaarallisten aineiden jäämiä tai painetta sisältävät pakkaukset (esim. maalit, kemikaalit, lääkkeet, hiuslakka) paikkakuntasi vaarallisten jätteiden keräykseen",
+                ]
+            }],
             description: "Test description"
         },
         {
@@ -281,14 +297,18 @@ export default {
                     ]
                 }
             ],
-            no: [
-                "Muovia: esim. muovipusseja, -kasseja ja -kääreitä, styroksia, kuplamuovia"
-            ],
-            remember: [
-                "Isot metalliromut vastaanotetaan yleensä vain miehitetyissä keräyspaikoissa tai kiertävillä keräyksillä, esimerkiksi polkupyörät, räystäskourut, metalliset koneet, huonekalujen metalliosat, metalliputket, kaapelit",
-                "Keräykseen ei saa tuoda sähkö- ja elektroniikkaromua.",
-                "Vie vaarallisten aineiden jäämiä tai painetta sisältävät pakkaukset (esim. maalit, kemikaalit, lääkkeet, hiuslakka) paikkakuntasi vaarallisten jätteiden vastaanottopisteeseen",
-            ],
+            no: [{
+                examples: [
+                    "Muovia: esim. muovipusseja, -kasseja ja -kääreitä, styroksia, kuplamuovia"
+                ],
+            }],
+            remember: [{
+                examples: [
+                    "Isot metalliromut vastaanotetaan yleensä vain miehitetyissä keräyspaikoissa tai kiertävillä keräyksillä, esimerkiksi polkupyörät, räystäskourut, metalliset koneet, huonekalujen metalliosat, metalliputket, kaapelit",
+                    "Keräykseen ei saa tuoda sähkö- ja elektroniikkaromua.",
+                    "Vie vaarallisten aineiden jäämiä tai painetta sisältävät pakkaukset (esim. maalit, kemikaalit, lääkkeet, hiuslakka) paikkakuntasi vaarallisten jätteiden vastaanottopisteeseen",
+                ],
+            }],
             description: "Test description"
         },
         {
@@ -304,21 +324,25 @@ export default {
                     ]
                 }
             ],
-            no: [
-                "Terveydenhuollon pakkauksia, kuten injektionestepulloja ja ampulleja",
-                "Muovia: esim. muovipusseja, -kasseja ja -kääreitä, styroksia, kuplamuovia",
-                "Posliinia tai keramiikkaa",
-                "Lasiastioita (esim. juomalasit, uunivuoat, kahvipannut, kattiloiden ja pannujen kannet)",
-                "Kristallilasia",
-                "Opaalilasia (esim. joissain kosmetiikkapakkauksissa tai koriste-esineissä)",
-                "Ikkuna- tai peililasia",
-                "Lamppuja tai valaisimia",
-            ],
-            remember: [
-                "Poista korkit ja kannet",
-                "Kaulusrenkaita ja etikettejä ei tarvitse poistaa. Huuhtele likaiset lasipakkaukset tarvittaessa kylmällä vedellä. Palauta pantilliset lasipullot kaupan tai Alkon palautusautomaattiin",
-                "Vie vaarallisten aineiden jäämiä tai painetta sisältävät pakkaukset (esim. maalit, kemikaalit, lääkkeet, hiuslakka) paikkakuntasi vaarallisten jätteiden vastaanottopisteeseen"
-            ],
+            no: [{
+                examples: [
+                    "Terveydenhuollon pakkauksia, kuten injektionestepulloja ja ampulleja",
+                    "Muovia: esim. muovipusseja, -kasseja ja -kääreitä, styroksia, kuplamuovia",
+                    "Posliinia tai keramiikkaa",
+                    "Lasiastioita (esim. juomalasit, uunivuoat, kahvipannut, kattiloiden ja pannujen kannet)",
+                    "Kristallilasia",
+                    "Opaalilasia (esim. joissain kosmetiikkapakkauksissa tai koriste-esineissä)",
+                    "Ikkuna- tai peililasia",
+                    "Lamppuja tai valaisimia"
+                ]
+            }],
+            remember: [{
+                examples: [
+                    "Poista korkit ja kannet",
+                    "Kaulusrenkaita ja etikettejä ei tarvitse poistaa. Huuhtele likaiset lasipakkaukset tarvittaessa kylmällä vedellä. Palauta pantilliset lasipullot kaupan tai Alkon palautusautomaattiin",
+                    "Vie vaarallisten aineiden jäämiä tai painetta sisältävät pakkaukset (esim. maalit, kemikaalit, lääkkeet, hiuslakka) paikkakuntasi vaarallisten jätteiden vastaanottopisteeseen"
+                ]
+            }],
             description: "Test description"
         },
         {
@@ -349,16 +373,20 @@ export default {
                     ]
                 }
             ],
-            no: [
-                "täysin kuivuneita ja tyhjiä astioita"
-            ],
-            remember: [
-                "Vaaralliset jätteet on aina lajiteltava erikseen muusta jätteestä!",
-                "Lääkejätteet apteekkiin",
-                "Räjähteet poliisille",
-                "Sähkölaitteet sekä akut ja paristot omiin keräysjärjestelmiinsä",
-                "Asbestijäte on erityiskäsittelyä vaativaa jätettä, joka pitää paketoida erikseen",
-            ],
+            no: [{
+                examples: [
+                    "täysin kuivuneita ja tyhjiä astioita"
+                ]
+            }],
+            remember: [{
+                examples: [
+                    "Vaaralliset jätteet on aina lajiteltava erikseen muusta jätteestä!",
+                    "Lääkejätteet apteekkiin",
+                    "Räjähteet poliisille",
+                    "Sähkölaitteet sekä akut ja paristot omiin keräysjärjestelmiinsä",
+                    "Asbestijäte on erityiskäsittelyä vaativaa jätettä, joka pitää paketoida erikseen"
+                ]
+            }],
             description: "Test description"
         },
         {
@@ -381,19 +409,23 @@ export default {
                     ]
                 }
             ],
-            no: [
-                "irrallisia paristoja ja akkuja -> paristoja ja pienakkuja kerätään niitä myyvissä myymälöissä, kioskeilla ja huoltoasemilla",
-                "hehku- ja halogeenilamppuja -> sekajätteeseen",
-            ],
-            remember: [
-                "Poista valaisimista lamput ja loisteputket, jotka kerätään erikseen keräyspisteissä tai myymälöissä. Loisteputkien sytyttimet ovat osa valaisinta",
-                "Poista pölynimureista pölypussit",
-                "Tulostimista ja kirjoittimista ei tarvitse poistaa väripatruunoita tai -kasetteja",
-                "Tuo kaikki laitteet ilman pakkauksia",
-                "Laitteiden tulee olla pääsääntöisesti kokonaisia",
-                "Kahvinkeitinten lasikannut tai mikroaaltouunin lasilautaset kuuluvat sekajätteeseen",
-                "Laitteet palautetaan ilman pakkauksia ja ylimääräisiä teippejä"
-            ],
+            no: [{
+                examples: [
+                    "irrallisia paristoja ja akkuja -> paristoja ja pienakkuja kerätään niitä myyvissä myymälöissä, kioskeilla ja huoltoasemilla",
+                    "hehku- ja halogeenilamppuja -> sekajätteeseen"
+                ]
+            }],
+            remember: [{
+                examples: [
+                    "Poista valaisimista lamput ja loisteputket, jotka kerätään erikseen keräyspisteissä tai myymälöissä. Loisteputkien sytyttimet ovat osa valaisinta",
+                    "Poista pölynimureista pölypussit",
+                    "Tulostimista ja kirjoittimista ei tarvitse poistaa väripatruunoita tai -kasetteja",
+                    "Tuo kaikki laitteet ilman pakkauksia",
+                    "Laitteiden tulee olla pääsääntöisesti kokonaisia",
+                    "Kahvinkeitinten lasikannut tai mikroaaltouunin lasilautaset kuuluvat sekajätteeseen",
+                    "Laitteet palautetaan ilman pakkauksia ja ylimääräisiä teippejä"
+                ]
+            }],
             description: "Test description"
         },
         {
@@ -410,9 +442,11 @@ export default {
                     ]
                 }
             ],
-            no: [
-                "ajoneuvo- ja teollisuusakkuja -> akkujen keräykseen"
-            ],
+            no: [{
+                examples: [
+                    "ajoneuvo- ja teollisuusakkuja -> akkujen keräykseen"
+                ]
+            }],
             remember: [],
             description: "Test description"
         },
@@ -431,11 +465,13 @@ export default {
                     ]
                 }
             ],
-            no: [
-                "Sekajätettä",
-                "PVC-pakkauksia",
-                "Muita muovituotteita tai yritysten muovipakkauksia",
-            ],
+            no: [{
+                examples: [
+                    "Sekajätettä",
+                    "PVC-pakkauksia",
+                    "Muita muovituotteita tai yritysten muovipakkauksia"
+                ]
+            }],
             remember: [
                 "Palauta kotitalouden muovipakkaukset tyhjinä, puhtaina ja kuivina",
                 "Vie vaarallisten aineiden jäämiä tai painetta sisältävät pakkaukset (esim. maalit, kemikaalit, lääkkeet, hiuslakka) paikkakuntasi vaarallisten jätteiden vastaanottopisteeseen",
@@ -458,13 +494,17 @@ export default {
                     ]
                 }
             ],
-            no: [
-                "likaisia tai rikkinäisiä vaatteita"
-            ],
-            remember: [
-                "Keräykseen kelpaavat vain ehjät, puhtaat ja käyttökelpoiset vaatteet",
-                "Pakkaa vaatteet normaalikokoisiin muovipusseihin",
-            ],
+            no: [{
+                examples: [
+                    "likaisia tai rikkinäisiä vaatteita"
+                ]
+            }],
+            remember: [{
+                examples: [
+                    "Keräykseen kelpaavat vain ehjät, puhtaat ja käyttökelpoiset vaatteet",
+                    "Pakkaa vaatteet normaalikokoisiin muovipusseihin"
+                ]
+            }],
             description: "Test description"
         },
         {
@@ -514,9 +554,11 @@ export default {
                     ]
                 }
             ],
-            no: [
-                "kannettavia akkuja ja paristoja -> paristojen keräykseen"
-            ],
+            no: [{
+                examples: [
+                    "kannettavia akkuja ja paristoja -> paristojen keräykseen"
+                ]
+            }],
             remember: [],
             description: "Test description"
         },
@@ -533,14 +575,18 @@ export default {
                     ]
                 }
             ],
-            no: [
-                "halogeenilamput -> sekajätteeseen",
-                "hehkulamput -> sekajätteeseen",
-                "autojen lamput -> sekajätteeseen",
-            ],
-            remember: [
-                "Energiansäästölamput sisältävät pieniä määriä elohopeaa, joten vältä rikkomasta niitä. Lampputieto-sivustolta löydät vastauksia usein esitettyihin kysymyksiin"
-            ],
+            no: [{
+                examples: [
+                    "halogeenilamput -> sekajätteeseen",
+                    "hehkulamput -> sekajätteeseen",
+                    "autojen lamput -> sekajätteeseen"
+                ]
+            }],
+            remember: [{
+                examples: [
+                    "Energiansäästölamput sisältävät pieniä määriä elohopeaa, joten vältä rikkomasta niitä. Lampputieto-sivustolta löydät vastauksia usein esitettyihin kysymyksiin"
+                ]
+            }],
             description: "Test description"
         },
         {
@@ -565,17 +611,21 @@ export default {
                     ]
                 }
             ],
-            no: [
-                "verhoillut huonekalut",
-                "ikkunat laseineen",
-                "lasi- ja peiliovet",
-                "PVC -muovia, laattoja ym. sisältävät puumateriaalit",
-                "kyllästetty puu",
-                "risut ja oksat"
-            ],
-            remember: [
-                "Puujätteessä saa olla nauloja, ruuveja, heloja ym. pieniä metalliosia"
-            ],
+            no: [{
+                examples: [
+                    "verhoillut huonekalut",
+                    "ikkunat laseineen",
+                    "lasi- ja peiliovet",
+                    "PVC -muovia, laattoja ym. sisältävät puumateriaalit",
+                    "kyllästetty puu",
+                    "risut ja oksat"
+                ]
+            }],
+            remember: [{
+                examples: [
+                    "Puujätteessä saa olla nauloja, ruuveja, heloja ym. pieniä metalliosia"
+                ]
+            }],
             description: "Test description"
         },
         {
@@ -620,11 +670,13 @@ export default {
                 }
             ],
             no: [],
-            remember: [
-                "Lajitteluvelvoitteen voi täyttää joko lajittelemalla ja erilliskeräämällä rakennusjätteen työmaalla tai toimittamalla sekalaisen rakennusjätteen lajiteltavaksi jätteen käsittelylaitoksessa",
-                "Vaaralliset jätteet ja merkittävät määrät kipsijätettä on kuitenkin otettava erilleen jo syntypaikalla",
-                "Esimerkiksi metalli-, betoni- ja puujätteet kannattaa useimmiten kerätä erikseen muusta rakennusjätteestä",
-            ],
+            remember: [{
+                examples: [
+                    "Lajitteluvelvoitteen voi täyttää joko lajittelemalla ja erilliskeräämällä rakennusjätteen työmaalla tai toimittamalla sekalaisen rakennusjätteen lajiteltavaksi jätteen käsittelylaitoksessa",
+                    "Vaaralliset jätteet ja merkittävät määrät kipsijätettä on kuitenkin otettava erilleen jo syntypaikalla",
+                    "Esimerkiksi metalli-, betoni- ja puujätteet kannattaa useimmiten kerätä erikseen muusta rakennusjätteestä"
+                ]
+            }],
             description: "Test description"
         },
     ]

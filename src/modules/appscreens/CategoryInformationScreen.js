@@ -8,13 +8,15 @@ import {
     Text,
     Icon,
     Right,
+    Left,
     Body,
     Card,
     CardItem,
 } from "native-base";
+
 import {mainStyle} from "./styles/CategoryInformationScreenStyles";
 import content from '../../categories';
-import myTheme from '../../themes/myTheme';
+import {ExamplesList} from '../global/ExamplesList';
 
 export class CategoryInformationScreen extends Component {
     render() {
@@ -22,12 +24,9 @@ export class CategoryInformationScreen extends Component {
         return (
             <Container>
                 <Content>
-                    <Card>
-                        <CardItem>
-                            <Icon active name='md-checkmark'/>
-                            <Text>{category.name}</Text>
-                        </CardItem>
-                    </Card>
+                    <ExamplesList array={category.yes} androidIcon='md-checkmark' iosIcon='ios-checkmark'/>
+                    <ExamplesList array={category.no} androidIcon='md-close' iosIcon='ios-close'/>
+                    <ExamplesList array={category.remember} androidIcon='md-information-circle' iosIcon='ios-information-circle-outline'/>
                 </Content>
             </Container>
         );
