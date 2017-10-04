@@ -8,32 +8,32 @@ export default {
                 {
                     type: "Muovipohjainen energiajäte",
                     examples: [
-                        "kierrätykseen kelpaamattomat materiaalit, esim. likaantuneet paperit, pahvit ja muovipakkaukset",
-                        "hehku- ja halogeenilamput",
-                        "sulakkeet",
-                        "siivousjäte ja imurin pölypussit",
+                        "Kierrätykseen kelpaamattomat materiaalit, esim. likaantuneet paperit, pahvit ja muovipakkaukset",
+                        "Hehku- ja halogeenilamput",
+                        "Sulakkeet",
+                        "Siivousjäte ja imurin pölypussit",
                         "PVC-muovia sisältävät jätteet, esim. puhallettavat lelut, muovipressut, vahakankaat ja sadevaatteet sekä ns. syvävedetyt myyntipakkaukset, kuten tablettien läpipainopakkaukset, lelu- ja autotarvikepakkaukset",
-                        "alumiinipinnoitetut muovit, kuten sipsipussit, kahvipaketit",
-                        "tuhka ja tupakantumpit",
-                        "ikkunalasi, peililasi, posliini, keramiikka ja kristalli sekä kuumuuden kestävä lasi (pyrex)",
-                        "kasetit (VHS- ja C-kasetit sekä tyhjät värikasetit)",
-                        "tulostimien värikasetit",
-                        "valokuvat ja negatiivit",
-                        "nahka ja lumput",
-                        "kumitavara, kuten polkupyörän renkaat ja lelut",
-                        "rikkinäiset kengät ja vaatteet",
-                        "kinkunrasva ja muu juokseva rasva pakattuna tiiviisti esim. muovipulloon",
-                        "kertakäyttövaipat ja terveyssiteet",
-                        "tavallinen ja mineraalipohjainen kissanhiekka",
-                        "lemmikkieläinten jätökset"
+                        "Alumiinipinnoitetut muovit, kuten sipsipussit, kahvipaketit",
+                        "Tuhka ja tupakantumpit",
+                        "Ikkunalasi, peililasi, posliini, keramiikka ja kristalli sekä kuumuuden kestävä lasi (pyrex)",
+                        "Kasetit (VHS- ja C-kasetit sekä tyhjät värikasetit)",
+                        "Tulostimien värikasetit",
+                        "Valokuvat ja negatiivit",
+                        "Nahka ja lumput",
+                        "Kumitavara, kuten polkupyörän renkaat ja lelut",
+                        "Rikkinäiset kengät ja vaatteet",
+                        "Kinkunrasva ja muu juokseva rasva pakattuna tiiviisti esim. muovipulloon",
+                        "Kertakäyttövaipat ja terveyssiteet",
+                        "Tavallinen ja mineraalipohjainen kissanhiekka",
+                        "Lemmikkieläinten jätökset"
                     ]
                 }
             ],
             no: [
                 {
                     examples: [
-                        "ongelmajätteitä",
-                        "kierrätykseen lajiteltavissa olevia materiaaleja"
+                        "Ongelmajätteitä",
+                        "Kierrätykseen lajiteltavissa olevia materiaaleja"
                     ]
                 }
             ],
@@ -48,35 +48,35 @@ export default {
                 {
                     type: null,
                     examples: [
-                        "ruoantähteet",
-                        "pilaantuneet elintarvikkeet",
-                        "kiinteät rasvat, hyytyneet paistinrasvat",
-                        "hedelmien ja kasvisten kuoret",
-                        "kahvin tai teen porot",
-                        "teepussit ja suodatinpaperit",
-                        "kananmunankuoret",
-                        "kananmunakennot",
-                        "kalanperkuujätteet, pienet luut",
-                        "talouspaperit, lautasliinat ja nenäliinat",
-                        "kukkamulta, kasvinosat ja kuihtuneet kukat",
-                        "puutarhajätteet",
-                        "lemmikkieläinten puupohjaiset kuivikkeet"
+                        "Ruoantähteet",
+                        "Pilaantuneet elintarvikkeet",
+                        "Kiinteät rasvat, hyytyneet paistinrasvat",
+                        "Hedelmien ja kasvisten kuoret",
+                        "Kahvin tai teen porot",
+                        "Teepussit ja suodatinpaperit",
+                        "Kananmunankuoret",
+                        "Kananmunakennot",
+                        "Kalanperkuujätteet, pienet luut",
+                        "Talouspaperit, lautasliinat ja nenäliinat",
+                        "Kukkamulta, kasvinosat ja kuihtuneet kukat",
+                        "Puutarhajätteet",
+                        "Lemmikkieläinten puupohjaiset kuivikkeet"
                     ]
                 }
             ],
             no: [{
                 examples: [
-                    "muovikasseja ja -pusseja -> seka- tai energiajätteeseen tai muovikassien keräykseen",
-                    "ruokaöljyjä ja muita juoksevia rasvoja -> sekajätteeseen tiiviiseen muovipulloon pakattuna",
-                    "liemiä, nesteitä -> viemäriin",
-                    "tuhkaa, tupakantumppeja -> sekajätteeseen",
-                    "imurin pölypusseja -> sekajätteeseen",
-                    "vaippoja, terveyssiteitä -> sekajätteeseen",
-                    "maito- ja mehutölkkejä -> keräyskartonkiin",
-                    "lääkkeitä -> apteekkiin",
-                    "tavallista tai mineraalipohjaista kissanhiekkaa -> sekajätteeseen",
-                    "lemmikkieläinten jätöksiä -> sekajätteeseen",
-                    "muita maatumattomia tai haitallisia materiaaleja",
+                    "Muovikasseja ja -pusseja -> seka- tai energiajätteeseen tai muovikassien keräykseen",
+                    "Ruokaöljyjä ja muita juoksevia rasvoja -> sekajätteeseen tiiviiseen muovipulloon pakattuna",
+                    "Liemiä, nesteitä -> viemäriin",
+                    "Tuhkaa, tupakantumppeja -> sekajätteeseen",
+                    "Imurin pölypusseja -> sekajätteeseen",
+                    "Vaippoja, terveyssiteitä -> sekajätteeseen",
+                    "Maito- ja mehutölkkejä -> keräyskartonkiin",
+                    "Lääkkeitä -> apteekkiin",
+                    "Tavallista tai mineraalipohjaista kissanhiekkaa -> sekajätteeseen",
+                    "Lemmikkieläinten jätöksiä -> sekajätteeseen",
+                    "Muita maatumattomia tai haitallisia materiaaleja",
                 ]
             }],
             remember: [],
@@ -94,46 +94,46 @@ export default {
                         "Nuolikolmion sisällä olevalla numerotunnuksella 07 merkityt pakkausmuovit",
                         [
                             "Esimerkiksi seuraavat tuotteet:",
-                            "elintarvikkeiden, kuten juustojen ja leikkeleiden, muovikääreet",
-                            "elintarvikkeiden muoviset pakkaukset huuhdeltuina, kuten kuten viili- ja jogurttipurkit, voi- ja margariinirasiat",
-                            "kiriste- ja kutistemuovit",
-                            "muovia ja paperia sisältävät pakkaukset",
-                            "muovikanisterit ja -sangot, ämpärit",
-                            "muovikannet ja -korkit",
-                            "muovikassit, -pussit ja -kelmut",
-                            "muovipullot, kuten kertakäyttöiset virvoitusjuoma-, mehu-, pesuaine- ym. pullot (pantilliset pullot palautukseen)",
-                            "muoviset kertakäyttöastiat",
-                            "muoviset pakkausalustat ja -kotelot",
-                            "pienet muoviesineet kuten tiskiharjat, kynien muovikuoret",
-                            "styroksi (likaiset styroksit sekajätteeseen, esim. kalalaatikot)",
-                            "vaahtomuovi (leikkaa patjat 4:ään osaan)",
-                            "valokuvat ja negatiivit",
-                            "virvoitusjuomakorit"
+                            "Elintarvikkeiden, kuten juustojen ja leikkeleiden, muovikääreet",
+                            "Elintarvikkeiden muoviset pakkaukset huuhdeltuina, kuten kuten viili- ja jogurttipurkit, voi- ja margariinirasiat",
+                            "Kiriste- ja kutistemuovit",
+                            "Muovia ja paperia sisältävät pakkaukset",
+                            "Muovikanisterit ja -sangot, ämpärit",
+                            "Muovikannet ja -korkit",
+                            "Muovikassit, -pussit ja -kelmut",
+                            "Muovipullot, kuten kertakäyttöiset virvoitusjuoma-, mehu-, pesuaine- ym. pullot (pantilliset pullot palautukseen)",
+                            "Muoviset kertakäyttöastiat",
+                            "Muoviset pakkausalustat ja -kotelot",
+                            "Pienet muoviesineet kuten tiskiharjat, kynien muovikuoret",
+                            "Styroksi (likaiset styroksit sekajätteeseen, esim. kalalaatikot)",
+                            "Vaahtomuovi (leikkaa patjat 4:ään osaan)",
+                            "Valokuvat ja negatiivit",
+                            "Virvoitusjuomakorit"
                         ]
                     ]
                 },
                 {
                     type: "Energiajätteeseen kuuluva kartonki ja paperijäte",
                     examples: [
-                        "likaantunut, kostea pahvi ja kartonki",
-                        "märkälujakartonki",
-                        "kaikki pahvi ja kartonki vain, jos niille ei ole järjestetty erillistä keräystä",
-                        "itsejäljentävä paperi",
-                        "julisteet",
-                        "karkkipaperit",
-                        "lahja-, kääre- ja pakkauspaperit",
-                        "liimautuvat muistilaput",
-                        "muovi- ja vahapinnoitettu paperi",
-                        "osoite- ja muut pikkutarrat sekä niiden taustapaperit"
+                        "Likaantunut, kostea pahvi ja kartonki",
+                        "Märkälujakartonki",
+                        "Kaikki pahvi ja kartonki vain, jos niille ei ole järjestetty erillistä keräystä",
+                        "Itsejäljentävä paperi",
+                        "Julisteet",
+                        "Karkkipaperit",
+                        "Lahja-, kääre- ja pakkauspaperit",
+                        "Liimautuvat muistilaput",
+                        "Muovi- ja vahapinnoitettu paperi",
+                        "Osoite- ja muut pikkutarrat sekä niiden taustapaperit"
                     ]
                 },
                 {
                     type: "Energiajätteeseen kelpaava puujäte",
                     examples: [
-                        "pikinen puu",
-                        "puurakenteet, joissa polypropeeni- tai polystyreenimuovia",
-                        "kutterinpuru, sahanpuru (voi kelvata puunkeräykseen)",
-                        "puurakenteiset huonekalut (voi kelvata puunkeräykseen)"
+                        "Pikinen puu",
+                        "Puurakenteet, joissa polypropeeni- tai polystyreenimuovia",
+                        "Kutterinpuru, sahanpuru (voi kelvata puunkeräykseen)",
+                        "Puurakenteiset huonekalut (voi kelvata puunkeräykseen)"
                     ]
                 }
             ],
@@ -141,47 +141,47 @@ export default {
                 examples: [
                     "PVC-muovi (nuolikolmion sisällä on numerotunnus 03, aina tunnusta ei kuitenkaan ole)",
                     [
-                        "johdot, putket, letkut",
-                        "keinonahka",
-                        "kontaktimuovi, ruskea pakkausteippi, jotkut tarrat",
-                        "lateksihansikkaat ja muut suojavaatteet",
-                        "mapit, muovitaskut, piirtoheitinkalvot",
-                        "muovikortit, esim. luottokortit",
-                        "muovipressut ja –ritilät",
-                        "puhallettavat lelut",
-                        "uimapatjat ja -renkaat",
-                        "rakentamisessa käytetyt muovit, kuten tapetit, lattiapäällysteet, listat ja kattokourut",
-                        "sadetakit, suihkumyssyt ja -verhot",
-                        "suojatossut, esiliinat, kerniliinat",
-                        "ns. syvävedetyt myyntipakkaukset, kuten tablettien läpilyöntilevyt, lelu- ja autotarvikepakkaukset",
-                        "äänilevyt"
+                        "Johdot, putket, letkut",
+                        "Keinonahka",
+                        "Kontaktimuovi, ruskea pakkausteippi, jotkut tarrat",
+                        "Lateksihansikkaat ja muut suojavaatteet",
+                        "Mapit, muovitaskut, piirtoheitinkalvot",
+                        "Muovikortit, esim. luottokortit",
+                        "Muovipressut ja –ritilät",
+                        "Puhallettavat lelut",
+                        "Uimapatjat ja -renkaat",
+                        "Rakentamisessa käytetyt muovit, kuten tapetit, lattiapäällysteet, listat ja kattokourut",
+                        "Sadetakit, suihkumyssyt ja -verhot",
+                        "Suojatossut, esiliinat, kerniliinat",
+                        "Ns. syvävedetyt myyntipakkaukset, kuten tablettien läpilyöntilevyt, lelu- ja autotarvikepakkaukset",
+                        "Äänilevyt"
                     ],
                     "Nuolikolmion sisällä olevalla numerotunnuksella 07 merkityt, muut kuin pakkausmuovit",
                     "Muut tunnistamattomat muoviset esineet",
                     "Muut energiajakeeseen soveltumattomat jätteet",
                     [
-                        "alumiinia sisältävä materiaali, kuten foliovuoratut sipsipussit ja -purkit, mehutölkit, makkaranpaistopussit, kahvipaketit",
-                        "biojäte",
-                        "fluoria sisältävät esineet",
-                        "haltex-levyt",
-                        "hammastahnaputkilot ja -harjat",
-                        "kasetit (VHS-, C- ja värikasetit)",
-                        "keramiikka",
-                        "kumi",
-                        "lahopuu",
-                        "lasi",
-                        "metallit",
-                        "nahka",
-                        "ongelmajätteet",
-                        "painekyllästetty puu",
-                        "painepakkaukset, kuten hiuslakat, spraymaalit, deodorantit",
-                        "paristot",
-                        "posliini",
-                        "puurakenteet joissa tervapaperia, betonia tai PVC:tä",
-                        "pölyävä jäte, kuten siivousjäte, pölynimuripussit ja tuhka",
-                        "sähkö- ja elektroniikkaromu",
-                        "sähkölamput",
-                        "vaipat, siteet"
+                        "Alumiinia sisältävä materiaali, kuten foliovuoratut sipsipussit ja -purkit, mehutölkit, makkaranpaistopussit, kahvipaketit",
+                        "Biojäte",
+                        "Fluoria sisältävät esineet",
+                        "Haltex-levyt",
+                        "Hammastahnaputkilot ja -harjat",
+                        "Kasetit (VHS-, C- ja värikasetit)",
+                        "Keramiikka",
+                        "Kumi",
+                        "Lahopuu",
+                        "Lasi",
+                        "Metallit",
+                        "Nahka",
+                        "Ongelmajätteet",
+                        "Painekyllästetty puu",
+                        "Painepakkaukset, kuten hiuslakat, spraymaalit, deodorantit",
+                        "Paristot",
+                        "Posliini",
+                        "Puurakenteet joissa tervapaperia, betonia tai PVC:tä",
+                        "Pölyävä jäte, kuten siivousjäte, pölynimuripussit ja tuhka",
+                        "Sähkö- ja elektroniikkaromu",
+                        "Sähkölamput",
+                        "Vaipat, siteet"
                     ],
                 ]
             }],
@@ -196,23 +196,23 @@ export default {
                 {
                     type: null,
                     examples: [
-                        "sanoma- ja aikakauslehdet",
-                        "mainokset ja esitteet",
-                        "kirjekuoret, myös ikkunalliset",
-                        "puhelinluettelot",
-                        "kirjat ilman kansia",
-                        "kirjoitus- ja kopiopaperit sekä piirustuspaperit",
-                        "kaikki postiluukun tai -laatikon kautta talouteen tulleet paperit"
+                        "Sanoma- ja aikakauslehdet",
+                        "Mainokset ja esitteet",
+                        "Kirjekuoret, myös ikkunalliset",
+                        "Puhelinluettelot",
+                        "Kirjat ilman kansia",
+                        "Kirjoitus- ja kopiopaperit sekä piirustuspaperit",
+                        "Kaikki postiluukun tai -laatikon kautta talouteen tulleet paperit"
                     ]
                 }
             ],
             no: [{
                 examples: [
-                    "märkää tai likaista paperia",
-                    "pahvia ja ruskeaa paperia, ruskeita paperikasseja",
-                    "kartonkitölkkejä, kuten maito- ja mehupurkkeja",
-                    "muovia",
-                    "alumiini-, vaha- tai lahjapaperia"
+                    "Märkää tai likaista paperia",
+                    "Pahvia ja ruskeaa paperia, ruskeita paperikasseja",
+                    "Kartonkitölkkejä, kuten maito- ja mehupurkkeja",
+                    "Muovia",
+                    "Alumiini-, vaha- tai lahjapaperia"
                 ]
             }],
             remember: [{
@@ -319,8 +319,8 @@ export default {
                 {
                     type: null,
                     examples: [
-                        "lasipullot",
-                        "lasipurkit",
+                        "Lasipullot",
+                        "Lasipurkit",
                     ]
                 }
             ],
@@ -353,29 +353,29 @@ export default {
                 {
                     type: null,
                     examples: [
-                        "ajoneuvojen jäähdytin-, jarru- ja kytkinnesteet",
-                        "jäteöljyt, öljynsuodattimet ja muut öljyiset jätteet",
-                        "liuottimet kuten tärpätti, tinneri, asetoni (myös kynsilakanpoistoaine) ja liuotinpitoiset pesuaineet",
-                        "maalit, liimat, lakat ja hartsit sekä puunsuoja- ja kyllästysaineet (myös kynsilakka)",
-                        "kaasua sisältävät tai sisältäneet paineastiat",
-                        "aerosolipakkaukset",
-                        "emäksiset pesuaineet",
-                        "torjunta- ja desinfiointiaineet",
-                        "uudenvuodentinat",
-                        "valokuvauskemikaalit",
-                        "voimakkaat hapot kuten rikkihappo",
-                        "asbestipitoinen jäte -> katso paikalliset ohjeet",
-                        "painekyllästetty puu -> katso paikalliset ohjeet",
-                        "loisteputket, pienoisloistelamput ja energiansäästölamput -> omaan keräysjärjestelmäänsä",
-                        "sähkölaitteet -> omaan keräysjärjestelmäänsä",
-                        "paristot, nappiparistot ja akut -> omaan keräysjärjestelmäänsä",
-                        "elohopeakuumemittarit ja käyttämättä jääneet lääkkeet -> apteekkiin tai kiertävään keräysautoon",
+                        "Ajoneuvojen jäähdytin-, jarru- ja kytkinnesteet",
+                        "Jäteöljyt, öljynsuodattimet ja muut öljyiset jätteet",
+                        "Liuottimet kuten tärpätti, tinneri, asetoni (myös kynsilakanpoistoaine) ja liuotinpitoiset pesuaineet",
+                        "Maalit, liimat, lakat ja hartsit sekä puunsuoja- ja kyllästysaineet (myös kynsilakka)",
+                        "Kaasua sisältävät tai sisältäneet paineastiat",
+                        "Aerosolipakkaukset",
+                        "Emäksiset pesuaineet",
+                        "Torjunta- ja desinfiointiaineet",
+                        "Uudenvuodentinat",
+                        "Valokuvauskemikaalit",
+                        "Voimakkaat hapot kuten rikkihappo",
+                        "Asbestipitoinen jäte -> katso paikalliset ohjeet",
+                        "Painekyllästetty puu -> katso paikalliset ohjeet",
+                        "Loisteputket, pienoisloistelamput ja energiansäästölamput -> omaan keräysjärjestelmäänsä",
+                        "Sähkölaitteet -> omaan keräysjärjestelmäänsä",
+                        "Paristot, nappiparistot ja akut -> omaan keräysjärjestelmäänsä",
+                        "Elohopeakuumemittarit ja käyttämättä jääneet lääkkeet -> apteekkiin tai kiertävään keräysautoon",
                     ]
                 }
             ],
             no: [{
                 examples: [
-                    "täysin kuivuneita ja tyhjiä astioita"
+                    "Täysin kuivuneita ja tyhjiä astioita"
                 ]
             }],
             remember: [{
@@ -397,22 +397,22 @@ export default {
                 {
                     type: null,
                     examples: [
-                        "suuret kodinkoneet (jääkaapit, pakastimet, pesukoneet, astianpesukoneet, sähköliedet, mikroaaltouunit, sähköiset lämmityslaitteet jne.)",
-                        "pienet kodinkoneet (pölynimurit, ompelukoneet, silitysraudat, leivänpaahtimet, kahvinkeittimet, parranajokoneet, hiustenkuivaajat, sähköhammasharjat jne.)",
-                        "tieto- ja teletekniset laitteet (tietokoneet, tulostimet, näytöt, näppäimistöt, hiiret, taskulaskimet, puhelimet jne.)",
-                        "kuluttajaelektroniikka (radiot, televisiot, videokamerat, digikamerat, videonauhurit, kaiuttimet, DVD-soittimet jne.)",
-                        "valaistuslaitteet (valaisimet, loisteputket, energiansäästölamput, taskulamput, EI hehku- tai halogeenilamppuja)",
-                        "sähkö- ja elektroniikkatyökalut (porat, sahat, sähköruohonleikkurit jne.)",
-                        "lelut, vapaa-ajan- ja urheiluvälineet (sähköjunat, kilpa-autoradat, videopelilaitteistot jne.)",
-                        "terveydenhuollon laitteet (elektroniset verenpaine- ja kuumemittarit jne.)",
-                        "tarkkailu- ja valvontalaitteet (paloilmaisimet, termostaatit jne.)",
+                        "Suuret kodinkoneet (jääkaapit, pakastimet, pesukoneet, astianpesukoneet, sähköliedet, mikroaaltouunit, sähköiset lämmityslaitteet jne.)",
+                        "Pienet kodinkoneet (pölynimurit, ompelukoneet, silitysraudat, leivänpaahtimet, kahvinkeittimet, parranajokoneet, hiustenkuivaajat, sähköhammasharjat jne.)",
+                        "Tieto- ja teletekniset laitteet (tietokoneet, tulostimet, näytöt, näppäimistöt, hiiret, taskulaskimet, puhelimet jne.)",
+                        "Kuluttajaelektroniikka (radiot, televisiot, videokamerat, digikamerat, videonauhurit, kaiuttimet, DVD-soittimet jne.)",
+                        "Valaistuslaitteet (valaisimet, loisteputket, energiansäästölamput, taskulamput, EI hehku- tai halogeenilamppuja)",
+                        "Sähkö- ja elektroniikkatyökalut (porat, sahat, sähköruohonleikkurit jne.)",
+                        "Lelut, vapaa-ajan- ja urheiluvälineet (sähköjunat, kilpa-autoradat, videopelilaitteistot jne.)",
+                        "Terveydenhuollon laitteet (elektroniset verenpaine- ja kuumemittarit jne.)",
+                        "Tarkkailu- ja valvontalaitteet (paloilmaisimet, termostaatit jne.)",
                     ]
                 }
             ],
             no: [{
                 examples: [
-                    "irrallisia paristoja ja akkuja -> paristoja ja pienakkuja kerätään niitä myyvissä myymälöissä, kioskeilla ja huoltoasemilla",
-                    "hehku- ja halogeenilamppuja -> sekajätteeseen"
+                    "Irrallisia paristoja ja akkuja -> paristoja ja pienakkuja kerätään niitä myyvissä myymälöissä, kioskeilla ja huoltoasemilla",
+                    "Hehku- ja halogeenilamppuja -> sekajätteeseen"
                 ]
             }],
             remember: [{
@@ -436,15 +436,15 @@ export default {
                 {
                     type: null,
                     examples: [
-                        "kotitalousparistot",
-                        "nappiparistot",
-                        "kannettavat akut (suljettuja, käsin kannettavia)"
+                        "Kotitalousparistot",
+                        "Nappiparistot",
+                        "Kannettavat akut (suljettuja, käsin kannettavia)"
                     ]
                 }
             ],
             no: [{
                 examples: [
-                    "ajoneuvo- ja teollisuusakkuja -> akkujen keräykseen"
+                    "Ajoneuvo- ja teollisuusakkuja -> akkujen keräykseen"
                 ]
             }],
             remember: [],
@@ -486,17 +486,17 @@ export default {
                 {
                     type: null,
                     examples: [
-                        "käyttökelpoiset vaatteet ja jalkineet",
-                        "verhot",
-                        "pyyhkeet",
-                        "lakanat",
-                        "muu puhdas ja kuiva käytöstä poistettu tekstiili",
+                        "Käyttökelpoiset vaatteet ja jalkineet",
+                        "Verhot",
+                        "Pyyhkeet",
+                        "Lakanat",
+                        "Muu puhdas ja kuiva käytöstä poistettu tekstiili",
                     ]
                 }
             ],
             no: [{
                 examples: [
-                    "likaisia tai rikkinäisiä vaatteita"
+                    "Likaisia tai rikkinäisiä vaatteita"
                 ]
             }],
             remember: [{
@@ -527,36 +527,36 @@ export default {
             showOnCategoryPage: true,
             yes: [
                 {
-                    type: "ajoneuvoakut",
+                    type: "Ajoneuvoakut",
                     examples: [
-                        "henkilö-, paketti- ja kuorma-autojen akut",
-                        "mopojen ja moottoripyörien akut",
-                        "kolmi- ja nelipyörien sekä kevyiden nelipyörien akut",
-                        "traktorin, moottorityökoneen ja maastoajoneuvon akut",
-                        "auton alustalle rakennettujen työkoneiden akut",
-                        "hinattavien laitteiden ja moottorittomien ajoneuvojen akut",
-                        "perävaunujen akut",
-                        "pelastusautojen, poliisiajoneuvojen, ruumisautojen ja sairasautojen akut",
-                        "matkailuautojen akut",
-                        "museoajoneuvojen akut",
-                        "huoltoautojen akut"
+                        "Henkilö-, paketti- ja kuorma-autojen akut",
+                        "Mopojen ja moottoripyörien akut",
+                        "Kolmi- ja nelipyörien sekä kevyiden nelipyörien akut",
+                        "Traktorin, moottorityökoneen ja maastoajoneuvon akut",
+                        "Auton alustalle rakennettujen työkoneiden akut",
+                        "Hinattavien laitteiden ja moottorittomien ajoneuvojen akut",
+                        "Perävaunujen akut",
+                        "Pelastusautojen, poliisiajoneuvojen, ruumisautojen ja sairasautojen akut",
+                        "Matkailuautojen akut",
+                        "Museoajoneuvojen akut",
+                        "Huoltoautojen akut"
                     ]
                 },
                 {
-                    type: "teollisuusakut",
+                    type: "Teollisuusakut",
                     examples: [
-                        "varatievalojen akut",
-                        "varavoima-akut",
-                        "sähkökäyttöisten trukkien akut",
-                        "siivouskoneiden akut",
-                        "joidenkin instrumenttien akut",
-                        "joidenkin kassapäätteiden varmennusakut"
+                        "Varatievalojen akut",
+                        "Varavoima-akut",
+                        "Sähkökäyttöisten trukkien akut",
+                        "Siivouskoneiden akut",
+                        "Joidenkin instrumenttien akut",
+                        "Joidenkin kassapäätteiden varmennusakut"
                     ]
                 }
             ],
             no: [{
                 examples: [
-                    "kannettavia akkuja ja paristoja -> paristojen keräykseen"
+                    "Kannettavia akkuja ja paristoja -> paristojen keräykseen"
                 ]
             }],
             remember: [],
@@ -570,16 +570,16 @@ export default {
                 {
                     type: null,
                     examples: [
-                        "energiansäästölamput",
-                        "loisteputket"
+                        "Energiansäästölamput",
+                        "Loisteputket"
                     ]
                 }
             ],
             no: [{
                 examples: [
-                    "halogeenilamput -> sekajätteeseen",
-                    "hehkulamput -> sekajätteeseen",
-                    "autojen lamput -> sekajätteeseen"
+                    "Halogeenilamput -> sekajätteeseen",
+                    "Hehkulamput -> sekajätteeseen",
+                    "Autojen lamput -> sekajätteeseen"
                 ]
             }],
             remember: [{
@@ -597,28 +597,28 @@ export default {
                 {
                     type: null,
                     examples: [
-                        "puu- ja kuormalavat, myös lastulevystä tehdyt",
-                        "laudat, lankut, puupöllit, vanerit",
-                        "massiivipuu ja siitä valmistetut huonekalut",
-                        "maalamaton ja maalattu rakennus- ja purkupuu",
-                        "puiset betonin valumuotit, betoniset laudat",
-                        "kuitu- ja kovalevyt, puuparketit",
-                        "kaapelikelat",
-                        "puretut kaapistot, komerot ja laatikostot",
-                        "lastu- ja MDF -levyrunkoiset huonekalut",
-                        "ovet ja ikkunankehykset",
-                        "muovipinnoitettu puu, lastu-, MDF- ja melamiinilevyt"
+                        "Puu- ja kuormalavat, myös lastulevystä tehdyt",
+                        "Laudat, lankut, puupöllit, vanerit",
+                        "Massiivipuu ja siitä valmistetut huonekalut",
+                        "Maalamaton ja maalattu rakennus- ja purkupuu",
+                        "Puiset betonin valumuotit, betoniset laudat",
+                        "Kuitu- ja kovalevyt, puuparketit",
+                        "Kaapelikelat",
+                        "Puretut kaapistot, komerot ja laatikostot",
+                        "Lastu- ja MDF -levyrunkoiset huonekalut",
+                        "Ovet ja ikkunankehykset",
+                        "Muovipinnoitettu puu, lastu-, MDF- ja melamiinilevyt"
                     ]
                 }
             ],
             no: [{
                 examples: [
-                    "verhoillut huonekalut",
-                    "ikkunat laseineen",
-                    "lasi- ja peiliovet",
+                    "Verhoillut huonekalut",
+                    "Ikkunat laseineen",
+                    "Lasi- ja peiliovet",
                     "PVC -muovia, laattoja ym. sisältävät puumateriaalit",
-                    "kyllästetty puu",
-                    "risut ja oksat"
+                    "Kyllästetty puu",
+                    "Risut ja oksat"
                 ]
             }],
             remember: [{
@@ -654,14 +654,14 @@ export default {
                 {
                     type: "Rakennushankkeessa on kerättävä ja pidettävä erillään seuraavat jätelajit, mikäli se on teknisesti ja taloudellisesti mahdollista",
                     examples: [
-                        "betoni-, tiili-, kivennäislaatta- ja keramiikkajätteet",
-                        "kipsipohjaiset jätteet",
-                        "kyllästämättömät puujätteet",
-                        "metallijätteet",
-                        "lasijätteet",
-                        "muovijätteet",
-                        "paperi- ja kartonkijätteet",
-                        "maa- ja kiviainesjätteet"
+                        "Betoni-, tiili-, kivennäislaatta- ja keramiikkajätteet",
+                        "Kipsipohjaiset jätteet",
+                        "Kyllästämättömät puujätteet",
+                        "Metallijätteet",
+                        "Lasijätteet",
+                        "Muovijätteet",
+                        "Paperi- ja kartonkijätteet",
+                        "Maa- ja kiviainesjätteet"
                     ]
                 },
                 {
