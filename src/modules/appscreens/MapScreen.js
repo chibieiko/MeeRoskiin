@@ -1,10 +1,5 @@
 import React, {Component} from 'react';
-import {
-    AppRegistry,
-    StyleSheet,
-    Text,
-    View
-} from 'react-native';
+import MapView from 'react-native-maps';
 import {
     Root,
     Toast
@@ -21,7 +16,13 @@ export class MapScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            showToast: false
+            showToast: false,
+            region: {
+                latitude: 61.49911,
+                longitude: 23.78712,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421
+            }
         }
     }
 
@@ -77,19 +78,10 @@ export class MapScreen extends Component {
     render() {
         return (
             <Root>
-                <View style={mainStyle.container}>
-                    <Text style={mainStyle.welcome}>
-                        Welcome to MeeRoskiin!
-                    </Text>
-                    <Text style={mainStyle.instructions}>
-                        Sijaintisi: {'\n'}
-                        {JSON.stringify(this.props.map.userLocation)}
-                    </Text>
-                    <Text style={mainStyle.instructions}>
-                        Double tap R on your keyboard to reload,{'\n'}
-                        Shake or press menu button for dev menu
-                    </Text>
-                </View>
+                <MapView
+                    style={mainStyle.mapContainer}
+                    initialRegion={this.state.region}
+                />
             </Root>
         );
     }

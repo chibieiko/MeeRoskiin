@@ -1,20 +1,9 @@
-import {StyleSheet} from 'react-native';
+import {Dimensions} from 'react-native';
 
 export const mainStyle = {
-    container: {
+    mapContainer: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height
     }
 };

@@ -18,7 +18,6 @@ import java.util.List;
 public class MainApplication extends NavigationApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
-
     @Override
     public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
@@ -32,26 +31,29 @@ public class MainApplication extends NavigationApplication {
             new ReactNativeConfigPackage()
       );
     }
+
+
   };
 
-     @Override
-     public boolean isDebug() {
-         // Make sure you are using BuildConfig from your own application
-         return BuildConfig.DEBUG;
-     }
-
-     protected List<ReactPackage> getPackages() {
+    protected List<ReactPackage> getPackages() {
           // Add additional packages you require here
           // No need to add RnnPackage and MainReactPackage
           return Arrays.<ReactPackage>asList(
-              // eg. new VectorIconsPackage()
+              new MapsPackage(),
+              new ReactNativeConfigPackage()
           );
      }
 
-     @Override
-     public List<ReactPackage> createAdditionalReactPackages() {
-         return getPackages();
-     }
+    @Override
+        public List<ReactPackage> createAdditionalReactPackages() {
+           return getPackages();
+        }
+
+  @Override
+       public boolean isDebug() {
+           // Make sure you are using BuildConfig from your own application
+           return BuildConfig.DEBUG;
+       }
 
   @Override
   public ReactNativeHost getReactNativeHost() {
