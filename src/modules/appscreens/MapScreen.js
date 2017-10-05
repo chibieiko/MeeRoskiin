@@ -51,7 +51,8 @@ export class MapScreen extends Component {
                 lng: position.coords.longitude
             };
             this.props.actions.saveUserLocation(userLocation);
-        })
+            this.props.actions.fetchSortingPlaces(userLocation);
+        });
     };
 
     componentWillUnmount = () => {
@@ -66,6 +67,7 @@ export class MapScreen extends Component {
                         Welcome to MeeRoskiin!
                     </Text>
                     <Text style={mainStyle.instructions}>
+                        Sijaintisi: {'\n'}
                         {JSON.stringify(this.props.map.userLocation)}
                     </Text>
                     <Text style={mainStyle.instructions}>

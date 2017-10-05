@@ -10,6 +10,12 @@ export default function (state = initialState.map, action) {
                 userLocation: action.payload
             };
 
+        case types.FETCH_SORTING_PLACES:
+            return {
+                ...state,
+                sortingPlaces: action.payload
+            };
+
         default:
             return state;
     }
