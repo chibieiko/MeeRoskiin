@@ -1,4 +1,5 @@
 export default {
     selectedCategories: [],
-    map: {}
+    map: {},
+    errors: []
 }

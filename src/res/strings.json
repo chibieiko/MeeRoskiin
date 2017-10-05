@@ -5,5 +5,10 @@
   
   "yesTitle": "Kyllä",
   "noTitle": "Ei",
-  "rememberTitle": "Huom"
+  "rememberTitle": "Huom",
+
+  "toastButtonText": "OK",
+
+  "locationFetchFailed": "Sijainnin saaminen epäonnistui",
+  "fetchSortingPlaceFailed": "Lajittelupaikkojen haku epäonnistui"
 }

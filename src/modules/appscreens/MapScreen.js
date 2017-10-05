@@ -14,6 +14,8 @@ import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as mapScreenActions from '../../actions/appscreens/mapScreen.actions';
+import * as errorActions from '../../actions/error.actions';
+import * as strings from '../../res/strings.json';
 
 export class MapScreen extends Component {
     constructor(props) {
@@ -25,7 +27,7 @@ export class MapScreen extends Component {
 
     watchID: ?number = null;
 
-    componentDidMount = () => {
+    componentDidMount() {
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 let userLocation = {
@@ -36,10 +38,11 @@ export class MapScreen extends Component {
             },
             (error) => {
                 Toast.show({
-                    text: 'Sijainnin saaminen epäonnistui',
+                    text: strings.locationFetchFailed,
                     position: 'bottom',
-                    buttonText: 'OK'
+                    buttonText: strings.toastButtonText
                 });
+                this.props.errorActions.addError("Testi errori");
                 console.log(error);
             },
             {enableHighAccuracy: true, timeout: 200000, maximumAge: 1000}
@@ -55,9 +58,21 @@ export class MapScreen extends Component {
         });
     };
 
-    componentWillUnmount = () => {
+    componentWillUnmount() {
         navigator.geolocation.clearWatch(this.watchID)
     };
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.errors && nextProps.errors.length > 0) {
+            Toast.show({
+                text: nextProps.errors[nextProps.errors.length - 1],
+                position: 'bottom',
+                buttonText: strings.toastButtonText
+            });
+
+            this.props.errorActions.removeError(nextProps.errors.length - 1);
+        }
+    }
 
     render() {
         return (
@@ -83,13 +98,15 @@ export class MapScreen extends Component {
 
 mapStateToProps = (state, ownProps) => {
     return {
-        map: state.map
+        map: state.map,
+        errors: state.errors
     };
 };
 
 mapDispatchToProps = dispatch => {
     return {
-        actions: bindActionCreators(mapScreenActions, dispatch)
+        actions: bindActionCreators(mapScreenActions, dispatch),
+        errorActions: bindActionCreators(errorActions, dispatch)
     }
 };
 
