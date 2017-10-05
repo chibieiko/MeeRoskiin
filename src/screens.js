@@ -3,7 +3,7 @@
 import {Navigation} from 'react-native-navigation';
 
 import {CategoryScreen} from "./modules/appscreens/CategoryScreen";
-import {MapScreen} from "./modules/appscreens/MapScreen";
+import MapScreen from "./modules/appscreens/MapScreen";
 import {CategoryInformationScreen} from "./modules/appscreens/CategoryInformationScreen";
 
 export function registerScreens(store, Provider) {

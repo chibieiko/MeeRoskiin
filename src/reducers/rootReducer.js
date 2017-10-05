@@ -1,8 +1,9 @@
 import {combineReducers} from 'redux';
 import sortingPlaceReducer from "./appscreens/sortingPlaceReducer";
+import map from '../reducers/appscreens/mapScreen.reducer';
 
 const rootReducer = combineReducers({
-    sortingPlaces: sortingPlaceReducer
+    map
 });
 
 export default rootReducer;
