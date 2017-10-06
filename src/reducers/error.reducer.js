@@ -11,8 +11,7 @@ export default function (state = initialState.errors, action) {
             ];
 
         case types.REMOVE_ERROR:
-            state.splice(action.payload, 1);
-            return state;
+            return state.filter((message, i) => i !== action.payload);
 
         default:
             return state;

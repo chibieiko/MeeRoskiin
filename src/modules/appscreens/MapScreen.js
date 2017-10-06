@@ -38,12 +38,6 @@ export class MapScreen extends Component {
                 this.props.actions.saveUserLocation(userLocation);
             },
             (error) => {
-                Toast.show({
-                    text: strings.locationFetchFailed,
-                    position: 'bottom',
-                    buttonText: strings.toastButtonText
-                });
-                this.props.errorActions.addError("Testi errori");
                 console.log(error);
             },
             {enableHighAccuracy: true, timeout: 200000, maximumAge: 1000}
