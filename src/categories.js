@@ -37,7 +37,7 @@ export default {
                     ]
                 }
             ],
-            remember: [],
+            remember: null,
             description: "Test description"
         },
         {
@@ -79,7 +79,7 @@ export default {
                     "Muita maatumattomia tai haitallisia materiaaleja",
                 ]
             }],
-            remember: [],
+            remember: null,
             description: "Test description"
         },
         {
@@ -185,7 +185,7 @@ export default {
                     ],
                 ]
             }],
-            remember: [],
+            remember: null,
             description: "Test description"
         },
         {
@@ -228,14 +228,9 @@ export default {
             id: 104,
             name: "Pahvi",
             showOnCategoryPage: false,
-            yes: [
-                {
-                    type: null,
-                    examples: []
-                }
-            ],
-            no: [],
-            remember: [],
+            yes: null,
+            no: null,
+            remember: null,
             description: "Test description"
         },
         {
@@ -447,7 +442,7 @@ export default {
                     "Ajoneuvo- ja teollisuusakkuja -> akkujen keräykseen"
                 ]
             }],
-            remember: [],
+            remember: null,
             description: "Test description"
         },
         {
@@ -511,14 +506,9 @@ export default {
             id: 114,
             name: "Muu jäte",
             showOnCategoryPage: false,
-            yes: [
-                {
-                    type: null,
-                    examples: []
-                }
-            ],
-            no: [],
-            remember: [],
+            yes: null,
+            no: null,
+            remember: null,
             description: "Test description"
         },
         {
@@ -559,7 +549,7 @@ export default {
                     "Kannettavia akkuja ja paristoja -> paristojen keräykseen"
                 ]
             }],
-            remember: [],
+            remember: null,
             description: "Test description"
         },
         {
@@ -632,14 +622,9 @@ export default {
             id: 118,
             name: "Kyllästetty puu",
             showOnCategoryPage: false,
-            yes: [
-                {
-                    type: null,
-                    examples: []
-                }
-            ],
-            no: [],
-            remember: [],
+            yes: null,
+            no: null,
+            remember: null,
             description: "Test description"
         },
         {
@@ -669,7 +654,7 @@ export default {
                     examples: []
                 }
             ],
-            no: [],
+            no: null,
             remember: [{
                 examples: [
                     "Lajitteluvelvoitteen voi täyttää joko lajittelemalla ja erilliskeräämällä rakennusjätteen työmaalla tai toimittamalla sekalaisen rakennusjätteen lajiteltavaksi jätteen käsittelylaitoksessa",

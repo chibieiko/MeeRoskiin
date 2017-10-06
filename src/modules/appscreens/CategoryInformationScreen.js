@@ -26,21 +26,21 @@ export class CategoryInformationScreen extends Component {
             <Container>
                 <Content style={mainStyle.content}>
                     {
-                        category.yes.length > 0 && <ExamplesList array={category.yes}
+                        category.yes && <ExamplesList array={category.yes}
                                                       androidIcon='md-checkmark'
                                                       iosIcon='ios-checkmark'
                                                       style={mainStyle.positive}
                                                       title={strings.yesTitle}/>
                     }
                     {
-                        category.no.length > 0 &&
+                        category.no &&
                         <ExamplesList array={category.no} androidIcon='md-close'
                                       iosIcon='ios-close'
                                       style={mainStyle.negative}
                                       title={strings.noTitle}/>
                     }
                     {
-                        category.remember.length > 0 &&
+                        category.remember &&
                         <ExamplesList array={category.remember}
                                       androidIcon='md-information-circle'
                                       iosIcon='ios-information-circle-outline'

@@ -7,5 +7,8 @@ export const mainStyle = {
         navBarBackgroundColor: colors.primary,
         navBarTextColor: colors.textLight,
         navBarButtonColor: colors.textLight
+    },
+    listItem: {
+        backgroundColor: 'transparent'
     }
 };

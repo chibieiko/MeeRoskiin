@@ -24,7 +24,10 @@ export class ExamplesList extends Component {
         return (
             <Card>
                 <CardItem header style={mainStyle.cardHeader}>
-                    <Text style={[mainStyle.cardHeaderText, styleProp]}>{this.props.title.toUpperCase()}</Text>
+                    <View>
+                        <Text
+                            style={[mainStyle.cardHeaderText, styleProp]}>{this.props.title.toUpperCase()}</Text>
+                    </View>
                 </CardItem>
                 {
                     array.map((item, index) => {
@@ -32,36 +35,42 @@ export class ExamplesList extends Component {
                             {
                                 item.type &&
                                 <CardItem>
-                                    <Text
-                                        style={[mainStyle.exampleType, styleProp]}>
-                                        {item.type}
-                                    </Text>
+                                    <Body>
+                                        <Text
+                                            style={[mainStyle.exampleType, styleProp]}>
+                                            {item.type}
+                                        </Text>
+                                    </Body>
                                 </CardItem>
                             }
 
                             {
                                 item.examples && item.examples.map((example, i) => {
-                                    return <CardItem key={index + i} style={mainStyle.example}>
-                                        <Icon active
-                                              android={this.props.androidIcon}
-                                              ios={this.props.iosIcon}
-                                              style={styleProp}/>
-                                        {
-                                            Array.isArray(example) ?
-                                                <List>
-                                                    {
-                                                        example.map((value, j) => {
-                                                            return <ListItem
-                                                                key={index + i + j}
-                                                                style={mainStyle.listItem}>
-                                                                <Text>{value}</Text>
-                                                            </ListItem>
-                                                        })
-                                                    }
-                                                </List>
-                                                :
-                                                <Text style={mainStyle.example}>{example}</Text>
-                                        }
+                                    return <CardItem key={index + i}
+                                                     style={mainStyle.example}>
+                                        <Body>
+                                            <Icon active
+                                                  android={this.props.androidIcon}
+                                                  ios={this.props.iosIcon}
+                                                  style={styleProp}/>
+                                            {
+                                                Array.isArray(example) ?
+                                                    <List>
+                                                        {
+                                                            example.map((value, j) => {
+                                                                return <ListItem
+                                                                    key={index + i + j}
+                                                                    style={mainStyle.listItem}>
+                                                                    <Text>{value}</Text>
+                                                                </ListItem>
+                                                            })
+                                                        }
+                                                    </List>
+                                                    :
+                                                    <Text
+                                                        style={mainStyle.example}>{example}</Text>
+                                            }
+                                        </Body>
                                     </CardItem>
                                 })
                             }
