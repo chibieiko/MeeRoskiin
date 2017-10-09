@@ -74,8 +74,23 @@ export class MapScreen extends Component {
             <Root>
                 <MapView
                     style={mainStyle.mapContainer}
-                    initialRegion={this.state.region}
-                />
+                    showUserLocation={true}
+                    showMyLocationButton={true}
+                    initialRegion={this.state.region}>
+                    {
+                        this.props.map.sortingPlaces.length > 0 &&
+                            this.props.map.sortingPlaces.map((marker, index) => (
+                                <MapView.Marker key={index}
+                                coordinate={{
+                                    latitude: parseFloat(marker.$.lat),
+                                    longitude: parseFloat(marker.$.lng)
+                                }}
+                                title={marker.nimi}
+                                description={marker.osoite}
+                                />
+                            ))
+                    }
+                </MapView>
             </Root>
         );
     }
