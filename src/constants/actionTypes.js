@@ -8,6 +8,8 @@ export const VOTE_DOWN_SORTING_PLACE = 'VOTE_DOWN_SORTING_PLACE';
 
 export const SAVE_USER_LOCATION = 'SAVE_USER_LOCATION';
 
+export const START_LOADING = 'START_LOADING';
+
 export const ADD_ERROR = 'ADD_ERROR';
 export const REMOVE_ERROR = 'REMOVE_ERROR';
 

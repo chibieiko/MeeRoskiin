@@ -13,7 +13,14 @@ export default function (state = initialState.map, action) {
         case types.FETCH_SORTING_PLACES:
             return {
                 ...state,
-                sortingPlaces: action.payload
+                sortingPlaces: action.payload.sortingPlace,
+                loading: action.payload.loading
+            };
+
+        case types.START_LOADING:
+            return {
+                ...state,
+                loading: action.payload
             };
 
         default:

@@ -1,7 +1,8 @@
 export default {
     selectedCategories: [],
     map: {
-        sortingPlaces: []
+        sortingPlaces: [],
+        loading: true
     },
     errors: []
 }

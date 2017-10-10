@@ -12,6 +12,13 @@ export const saveUserLocation = (res) => {
     }
 };
 
+export const startLoading = res => {
+    return {
+        type: types.START_LOADING,
+        payload: res
+    }
+};
+
 export const fetchSortingPlaces = (userLocation, limit = 1, typeIds = []) => (dispatch, getState) => {
     let url = api.KIVO_API_URL + '?lat=' + userLocation.lat + '&lng=' + userLocation.lng + '&limit=' + limit;
     if (typeIds.length > 0) {
@@ -32,12 +39,18 @@ export const fetchSortingPlaces = (userLocation, limit = 1, typeIds = []) => (di
                 if (!err) {
                     dispatch({
                         type: types.FETCH_SORTING_PLACES,
-                        payload: result.response.markers[0].marker
+                        payload: {
+                            sortingPlace: result.response.markers[0].marker,
+                            loading: false
+                        }
                     })
                 } else {
                     dispatch({
                         type: types.ADD_ERROR,
-                        payload: strings.fetchSortingPlaceFailed
+                        payload: {
+                            error: strings.fetchSortingPlaceFailed,
+                            loading: false
+                        }
                     })
                 }
             })
@@ -45,7 +58,10 @@ export const fetchSortingPlaces = (userLocation, limit = 1, typeIds = []) => (di
         .catch(error => {
             dispatch({
                 type: types.ADD_ERROR,
-                payload: strings.fetchSortingPlaceFailed
+                payload: {
+                    error: strings.fetchSortingPlaceFailed,
+                    loading: false
+                }
             });
             console.error(error);
         });

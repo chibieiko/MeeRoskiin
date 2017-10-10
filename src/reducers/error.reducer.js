@@ -5,10 +5,14 @@ export default function (state = initialState.errors, action) {
     switch (action.type) {
 
         case types.ADD_ERROR:
-            return [
+            return {
                 ...state,
-                action.payload
-            ];
+                errors: [
+                    ...state,
+                    action.payload.error
+                ],
+                loading: action.payload.loading
+            };
 
         case types.REMOVE_ERROR:
             return state.filter((message, i) => i !== action.payload);
