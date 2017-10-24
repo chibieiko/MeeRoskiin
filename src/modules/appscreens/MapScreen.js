@@ -4,8 +4,12 @@ import {
     Root,
     Toast
 } from 'native-base';
+import {
+    View,
+    Text
+} from 'react-native';
 import {ActivityIndicator} from "react-native";
-import {mainStyle} from "./styles/MapScreenStyles";
+import {MapScreenStyles as mainStyle} from "./styles/MapScreenStyles";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
@@ -95,16 +99,28 @@ export class MapScreen extends Component {
                     initialRegion={this.state.region}>
                     {
                         this.props.map.sortingPlaces.length > 0 &&
-                        this.props.map.sortingPlaces.map((marker, index) => (
-                            <MapView.Marker key={index}
-                                            coordinate={{
-                                                latitude: parseFloat(marker.$.lat),
-                                                longitude: parseFloat(marker.$.lng)
-                                            }}
-                                            title={marker.nimi}
-                                            description={marker.osoite}
-                            />
-                        ))
+                        this.props.map.sortingPlaces.map((marker, index) => {
+                            console.log("marker:", marker);
+                            return <MapView.Marker key={index}
+                                                   coordinate={{
+                                                       latitude: parseFloat(marker.$.lat),
+                                                       longitude: parseFloat(marker.$.lng)
+                                                   }}>
+                                <MapView.Callout>
+                                    <View style={mainStyle.markerCallout}>
+                                        <Text>
+                                            {marker.$.nimi}
+                                        </Text>
+                                        <Text>
+                                            {marker.$.osoite}
+                                        </Text>
+                                        <Text>
+                                            Lisätietoja >>
+                                        </Text>
+                                    </View>
+                                </MapView.Callout>
+                            </MapView.Marker>
+                        })
                     }
                 </MapView>
                 <ActivityIndicator

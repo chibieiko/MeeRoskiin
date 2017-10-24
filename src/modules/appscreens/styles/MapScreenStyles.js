@@ -1,10 +1,13 @@
 import {Dimensions} from 'react-native';
 
-export const mainStyle = {
+export const MapScreenStyles = {
     mapContainer: {
         flex: 1,
         width: Dimensions.get('window').width,
         height: Dimensions.get('window').height
+    },
+    markerCallout: {
+        backgroundColor: 'white'
     },
     loadingSpinner: {
         backgroundColor: 'transparent',

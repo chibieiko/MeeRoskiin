@@ -18,22 +18,20 @@ import java.util.List;
 public class MainApplication extends NavigationApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
-    @Override
-    public boolean getUseDeveloperSupport() {
-      return BuildConfig.DEBUG;
-    }
+        @Override
+        public boolean getUseDeveloperSupport() {
+          return BuildConfig.DEBUG;
+        }
 
-    @Override
-    protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-            new MapsPackage(),
-            new ReactNativeConfigPackage()
-      );
-    }
-
-
-  };
+        @Override
+        protected List<ReactPackage> getPackages() {
+          return Arrays.<ReactPackage>asList(
+              new MainReactPackage(),
+                new MapsPackage(),
+                new ReactNativeConfigPackage()
+          );
+        }
+      };
 
     protected List<ReactPackage> getPackages() {
           // Add additional packages you require here

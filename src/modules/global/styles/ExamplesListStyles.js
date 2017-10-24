@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 import * as dimensions from '../../../res/dimensions.json';
 
-export const mainStyle = {
+export const ExamplesListStyles = {
     listItem: {
         borderBottomWidth: 0
     },

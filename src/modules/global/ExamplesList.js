@@ -15,7 +15,7 @@ import {
 } from "native-base";
 import {View} from "react-native";
 
-import {mainStyle} from "./styles/ExamplesListStyles";
+import {ExamplesListStyles as mainStyle} from "./styles/ExamplesListStyles";
 
 export class ExamplesList extends Component {
     render() {

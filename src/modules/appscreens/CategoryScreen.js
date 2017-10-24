@@ -10,11 +10,8 @@ import {
     Right,
     Body
 } from "native-base";
-import {
-    View
-} from 'react-native';
 
-import {mainStyle} from "./styles/CategoryScreenStyles";
+import {CategoryScreenStyles as mainStyle} from "./styles/CategoryScreenStyles";
 import content from '../../categories';
 
 export class CategoryScreen extends Component {

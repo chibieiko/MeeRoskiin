@@ -1,7 +1,7 @@
 import * as colors from '../../../res/colors.json';
 import * as dimensions from '../../../res/dimensions.json';
 
-export const mainStyle = {
+export const CategoryInformationScreenStyles = {
     positive: {
         color: colors.iconPositive
     },

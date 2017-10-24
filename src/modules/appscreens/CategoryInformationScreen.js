@@ -14,7 +14,7 @@ import {
     CardItem,
 } from "native-base";
 
-import {mainStyle} from "./styles/CategoryInformationScreenStyles";
+import {CategoryInformationScreenStyles as mainStyle} from "./styles/CategoryInformationScreenStyles";
 import content from '../../categories';
 import {ExamplesList} from '../global/ExamplesList';
 import * as strings from '../../res/strings.json';
