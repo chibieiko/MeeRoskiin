@@ -11,6 +11,9 @@ export const CategoryScreenStyles = {
         navBarButtonColor: colors.textLight,
         statusBarTextColorScheme: 'light'
     },
+    container: {
+        backgroundColor: colors.backgroundColor
+    },
     listItem: {
         backgroundColor: 'transparent'
     }

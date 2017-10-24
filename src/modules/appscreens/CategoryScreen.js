@@ -29,7 +29,7 @@ export class CategoryScreen extends Component {
 
     render() {
         return (
-            <Container>
+            <Container style={mainStyle.container}>
                 <Content>
                     <List>
                         {

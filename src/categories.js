@@ -467,10 +467,12 @@ export default {
                     "Muita muovituotteita tai yritysten muovipakkauksia"
                 ]
             }],
-            remember: [
-                "Palauta kotitalouden muovipakkaukset tyhjinä, puhtaina ja kuivina",
-                "Vie vaarallisten aineiden jäämiä tai painetta sisältävät pakkaukset (esim. maalit, kemikaalit, lääkkeet, hiuslakka) paikkakuntasi vaarallisten jätteiden vastaanottopisteeseen",
-            ],
+            remember: [{
+                examples: [
+                    "Palauta kotitalouden muovipakkaukset tyhjinä, puhtaina ja kuivina",
+                    "Vie vaarallisten aineiden jäämiä tai painetta sisältävät pakkaukset (esim. maalit, kemikaalit, lääkkeet, hiuslakka) paikkakuntasi vaarallisten jätteiden vastaanottopisteeseen",
+                ]
+            }],
             description: "Test description"
         },
         {

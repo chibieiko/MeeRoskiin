@@ -3,6 +3,8 @@
   "primaryLight": "#60ad5e",
   "primaryDark": "#005005",
 
+  "backgroundColor": "#F5FCFF",
+
   "textLight": "#fafafa",
   "textDark": "#212121",
   "textSecondary": "#81c784",

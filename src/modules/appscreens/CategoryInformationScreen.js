@@ -23,7 +23,7 @@ export class CategoryInformationScreen extends Component {
     render() {
         const category = this.props.category;
         return (
-            <Container>
+            <Container style={mainStyle.container}>
                 <Content style={mainStyle.content}>
                     {
                         category.yes && <ExamplesList array={category.yes}
