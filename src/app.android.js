@@ -45,5 +45,8 @@ Navigation.startSingleScreenApp({
                 screenId: 'app.MapScreen',
             }
         ],
+    },
+    appStyle: {
+        orientation: 'portrait'
     }
 });
