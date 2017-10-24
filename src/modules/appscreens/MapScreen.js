@@ -2,12 +2,14 @@ import React, {Component} from 'react';
 import MapView from 'react-native-maps';
 import {
     Root,
-    Toast
+    Toast,
+    Icon as BaseIcon
 } from 'native-base';
 import {
     View,
     Text
 } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {ActivityIndicator} from "react-native";
 import {MapScreenStyles as mainStyle} from "./styles/MapScreenStyles";
 import {connect} from 'react-redux';
@@ -106,17 +108,20 @@ export class MapScreen extends Component {
                                                        latitude: parseFloat(marker.$.lat),
                                                        longitude: parseFloat(marker.$.lng)
                                                    }}>
+                                <Icon name='recycle' style={mainStyle.markerIcon}/>
                                 <MapView.Callout>
                                     <View style={mainStyle.markerCallout}>
-                                        <Text>
+                                        <Text style={mainStyle.calloutText}>
                                             {marker.$.nimi}
                                         </Text>
-                                        <Text>
+                                        <Text style={mainStyle.calloutText}>
                                             {marker.$.osoite}
                                         </Text>
-                                        <Text>
-                                            Lisätietoja >>
-                                        </Text>
+                                        <View style={mainStyle.calloutLink}>
+                                            <Text style={mainStyle.calloutLinkText}>Lisätietoja</Text>
+                                            <BaseIcon style={mainStyle.calloutLinkIcon} ios='ios-arrow-forward'
+                                                  android='md-arrow-forward'/>
+                                        </View>
                                     </View>
                                 </MapView.Callout>
                             </MapView.Marker>

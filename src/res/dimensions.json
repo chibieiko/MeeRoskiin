@@ -3,5 +3,6 @@
   "sideMargin": 8,
   "cardMargin": 26,
 
-  "fontBig": 20
+  "fontBig": 20,
+  "fontNormal": 16
 }
