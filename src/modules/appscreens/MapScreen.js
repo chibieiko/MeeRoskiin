@@ -14,14 +14,15 @@ import {ActivityIndicator} from "react-native";
 import {MapScreenStyles as mainStyle} from "./styles/MapScreenStyles";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {globalStyles} from "../global/styles/globalStyles";
 
 import * as mapScreenActions from '../../actions/appscreens/mapScreen.actions';
 import * as errorActions from '../../actions/error.actions';
 import * as strings from '../../res/strings.json';
 
 export class MapScreen extends Component {
-    latitudeDelta = 0.122; //0.922;
-    longitudeDelta = 0.021; //0.0421;
+    latitudeDelta = 0.122;
+    longitudeDelta = 0.021;
 
     constructor(props) {
         super(props);
@@ -38,30 +39,30 @@ export class MapScreen extends Component {
 
     watchID: ?number = null;
 
-    componentDidMount() {
-        this.props.actions.startLoading(true);
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
+    componentWillMount() {
+            this.props.actions.startLoading(true);
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    let userLocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    this.props.actions.saveUserLocation(userLocation);
+                },
+                (error) => {
+                    console.log(error);
+                },
+                {enableHighAccuracy: false, timeout: 200000, maximumAge: 200000}
+            );
+
+            this.watchID = navigator.geolocation.watchPosition(position => {
                 let userLocation = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
                 this.props.actions.saveUserLocation(userLocation);
-            },
-            (error) => {
-                console.log(error);
-            },
-            {enableHighAccuracy: false, timeout: 200000, maximumAge: 200000}
-        );
-
-        this.watchID = navigator.geolocation.watchPosition(position => {
-            let userLocation = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            this.props.actions.saveUserLocation(userLocation);
-            this.props.actions.fetchSortingPlaces(userLocation);
-        });
+                this.props.actions.fetchSortingPlaces(userLocation);
+            });
     };
 
     componentWillUnmount() {
@@ -91,6 +92,16 @@ export class MapScreen extends Component {
         }
     }
 
+    openSortingPlaceScreen = site => {
+        this.props.navigator.push({
+            screen: strings.sortingPlaceScreen,
+            title: site.$.nimi,
+            passProps: {siteId: site.$.paikka_id},
+            animated: true,
+            navigatorStyle: globalStyles.navStyle
+        })
+    };
+
     render() {
         return (
             <Root>
@@ -109,7 +120,7 @@ export class MapScreen extends Component {
                                                        longitude: parseFloat(marker.$.lng)
                                                    }}>
                                 <Icon name='recycle' style={mainStyle.markerIcon}/>
-                                <MapView.Callout>
+                                <MapView.Callout onPress={() => this.openSortingPlaceScreen(marker)}>
                                     <View style={mainStyle.markerCallout}>
                                         <Text style={mainStyle.calloutText}>
                                             {marker.$.nimi}

@@ -2,6 +2,11 @@
   "title": "MeeRoskiin",
   "categoryTab": "Kategoriat",
   "mapTab": "Kartta",
+
+  "categoryInformationScreen": "meeRoskiin.CategoryInformationScreen",
+  "categoryScreen": "meeRoskiin.CategoryScreen",
+  "mapScreen": "meeRoskiin.MapScreen",
+  "sortingPlaceScreen": "meeRoskiin.SortingPlaceScreen",
   
   "yesTitle": "Kyllä",
   "noTitle": "Ei",

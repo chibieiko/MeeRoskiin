@@ -32,17 +32,17 @@ const navigatorStyle = {
 
 Navigation.startSingleScreenApp({
     screen: {
-        screen: 'app.CategoryScreen',
+        screen: strings.categoryScreen,
         title: strings.title,
         navigatorStyle,
         topTabs: [
             {
                 title: strings.categoryTab,
-                screenId: 'app.CategoryScreen',
+                screenId: strings.categoryScreen,
             },
             {
                 title: strings.mapTab,
-                screenId: 'app.MapScreen',
+                screenId: strings.mapScreen,
             }
         ],
     },

@@ -13,17 +13,20 @@ import {
 
 import {CategoryScreenStyles as mainStyle} from "./styles/CategoryScreenStyles";
 import content from '../../categories';
+import {globalStyles} from "../global/styles/globalStyles";
+
+import * as strings from '../../res/strings.json';
 
 export class CategoryScreen extends Component {
     openCategory = id => {
-        let category = content.categories.find(category => category.id == id);
+        let category = content.categories.find(category => category.id === id);
 
         this.props.navigator.push({
-            screen: 'app.CategoryInformationScreen',
+            screen: strings.categoryInformationScreen,
             title: category.name,
             passProps: {category: category},
             animated: true,
-            navigatorStyle: mainStyle.navStyle
+            navigatorStyle: globalStyles.navStyle
         })
     };
 
