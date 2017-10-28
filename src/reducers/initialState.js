@@ -4,5 +4,10 @@ export default {
         sortingPlaces: [],
         loading: true
     },
+    sortingPlacesInfo: {
+        infos: [],
+        currentPlace: null,
+        loading: true
+    },
     errors: []
 }

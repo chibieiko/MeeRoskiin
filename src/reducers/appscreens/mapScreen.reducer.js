@@ -9,21 +9,18 @@ export default function (state = initialState.map, action) {
                 ...state,
                 userLocation: action.payload
             };
+            break;
 
         case types.FETCH_SORTING_PLACES:
             return {
                 ...state,
-                sortingPlaces: action.payload.sortingPlace,
+                sortingPlaces: action.payload.sortingPlaces,
                 loading: action.payload.loading
             };
-
-        case types.START_LOADING:
-            return {
-                ...state,
-                loading: action.payload
-            };
+            break;
 
         default:
             return state;
+            break;
     }
 }

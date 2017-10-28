@@ -15,5 +15,6 @@
   "toastButtonText": "OK",
 
   "locationFetchFailed": "Sijainnin saaminen epäonnistui",
-  "fetchSortingPlaceFailed": "Lajittelupaikkojen haku epäonnistui"
+  "fetchSortingPlaceFailed": "Lajittelupaikkojen haku epäonnistui",
+  "fetchSortingPlaceInfoFailed": "Lajittelupaikan tietojen haku epäonnistui"
 }

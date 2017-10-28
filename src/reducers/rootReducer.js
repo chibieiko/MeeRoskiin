@@ -1,10 +1,11 @@
 import {combineReducers} from 'redux';
-import sortingPlaceReducer from "./appscreens/sortingPlaceReducer";
-import map from '../reducers/appscreens/mapScreen.reducer';
+import map from './appscreens/mapScreen.reducer';
 import errors from './error.reducer';
+import sortingPlacesInfo from './appscreens/sortingPlaceScreen.reducer';
 
 const rootReducer = combineReducers({
     map,
+    sortingPlacesInfo,
     errors
 });
 

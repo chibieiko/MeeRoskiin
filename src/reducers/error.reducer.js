@@ -9,15 +9,18 @@ export default function (state = initialState.errors, action) {
                 ...state,
                 errors: [
                     ...state,
-                    action.payload.error
+                    action.payload.errors
                 ],
                 loading: action.payload.loading
             };
+            break;
 
         case types.REMOVE_ERROR:
             return state.filter((message, i) => i !== action.payload);
+            break;
 
         default:
             return state;
+            break;
     }
 }

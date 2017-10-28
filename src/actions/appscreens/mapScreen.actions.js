@@ -20,7 +20,7 @@ export const startLoading = res => {
 };
 
 export const fetchSortingPlaces = (userLocation, limit = 1, typeIds = []) => (dispatch, getState) => {
-    let url = api.KIVO_API_URL + '?lat=' + userLocation.lat + '&lng=' + userLocation.lng + '&limit=' + limit;
+    let url = api.KIVO_API_URL + '/genxml.php?lat=' + userLocation.lat + '&lng=' + userLocation.lng + '&limit=' + limit;
     if (typeIds.length > 0) {
         typeIds.forEach(id => {
             url += '&type_id=' + id
@@ -38,20 +38,21 @@ export const fetchSortingPlaces = (userLocation, limit = 1, typeIds = []) => (di
             return xml2js.parseString(responseXML, (err, result) => {
                 if (!err) {
                     dispatch({
-                        type: types.FETCH_SORTING_PLACES,
-                        payload: {
-                            sortingPlace: result.response.markers[0].marker,
-                            loading: false
+                            type: types.FETCH_SORTING_PLACES,
+                            payload: {
+                                sortingPlaces: result.response.markers[0].marker,
+                                loading: false
+                            }
                         }
-                    })
+                    )
                 } else {
                     dispatch({
-                        type: types.ADD_ERROR,
-                        payload: {
-                            error: strings.fetchSortingPlaceFailed,
-                            loading: false
-                        }
-                    })
+                            type: types.ADD_ERROR,
+                            payload: {
+                                error: strings.fetchSortingPlaceFailed,
+                                loading: false
+                            }
+                        })
                 }
             })
         })

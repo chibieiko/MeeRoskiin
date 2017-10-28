@@ -40,29 +40,29 @@ export class MapScreen extends Component {
     watchID: ?number = null;
 
     componentWillMount() {
-            this.props.actions.startLoading(true);
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    let userLocation = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
-                    this.props.actions.saveUserLocation(userLocation);
-                },
-                (error) => {
-                    console.log(error);
-                },
-                {enableHighAccuracy: false, timeout: 200000, maximumAge: 200000}
-            );
-
-            this.watchID = navigator.geolocation.watchPosition(position => {
+        this.props.actions.startLoading(true);
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
                 let userLocation = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
                 this.props.actions.saveUserLocation(userLocation);
-                this.props.actions.fetchSortingPlaces(userLocation);
-            });
+            },
+            (error) => {
+                console.log(error);
+            },
+            {enableHighAccuracy: false, timeout: 200000, maximumAge: 200000}
+        );
+
+        this.watchID = navigator.geolocation.watchPosition(position => {
+            let userLocation = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            this.props.actions.saveUserLocation(userLocation);
+            this.props.actions.fetchSortingPlaces(userLocation);
+        });
     };
 
     componentWillUnmount() {
@@ -119,8 +119,10 @@ export class MapScreen extends Component {
                                                        latitude: parseFloat(marker.$.lat),
                                                        longitude: parseFloat(marker.$.lng)
                                                    }}>
-                                <Icon name='recycle' style={mainStyle.markerIcon}/>
-                                <MapView.Callout onPress={() => this.openSortingPlaceScreen(marker)}>
+                                <Icon name='recycle'
+                                      style={mainStyle.markerIcon}/>
+                                <MapView.Callout
+                                    onPress={() => this.openSortingPlaceScreen(marker)}>
                                     <View style={mainStyle.markerCallout}>
                                         <Text style={mainStyle.calloutText}>
                                             {marker.$.nimi}
@@ -129,9 +131,12 @@ export class MapScreen extends Component {
                                             {marker.$.osoite}
                                         </Text>
                                         <View style={mainStyle.calloutLink}>
-                                            <Text style={mainStyle.calloutLinkText}>Lisätietoja</Text>
-                                            <BaseIcon style={mainStyle.calloutLinkIcon} ios='ios-arrow-forward'
-                                                  android='md-arrow-forward'/>
+                                            <Text
+                                                style={mainStyle.calloutLinkText}>Lisätietoja</Text>
+                                            <BaseIcon
+                                                style={mainStyle.calloutLinkIcon}
+                                                ios='ios-arrow-forward'
+                                                android='md-arrow-forward'/>
                                         </View>
                                     </View>
                                 </MapView.Callout>
