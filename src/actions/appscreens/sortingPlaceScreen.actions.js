@@ -17,7 +17,6 @@ export const fetchSortingPlaceInfo = siteId => (dispatch, getState) => {
         .then(responseXML => {
             return xml2js.parseString(responseXML, (err, result) => {
                 if (!err) {
-                    console.log("sortingPlaceInfo:", result);
                     dispatch({
                         type: types.FETCH_SORTING_PLACE_INFO,
                         payload: {

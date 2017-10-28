@@ -1,29 +1,31 @@
 import * as types from '../../constants/actionTypes';
 import initialState from '../initialState';
 
-export default function (state = initialState.sortingPlacesInfo, action) {
-    switch (action.type) {
-        case types.FETCH_SORTING_PLACE_INFO:
-            return {
-                ...state,
-                infos: [
-                    ...state,
-                    action.payload.info
-                ],
-                currentPlace: action.payload.info,
-                loading: action.payload.loading
-            };
-            break;
+export const currentPlace = (state = initialState.sortingPlacesInfo.currentPlace, action) =>
+    (action.type === types.UPDATE_CURRENT_PLACE) ?
+        action.payload :
+        state;
 
-        case types.UPDATE_CURRENT_PLACE:
-            return {
-                ...state,
-                currentPlace: action.payload
-            };
-            break;
+export const infos = (state = initialState.sortingPlacesInfo.infos, action) => {
+    if (action.type === types.FETCH_SORTING_PLACE_INFO) {
+        return [
+            ...state,
+            action.payload
+        ]
+    } else {
+        return state;
+    }
+};
+
+export const fetchingInfo = (state = false, action) => {
+    switch(action.type) {
+        case types.START_FETCHING:
+            return true;
+
+        case types.STOP_FETCHING:
+            return false;
 
         default:
             return state;
-            break;
     }
-}
+};

@@ -1,13 +1,14 @@
 export default {
-    selectedCategories: [],
     map: {
         sortingPlaces: [],
-        loading: true
+        selectedCategories: [],
+        userLocation: {},
+        fetching: false
     },
     sortingPlacesInfo: {
         infos: [],
         currentPlace: null,
-        loading: true
+        fetching: false
     },
     errors: []
 }

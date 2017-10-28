@@ -24,12 +24,10 @@ import * as errorActions from '../../actions/error.actions';
 import * as strings from '../../res/strings.json';
 
 export class SortingPlaceScreen extends Component {
-
     componentWillMount() {
         const currentPlace = this.props.sortingPlaces.infos.find(place => {
             return place.paikka_id === this.props.siteId
         });
-        console.log("Sorttaus paikat", this.props.sortingPlaces);
 
         if (!currentPlace) {
             this.props.actions.startLoading(true);
@@ -53,8 +51,6 @@ export class SortingPlaceScreen extends Component {
 
             this.props.errorActions.removeError(nextProps.errors.length - 1);
         }
-
-        console.log("uudet", nextProps);
     }
 
     render() {
