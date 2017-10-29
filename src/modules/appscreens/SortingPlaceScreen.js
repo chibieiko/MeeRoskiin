@@ -30,7 +30,6 @@ export class SortingPlaceScreen extends Component {
         });
 
         if (!currentPlace) {
-            this.props.actions.startLoading(true);
             this.props.actions.fetchSortingPlaceInfo(this.props.siteId);
         } else {
             this.props.actions.updateCurrentPlace(currentPlace);

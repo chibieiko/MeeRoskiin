@@ -40,7 +40,8 @@ export class MapScreen extends Component {
     watchID: ?number = null;
 
     componentWillMount() {
-        this.props.actions.startLoading(true);
+        console.log("loading:", this.props.map.fetchingPlaces);
+
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 let userLocation = {
@@ -145,7 +146,7 @@ export class MapScreen extends Component {
                     }
                 </MapView>
                 <ActivityIndicator
-                    animating={this.props.map.loading}
+                    animating={this.props.map.fetchingPlaces}
                     size="large"
                     style={mainStyle.loadingSpinner}
                 />

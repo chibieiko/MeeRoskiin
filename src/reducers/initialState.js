@@ -3,12 +3,12 @@ export default {
         sortingPlaces: [],
         selectedCategories: [],
         userLocation: {},
-        fetching: false
+        fetchingPlaces: true
     },
     sortingPlacesInfo: {
         infos: [],
         currentPlace: null,
-        fetching: false
+        fetchingInfo: false
     },
     errors: []
 }

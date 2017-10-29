@@ -7,7 +7,7 @@ export const currentPlace = (state = initialState.sortingPlacesInfo.currentPlace
         state;
 
 export const infos = (state = initialState.sortingPlacesInfo.infos, action) => {
-    if (action.type === types.FETCH_SORTING_PLACE_INFO) {
+    if (action.type === types.ADD_SORTING_PLACE_INFO) {
         return [
             ...state,
             action.payload
@@ -19,10 +19,10 @@ export const infos = (state = initialState.sortingPlacesInfo.infos, action) => {
 
 export const fetchingInfo = (state = false, action) => {
     switch(action.type) {
-        case types.START_FETCHING:
+        case types.FETCHING_INFO:
             return true;
 
-        case types.STOP_FETCHING:
+        case types.STOP_FETCHING_INFO:
             return false;
 
         default:

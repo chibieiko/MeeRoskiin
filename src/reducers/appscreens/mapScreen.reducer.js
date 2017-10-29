@@ -7,7 +7,7 @@ export const userLocation = (state = initialState.map.userLocation, action) =>
         state;
 
 export const sortingPlaces = (state = initialState.map.sortingPlaces, action) =>
-    (action.type === types.FETCH_SORTING_PLACES) ?
+    (action.type === types.UPDATE_SORTING_PLACES) ?
         action.payload :
         state;
 
@@ -16,12 +16,12 @@ export const selectedCategories = (state = initialState.map.selectedCategories, 
         action.payload :
         state;
 
-export const fetchingPlaces = (state = false, action) => {
+export const fetchingPlaces = (state = initialState.map.fetchingPlaces, action) => {
     switch(action.type) {
-        case types.START_FETCHING:
+        case types.FETCHING_PLACES:
             return true;
 
-        case types.STOP_FETCHING:
+        case types.STOP_FETCHING_PLACES:
             return false;
 
         default:
