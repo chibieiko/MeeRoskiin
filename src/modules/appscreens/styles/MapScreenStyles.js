@@ -3,6 +3,9 @@ import * as colors from '../../../res/colors.json';
 import * as dimensions from '../../../res/dimensions.json';
 
 export const MapScreenStyles = {
+    screenContainer: {
+        flex: 1
+    },
     mapContainer: {
         flex: 1,
         width: Dimensions.get('window').width,
@@ -37,6 +40,13 @@ export const MapScreenStyles = {
         color: colors.primary,
         marginLeft: 4,
         paddingTop: 2
+    },
+    fab: {
+        backgroundColor: 'white'
+    },
+    fabIcon: {
+        color: colors.primary,
+        fontSize: 30
     },
     loadingSpinner: {
         backgroundColor: 'transparent',

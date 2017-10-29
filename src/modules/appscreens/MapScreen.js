@@ -3,7 +3,8 @@ import MapView from 'react-native-maps';
 import {
     Root,
     Toast,
-    Icon as BaseIcon
+    Icon as BaseIcon,
+    Fab
 } from 'native-base';
 import {
     View,
@@ -103,53 +104,66 @@ export class MapScreen extends Component {
         })
     };
 
+    openCategoryFilter = () => {
+        console.log("I wanna choose categories");
+    };
+
     render() {
         return (
             <Root>
-                <MapView
-                    style={mainStyle.mapContainer}
-                    showsUserLocation
-                    showsMyLocationButton
-                    initialRegion={this.state.region}>
-                    {
-                        this.props.map.sortingPlaces.length > 0 &&
-                        this.props.map.sortingPlaces.map((marker, index) => {
-                            console.log("marker:", marker);
-                            return <MapView.Marker key={index}
-                                                   coordinate={{
-                                                       latitude: parseFloat(marker.$.lat),
-                                                       longitude: parseFloat(marker.$.lng)
-                                                   }}>
-                                <Icon name='recycle'
-                                      style={mainStyle.markerIcon}/>
-                                <MapView.Callout
-                                    onPress={() => this.openSortingPlaceScreen(marker)}>
-                                    <View style={mainStyle.markerCallout}>
-                                        <Text style={mainStyle.calloutText}>
-                                            {marker.$.nimi}
-                                        </Text>
-                                        <Text style={mainStyle.calloutText}>
-                                            {marker.$.osoite}
-                                        </Text>
-                                        <View style={mainStyle.calloutLink}>
-                                            <Text
-                                                style={mainStyle.calloutLinkText}>Lisätietoja</Text>
-                                            <BaseIcon
-                                                style={mainStyle.calloutLinkIcon}
-                                                ios='ios-arrow-forward'
-                                                android='md-arrow-forward'/>
+                <View style={mainStyle.screenContainer}>
+                    <MapView
+                        style={mainStyle.mapContainer}
+                        showsUserLocation
+                        showsMyLocationButton
+                        initialRegion={this.state.region}>
+                        {
+                            this.props.map.sortingPlaces.length > 0 &&
+                            this.props.map.sortingPlaces.map((marker, index) => {
+                                console.log("marker:", marker);
+                                return <MapView.Marker key={index}
+                                                       coordinate={{
+                                                           latitude: parseFloat(marker.$.lat),
+                                                           longitude: parseFloat(marker.$.lng)
+                                                       }}>
+                                    <Icon name='recycle'
+                                          style={mainStyle.markerIcon}/>
+                                    <MapView.Callout
+                                        onPress={() => this.openSortingPlaceScreen(marker)}>
+                                        <View style={mainStyle.markerCallout}>
+                                            <Text style={mainStyle.calloutText}>
+                                                {marker.$.nimi}
+                                            </Text>
+                                            <Text style={mainStyle.calloutText}>
+                                                {marker.$.osoite}
+                                            </Text>
+                                            <View style={mainStyle.calloutLink}>
+                                                <Text
+                                                    style={mainStyle.calloutLinkText}>Lisätietoja</Text>
+                                                <BaseIcon
+                                                    style={mainStyle.calloutLinkIcon}
+                                                    ios='ios-arrow-forward'
+                                                    android='md-arrow-forward'/>
+                                            </View>
                                         </View>
-                                    </View>
-                                </MapView.Callout>
-                            </MapView.Marker>
-                        })
-                    }
-                </MapView>
-                <ActivityIndicator
-                    animating={this.props.map.fetchingPlaces}
-                    size="large"
-                    style={mainStyle.loadingSpinner}
-                />
+                                    </MapView.Callout>
+                                </MapView.Marker>
+                            })
+                        }
+                    </MapView>
+                    <Fab
+                    style={mainStyle.fab}
+                    position='bottomRight'
+                    onPress={this.openCategoryFilter}>
+                        <BaseIcon name='md-list'
+                         style={mainStyle.fabIcon}/>
+                    </Fab>
+                    <ActivityIndicator
+                        animating={this.props.map.fetchingPlaces}
+                        size="large"
+                        style={mainStyle.loadingSpinner}
+                    />
+                </View>
             </Root>
         );
     }
