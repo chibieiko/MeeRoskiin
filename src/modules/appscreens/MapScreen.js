@@ -106,6 +106,12 @@ export class MapScreen extends Component {
 
     openCategoryFilter = () => {
         console.log("I wanna choose categories");
+        this.props.navigator.push({
+            screen: strings.categoryFilterScreen,
+            title: strings.categoryFilterScreenTitle,
+            animated: true,
+            navigatorStyle: globalStyles.navStyle
+        })
     };
 
     render() {

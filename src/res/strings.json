@@ -7,10 +7,13 @@
   "categoryScreen": "meeRoskiin.CategoryScreen",
   "mapScreen": "meeRoskiin.MapScreen",
   "sortingPlaceScreen": "meeRoskiin.SortingPlaceScreen",
+  "categoryFilterScreen": "meeRoskiin.CategoryFilterScreen",
   
   "yesTitle": "Kyllä",
   "noTitle": "Ei",
   "rememberTitle": "Huom",
+
+  "categoryFilterScreenTitle": "Suodata",
 
   "toastButtonText": "OK",
 
