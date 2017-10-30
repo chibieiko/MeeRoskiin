@@ -20,6 +20,7 @@ import {globalStyles} from "../global/styles/globalStyles";
 import * as mapScreenActions from '../../actions/appscreens/mapScreen.actions';
 import * as errorActions from '../../actions/error.actions';
 import * as strings from '../../res/strings.json';
+import {sortingPlaces} from "../../reducers/appscreens/mapScreen.reducer";
 
 export class MapScreen extends Component {
     latitudeDelta = 0.122;
@@ -35,6 +36,7 @@ export class MapScreen extends Component {
                 latitudeDelta: this.latitudeDelta,
                 longitudeDelta: this.longitudeDelta
             },
+            sortingPlaces: []
         }
     }
 
@@ -72,6 +74,10 @@ export class MapScreen extends Component {
     };
 
     componentWillReceiveProps(nextProps) {
+        this.setState({
+            sortingPlaces: nextProps.map.sortingPlaces
+        });
+
         if (nextProps.map.userLocation !== this.props.map.userLocation) {
             this.setState({
                 region: {
@@ -91,6 +97,13 @@ export class MapScreen extends Component {
             });
 
             this.props.errorActions.removeError(nextProps.errors.length - 1);
+        }
+
+        if (nextProps.map.selectedFilters !== this.props.map.selectedFilters && nextProps.map.selectedFilters.length > 3) {
+            // filter sorting places to only include those whose id is in the selected filters list.
+            this.state.sortingPlaces.filter(place => {
+                return nextProps.map.selectedFilters.includes(place.$.paikka_id);
+            })
         }
     }
 
@@ -124,8 +137,8 @@ export class MapScreen extends Component {
                         showsMyLocationButton
                         initialRegion={this.state.region}>
                         {
-                            this.props.map.sortingPlaces.length > 0 &&
-                            this.props.map.sortingPlaces.map((marker, index) => {
+                            this.state.sortingPlaces.length > 0 &&
+                            this.state.sortingPlaces.map((marker, index) => {
                                 console.log("marker:", marker);
                                 return <MapView.Marker key={index}
                                                        coordinate={{
@@ -158,11 +171,11 @@ export class MapScreen extends Component {
                         }
                     </MapView>
                     <Fab
-                    style={mainStyle.fab}
-                    position='bottomRight'
-                    onPress={this.openCategoryFilter}>
+                        style={mainStyle.fab}
+                        position='bottomRight'
+                        onPress={this.openCategoryFilter}>
                         <BaseIcon name='md-list'
-                         style={mainStyle.fabIcon}/>
+                                  style={mainStyle.fabIcon}/>
                     </Fab>
                     <ActivityIndicator
                         animating={this.props.map.fetchingPlaces}

@@ -41,7 +41,7 @@ export class CategoryScreen extends Component {
                                     return <ListItem key={category.id} icon
                                                      style={mainStyle.listItem}
                                                      onPress={() => this.openCategory(category.id)}>
-                                        <Body>
+                                        <Body style={mainStyle.itemBody}>
                                             <Text>
                                                 {category.name}
                                             </Text>

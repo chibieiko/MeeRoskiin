@@ -3,6 +3,8 @@
   "sideMargin": 8,
   "cardMargin": 26,
 
+  "paddingHorizontal": 16,
+
   "fontBig": 20,
   "fontNormal": 16
 }

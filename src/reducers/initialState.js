@@ -1,7 +1,7 @@
 export default {
     map: {
         sortingPlaces: [],
-        selectedCategories: [],
+        selectedFilters: [],
         userLocation: {},
         fetchingPlaces: true
     },

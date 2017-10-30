@@ -12,18 +12,38 @@ export const saveUserLocation = res => {
     }
 };
 
+export const addFilter = id => {
+    return {
+        type: types.ADD_FILTER,
+        payload: id
+    }
+};
+
+export const removeFilter = id => {
+    return {
+        type: types.REMOVE_FILTER,
+        payload: id
+    }
+};
+
 export const fetchSortingPlaces = (userLocation, limit = 1, typeIds = []) => (dispatch, getState) => {
     dispatch({
         type: types.FETCHING_PLACES
     });
 
     let url = api.KIVO_API_URL + '/genxml.php?lat=' + userLocation.lat + '&lng=' + userLocation.lng + '&limit=' + limit;
-    if (typeIds.length > 0) {
-        typeIds.forEach(id => {
-            url += '&type_id=' + id
-        })
-    }
 
+    if (typeIds.length > 0 && typeIds.length <= 3) {
+        typeIds.forEach(id => {
+            url = api.KIVO_API_URL + '/genxml.php?lat=' + userLocation.lat + '&lng=' + userLocation.lng + '&limit=' + 5 + '&type_id=' + id;
+            fetchPlaces(url, dispatch);
+        })
+    } else {
+        fetchPlaces(url, dispatch);
+    }
+};
+
+const fetchPlaces = (url, dispatch) => {
     fetch(url, {
         method: 'GET',
         headers: {
@@ -58,7 +78,7 @@ export const fetchSortingPlaces = (userLocation, limit = 1, typeIds = []) => (di
 
             dispatch({
                 type: types.STOP_FETCHING_PLACES
-            })
+            });
             console.error(error);
         });
 };
