@@ -43,8 +43,7 @@ export class MapScreen extends Component {
     watchID: ?number = null;
 
     componentWillMount() {
-        console.log("loading:", this.props.map.fetchingPlaces);
-
+        console.log("MapScreen will mount");
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 let userLocation = {
@@ -70,14 +69,28 @@ export class MapScreen extends Component {
     };
 
     componentWillUnmount() {
+        console.log("MapScreen will unmount");
         navigator.geolocation.clearWatch(this.watchID)
     };
 
     componentWillReceiveProps(nextProps) {
-        this.setState({
-            sortingPlaces: nextProps.map.sortingPlaces
-        });
+        console.log("MapScreen will receive props", nextProps);
+        // Update state's sortingPlaces.
+        if (nextProps.map.selectedFilters.length > 0) {
+            let places = nextProps.map.sortingPlaces.filter(place => {
+                return nextProps.map.selectedFilters.includes(parseInt(place.$.laji_id));
+            });
 
+            this.setState({
+                sortingPlaces: places
+            });
+        } else {
+            this.setState({
+                sortingPlaces: nextProps.map.sortingPlaces
+            });
+        }
+
+        // Update map region.
         if (nextProps.map.userLocation !== this.props.map.userLocation) {
             this.setState({
                 region: {
@@ -89,6 +102,7 @@ export class MapScreen extends Component {
             })
         }
 
+        // Update errors.
         if (nextProps.errors && nextProps.errors.length > 0) {
             Toast.show({
                 text: nextProps.errors[nextProps.errors.length - 1],
@@ -99,11 +113,9 @@ export class MapScreen extends Component {
             this.props.errorActions.removeError(nextProps.errors.length - 1);
         }
 
-        if (nextProps.map.selectedFilters !== this.props.map.selectedFilters && nextProps.map.selectedFilters.length > 3) {
-            // filter sorting places to only include those whose id is in the selected filters list.
-            this.state.sortingPlaces.filter(place => {
-                return nextProps.map.selectedFilters.includes(place.$.paikka_id);
-            })
+        // Fetch filtered sorting places.
+        if (nextProps.map.selectedFilters !== this.props.map.selectedFilters) {
+            this.props.actions.fetchSortingPlaces(nextProps.map.userLocation);
         }
     }
 
@@ -118,7 +130,6 @@ export class MapScreen extends Component {
     };
 
     openCategoryFilter = () => {
-        console.log("I wanna choose categories");
         this.props.navigator.push({
             screen: strings.categoryFilterScreen,
             title: strings.categoryFilterScreenTitle,
@@ -139,7 +150,6 @@ export class MapScreen extends Component {
                         {
                             this.state.sortingPlaces.length > 0 &&
                             this.state.sortingPlaces.map((marker, index) => {
-                                console.log("marker:", marker);
                                 return <MapView.Marker key={index}
                                                        coordinate={{
                                                            latitude: parseFloat(marker.$.lat),

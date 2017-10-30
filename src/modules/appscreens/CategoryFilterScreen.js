@@ -14,23 +14,27 @@ import {CategoryFilterScreenStyles as mainStyle} from "./styles/CategoryFilterSc
 import * as strings from '../../res/strings.json';
 import * as colors from '../../res/colors.json';
 import * as errorActions from '../../actions/error.actions';
+import * as actions from '../../actions/appscreens/mapScreen.actions';
 import content from '../../categories';
 
 export class CategoryFilterScreen extends Component {
     updateFilters = categoryId => {
         console.log("categoryId", categoryId);
+        this.props.map.selectedFilters.includes(categoryId) ?
+            this.props.actions.removeFilter(categoryId) :
+            this.props.actions.addFilter(categoryId)
     };
 
     render() {
-        console.log("content", content);
         return (
             <Container style={mainStyle.container}>
                 <Content style={mainStyle.content}>
                     {
                         _.sortBy(content.categories, 'name').map(category => {
-                            return <ListItem style={mainStyle.listItem} key={category.id}>
-                                <CheckBox checked={this.props.map.selectedFilters.includes(id => id === category.id)}
-                                onPress={() => this.updateFilters(category.id)}
+                            return <ListItem style={mainStyle.listItem}
+                                             key={category.id}
+                                             onPress={() => this.updateFilters(category.id)}>
+                                <CheckBox checked={this.props.map.selectedFilters.includes(category.id)}
                                 color={colors.primary}/>
                                 <Body>
                                     <Text>{category.name}</Text>
@@ -53,7 +57,8 @@ mapStateToProps = (state, ownProps) => {
 
 mapDispatchToProps = dispatch => {
     return {
-        errorActions: bindActionCreators(errorActions, dispatch)
+        errorActions: bindActionCreators(errorActions, dispatch),
+        actions: bindActionCreators(actions, dispatch)
     }
 };
 

@@ -26,24 +26,13 @@ export const removeFilter = id => {
     }
 };
 
-export const fetchSortingPlaces = (userLocation, limit = 1, typeIds = []) => (dispatch, getState) => {
+export const fetchSortingPlaces = (userLocation, limit = 3) => (dispatch, getState) => {
     dispatch({
         type: types.FETCHING_PLACES
     });
 
     let url = api.KIVO_API_URL + '/genxml.php?lat=' + userLocation.lat + '&lng=' + userLocation.lng + '&limit=' + limit;
 
-    if (typeIds.length > 0 && typeIds.length <= 3) {
-        typeIds.forEach(id => {
-            url = api.KIVO_API_URL + '/genxml.php?lat=' + userLocation.lat + '&lng=' + userLocation.lng + '&limit=' + 5 + '&type_id=' + id;
-            fetchPlaces(url, dispatch);
-        })
-    } else {
-        fetchPlaces(url, dispatch);
-    }
-};
-
-const fetchPlaces = (url, dispatch) => {
     fetch(url, {
         method: 'GET',
         headers: {
@@ -54,6 +43,7 @@ const fetchPlaces = (url, dispatch) => {
         .then(responseXML => {
             return xml2js.parseString(responseXML, (err, result) => {
                 if (!err) {
+                    console.log("fetchResult", result);
                     dispatch({
                         type: types.UPDATE_SORTING_PLACES,
                         payload: result.response.markers[0].marker
