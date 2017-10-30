@@ -14,6 +14,9 @@ import {
     CardItem,
     Toast
 } from 'native-base';
+import {
+    View
+} from 'react-native'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
@@ -25,6 +28,7 @@ import * as strings from '../../res/strings.json';
 
 export class SortingPlaceScreen extends Component {
     componentWillMount() {
+        console.log("mounting sorting palce screen");
         const currentPlace = this.props.sortingPlaces.infos.find(place => {
             return place.paikka_id === this.props.siteId
         });
@@ -41,6 +45,8 @@ export class SortingPlaceScreen extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        console.log("will receive props: ", nextProps);
+
         if (nextProps.errors && nextProps.errors.length > 0) {
             Toast.show({
                 text: nextProps.errors[nextProps.errors.length - 1],
@@ -53,89 +59,88 @@ export class SortingPlaceScreen extends Component {
     }
 
     render() {
+        console.log("info here", this.props.sortingPlaces.currentPlace);
+        const currentPlace = this.props.sortingPlaces.currentPlace;
         return (
             <Container style={mainStyle.container}>
                 <Content style={mainStyle.content}>
-                    <Text>
-                        Sorting place: {this.props.siteId} info here
-                    </Text>
                     {
-                        this.props.sortingPlaces.currentPlace &&
-                        <View>
+                        currentPlace &&
+                        <View style={mainStyle.trashTypeContainer}>
                             {
-                                this.props.sortingPlaces.currentPlace.akut === 1 &&
+                                currentPlace.akut === '1' &&
                                 <Text>Akut</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.bio === 1 &&
+                                currentPlace.bio === '1' &&
                                 <Text>Bio</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.energia === 1 &&
+                                currentPlace.energia === '1' &&
                                 <Text>Energia</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.kartonki === 1 &&
+                                currentPlace.kartonki === '1' &&
                                 <Text>Kartonki</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.kyllastetty === 1 &&
+                                currentPlace.kyllastetty === '1' &&
                                 <Text>Kyllästetty puu</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.lamput === 1 &&
+                                currentPlace.lamput === '1' &&
                                 <Text>Lamput</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.lasi === 1 &&
+                                currentPlace.lasi === '1' &&
                                 <Text>Lasi</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.metalli === 1 &&
+                                currentPlace.metalli === '1' &&
                                 <Text>Metalli</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.muovi === 1 &&
+                                currentPlace.muovi === '1' &&
                                 <Text>Muovi</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.muu === 1 &&
+                                currentPlace.muu === '1' &&
                                 <Text>Muu jäte</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.pahvi === 1 &&
+                                currentPlace.pahvi === '1' &&
                                 <Text>Pahvi</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.paperi === 1 &&
+                                currentPlace.paperi === '1' &&
                                 <Text>Paperi</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.paristot === 1 &&
+                               currentPlace.paristot === '1' &&
                                 <Text>Paristot</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.puu === 1 &&
+                                currentPlace.puu === '1' &&
                                 <Text>Puujäte</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.rakennujate === 1 &&
+                                currentPlace.rakennujate === '1' &&
                                 <Text>Rakennusjäte</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.seka === 1 &&
+                                currentPlace.seka === '1' &&
                                 <Text>Sekajäte</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.ser === 1 &&
+                                currentPlace.ser === '1' &&
                                 <Text>SER</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.tekstiili === 1 &&
+                                currentPlace.tekstiili === '1' &&
                                 <Text>Tekstiili</Text>
-                            },
+                            }
                             {
-                                this.props.sortingPlaces.currentPlace.vaarallinen === 1 &&
+                                currentPlace.vaarallinen === '1' &&
                                 <Text>Vaarallinen jäte</Text>
                             }
                         </View>

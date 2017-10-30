@@ -8,4 +8,7 @@ export const SortingPlaceScreenStyles = {
     content: {
         paddingHorizontal: dimensions.sideMargin
     },
+    trashTypeContainer: {
+        flex: 1
+    }
 };
