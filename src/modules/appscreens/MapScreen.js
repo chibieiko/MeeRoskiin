@@ -43,7 +43,6 @@ export class MapScreen extends Component {
     watchID: ?number = null;
 
     componentWillMount() {
-        console.log("MapScreen will mount");
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 let userLocation = {
@@ -69,12 +68,10 @@ export class MapScreen extends Component {
     };
 
     componentWillUnmount() {
-        console.log("MapScreen will unmount");
         navigator.geolocation.clearWatch(this.watchID)
     };
 
     componentWillReceiveProps(nextProps) {
-        console.log("MapScreen will receive props", nextProps);
         // Update state's sortingPlaces.
         if (nextProps.map.selectedFilters.length > 0) {
             let places = nextProps.map.sortingPlaces.filter(place => {

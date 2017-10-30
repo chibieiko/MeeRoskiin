@@ -43,7 +43,6 @@ export const fetchSortingPlaces = (userLocation, limit = 3) => (dispatch, getSta
         .then(responseXML => {
             return xml2js.parseString(responseXML, (err, result) => {
                 if (!err) {
-                    console.log("fetchResult", result);
                     dispatch({
                         type: types.UPDATE_SORTING_PLACES,
                         payload: result.response.markers[0].marker

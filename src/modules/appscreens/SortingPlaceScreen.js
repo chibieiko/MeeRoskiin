@@ -23,12 +23,13 @@ import {bindActionCreators} from 'redux';
 import {SortingPlaceScreenStyles as mainStyle} from "./styles/SortingPlaceScreenStyles";
 import * as sortingPlaceScreenActions from '../../actions/appscreens/sortingPlaceScreen.actions'
 import * as errorActions from '../../actions/error.actions';
-
 import * as strings from '../../res/strings.json';
+import categoryNames from '../../res/categoryNames';
+import {ExamplesList} from "../global/ExamplesList";
 
 export class SortingPlaceScreen extends Component {
     componentWillMount() {
-        console.log("mounting sorting palce screen");
+        console.log("SortingPlaceScreen mounting");
         const currentPlace = this.props.sortingPlaces.infos.find(place => {
             return place.paikka_id === this.props.siteId
         });
@@ -45,8 +46,6 @@ export class SortingPlaceScreen extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log("will receive props: ", nextProps);
-
         if (nextProps.errors && nextProps.errors.length > 0) {
             Toast.show({
                 text: nextProps.errors[nextProps.errors.length - 1],
@@ -58,8 +57,32 @@ export class SortingPlaceScreen extends Component {
         }
     }
 
+    buildItemList = currentPlace => {
+        if (currentPlace) {
+            // Check if currentPlace accepts trash type and save it's name to types list.
+            let types = Object.keys(currentPlace).filter(key => {
+                return currentPlace[key] === '1' && categoryNames[key];
+            });
+
+            types = types.map(typeKey => categoryNames[typeKey]);
+
+            // Modify data so ExamplesList is happy.
+            const accepts = [
+                {
+                    type: null,
+                    examples: types,
+                }
+            ];
+
+            return <ExamplesList array={accepts}
+                                 title={strings.acceptsTitle}
+                                 androidIcon='md-checkmark'
+                                 iosIcon='ios-checkmark'
+                                 style={mainStyle.positive}/>
+        }
+    };
+
     render() {
-        console.log("info here", this.props.sortingPlaces.currentPlace);
         const currentPlace = this.props.sortingPlaces.currentPlace;
         return (
             <Container style={mainStyle.container}>
@@ -68,80 +91,7 @@ export class SortingPlaceScreen extends Component {
                         currentPlace &&
                         <View style={mainStyle.trashTypeContainer}>
                             {
-                                currentPlace.akut === '1' &&
-                                <Text>Akut</Text>
-                            }
-                            {
-                                currentPlace.bio === '1' &&
-                                <Text>Bio</Text>
-                            }
-                            {
-                                currentPlace.energia === '1' &&
-                                <Text>Energia</Text>
-                            }
-                            {
-                                currentPlace.kartonki === '1' &&
-                                <Text>Kartonki</Text>
-                            }
-                            {
-                                currentPlace.kyllastetty === '1' &&
-                                <Text>Kyllästetty puu</Text>
-                            }
-                            {
-                                currentPlace.lamput === '1' &&
-                                <Text>Lamput</Text>
-                            }
-                            {
-                                currentPlace.lasi === '1' &&
-                                <Text>Lasi</Text>
-                            }
-                            {
-                                currentPlace.metalli === '1' &&
-                                <Text>Metalli</Text>
-                            }
-                            {
-                                currentPlace.muovi === '1' &&
-                                <Text>Muovi</Text>
-                            }
-                            {
-                                currentPlace.muu === '1' &&
-                                <Text>Muu jäte</Text>
-                            }
-                            {
-                                currentPlace.pahvi === '1' &&
-                                <Text>Pahvi</Text>
-                            }
-                            {
-                                currentPlace.paperi === '1' &&
-                                <Text>Paperi</Text>
-                            }
-                            {
-                               currentPlace.paristot === '1' &&
-                                <Text>Paristot</Text>
-                            }
-                            {
-                                currentPlace.puu === '1' &&
-                                <Text>Puujäte</Text>
-                            }
-                            {
-                                currentPlace.rakennujate === '1' &&
-                                <Text>Rakennusjäte</Text>
-                            }
-                            {
-                                currentPlace.seka === '1' &&
-                                <Text>Sekajäte</Text>
-                            }
-                            {
-                                currentPlace.ser === '1' &&
-                                <Text>SER</Text>
-                            }
-                            {
-                                currentPlace.tekstiili === '1' &&
-                                <Text>Tekstiili</Text>
-                            }
-                            {
-                                currentPlace.vaarallinen === '1' &&
-                                <Text>Vaarallinen jäte</Text>
+                                this.buildItemList(currentPlace)
                             }
                         </View>
                     }

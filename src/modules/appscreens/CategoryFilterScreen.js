@@ -15,11 +15,10 @@ import * as strings from '../../res/strings.json';
 import * as colors from '../../res/colors.json';
 import * as errorActions from '../../actions/error.actions';
 import * as actions from '../../actions/appscreens/mapScreen.actions';
-import content from '../../categories';
+import content from '../../res/categories';
 
 export class CategoryFilterScreen extends Component {
     updateFilters = categoryId => {
-        console.log("categoryId", categoryId);
         this.props.map.selectedFilters.includes(categoryId) ?
             this.props.actions.removeFilter(categoryId) :
             this.props.actions.addFilter(categoryId)

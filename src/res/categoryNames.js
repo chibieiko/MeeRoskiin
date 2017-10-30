@@ -1,0 +1,21 @@
+export default {
+    akut: 'Akut',
+    bio: 'Bio- ja puutarhajäte',
+    energia: 'Energiajäte',
+    kartonki: 'Kartonki',
+    kyllastetty: 'Kyllästetty puu',
+    lamput: 'Lamput',
+    lasi: 'Lasi',
+    metalli: 'Metalli',
+    muovi: 'Muovi',
+    muu: 'Muu jäte',
+    pahvi: 'Pahvi',
+    paperi: 'Paperi',
+    paristot: 'Paristot',
+    puu: 'Puu',
+    rakennusjate: 'Rakennus- ja purkujäte',
+    seka: 'Sekajäte',
+    ser: 'Sähkölaitteet (SER)',
+    tekstiili: 'Tekstiili',
+    vaarallinen: 'Vaarallinen jäte'
+}

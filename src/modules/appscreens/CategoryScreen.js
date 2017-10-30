@@ -12,7 +12,7 @@ import {
 } from "native-base";
 
 import {CategoryScreenStyles as mainStyle} from "./styles/CategoryScreenStyles";
-import content from '../../categories';
+import content from '../../res/categories';
 import {globalStyles} from "../global/styles/globalStyles";
 
 import * as strings from '../../res/strings.json';

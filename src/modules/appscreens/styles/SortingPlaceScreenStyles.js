@@ -10,5 +10,8 @@ export const SortingPlaceScreenStyles = {
     },
     trashTypeContainer: {
         flex: 1
-    }
+    },
+    positive: {
+        color: colors.iconPositive
+    },
 };

@@ -15,7 +15,7 @@ import {
 } from "native-base";
 
 import {CategoryInformationScreenStyles as mainStyle} from "./styles/CategoryInformationScreenStyles";
-import content from '../../categories';
+import content from '../../res/categories';
 import {ExamplesList} from '../global/ExamplesList';
 import * as strings from '../../res/strings.json';
 
