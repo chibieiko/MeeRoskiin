@@ -16,7 +16,6 @@ import * as colors from '../../res/colors.json';
 import * as errorActions from '../../actions/error.actions';
 import * as actions from '../../actions/appscreens/mapScreen.actions';
 import content from '../../res/categories';
-import categoryNames from "../../res/categoryNames";
 
 export class CategoryFilterScreen extends Component {
     state = {
@@ -30,6 +29,7 @@ export class CategoryFilterScreen extends Component {
     updateFilters = categoryId => {
         if (this.state.filters.includes(categoryId)) {
             let array = this.state.filters.filter(id => id !== categoryId);
+
             this.setState({
                 filters: array
             })
@@ -39,8 +39,7 @@ export class CategoryFilterScreen extends Component {
 
             this.setState({
                     filters: array
-                },
-                console.log(this.state.filters))
+                })
         }
     };
 
