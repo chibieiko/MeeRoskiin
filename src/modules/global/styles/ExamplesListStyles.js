@@ -1,4 +1,3 @@
-import {StyleSheet} from 'react-native';
 import * as dimensions from '../../../res/dimensions.json';
 
 export const ExamplesListStyles = {

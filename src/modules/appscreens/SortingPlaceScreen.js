@@ -57,7 +57,7 @@ export class SortingPlaceScreen extends Component {
         }
     }
 
-    buildItemList = currentPlace => {
+    buildAcceptsList = currentPlace => {
         if (currentPlace) {
             // Check if currentPlace accepts trash type and save it's name to types list.
             let types = Object.keys(currentPlace).filter(key => {
@@ -86,16 +86,62 @@ export class SortingPlaceScreen extends Component {
         const currentPlace = this.props.sortingPlaces.currentPlace;
         return (
             <Container style={mainStyle.container}>
-                <Content style={mainStyle.content}>
-                    {
-                        currentPlace &&
-                        <View style={mainStyle.trashTypeContainer}>
+                {
+                    currentPlace &&
+                    <Content style={mainStyle.content}>
+
+                        <Card>
+                            <CardItem header style={mainStyle.cardHeader}>
+                                <Text style={mainStyle.cardHeaderText}>
+                                    {strings.basicInformationTitle.toUpperCase()}
+                                </Text>
+                            </CardItem>
+                            <CardItem>
+                                <Body>
+                                <Text>{currentPlace.nimi}</Text>
+                                <Text>{currentPlace.osoite}</Text>
+                                <Text>{currentPlace.paikkakunta}</Text>
+                                {
+                                    currentPlace.yhteys !== "" &&
+                                    <Text>{currentPlace.yhteys}</Text>
+                                }
+                                </Body>
+                            </CardItem>
                             {
-                                this.buildItemList(currentPlace)
+                                currentPlace.kuvaus !== "" &&
+                                <CardItem>
+                                    <Body>
+                                    <Text style={mainStyle.description}>
+                                        {strings.description}
+                                    </Text>
+                                    <Text>{currentPlace.kuvaus}</Text>
+                                    </Body>
+                                </CardItem>
                             }
-                        </View>
-                    }
-                </Content>
+                            <CardItem>
+                                <Body>
+                                <Text style={mainStyle.description}>
+                                    {strings.maintainedBy}
+                                </Text>
+                                <Text>{currentPlace.yllapitaja}</Text>
+                                </Body>
+                            </CardItem>
+
+                        </Card>
+
+                        {
+                            this.buildAcceptsList(currentPlace)
+
+                            /*
+                                Card here for feedback:
+
+                                Anna palautetta
+                                [thumbs up]  [thumbs down]
+                             */
+                        }
+                    </Content>
+                }
+
             </Container>
         );
     }

@@ -8,10 +8,21 @@ export const SortingPlaceScreenStyles = {
     content: {
         paddingHorizontal: dimensions.sideMargin
     },
-    trashTypeContainer: {
-        flex: 1
-    },
     positive: {
         color: colors.iconPositive
     },
+    cardHeader: {
+        flexDirection: 'column',
+        justifyContent: 'center'
+    },
+    cardHeaderText: {
+        fontWeight: 'bold',
+        fontSize: dimensions.fontBig,
+        color: colors.primary
+    },
+    description: {
+        fontSize: dimensions.fontBig,
+        color: colors.primary,
+        marginBottom: 4
+    }
 };
