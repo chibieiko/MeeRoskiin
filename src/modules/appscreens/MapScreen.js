@@ -8,19 +8,20 @@ import {
 } from 'native-base';
 import {
     View,
-    Text
+    Text,
+    Platform
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {ActivityIndicator} from "react-native";
 import {MapScreenStyles as mainStyle} from "./styles/MapScreenStyles";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {globalStyles} from "../global/styles/globalStyles";
+import LocationServicesDialogBox from 'react-native-android-location-services-dialog-box';
 
+import {globalStyles} from "../global/styles/globalStyles";
 import * as mapScreenActions from '../../actions/appscreens/mapScreen.actions';
 import * as errorActions from '../../actions/error.actions';
 import * as strings from '../../res/strings.json';
-import {sortingPlaces} from "../../reducers/appscreens/mapScreen.reducer";
 
 export class MapScreen extends Component {
     latitudeDelta = 0.122;
@@ -42,29 +43,38 @@ export class MapScreen extends Component {
 
     watchID: ?number = null;
 
-    componentWillMount() {
-        navigator.geolocation.getCurrentPosition(
+    watchPosition = () => {
+        this.watchID = navigator.geolocation.watchPosition(
             (position) => {
                 let userLocation = {
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                 };
                 this.props.actions.saveUserLocation(userLocation);
+                this.props.actions.fetchSortingPlaces(userLocation);
             },
             (error) => {
                 console.log(error);
             },
-            {enableHighAccuracy: false, timeout: 200000, maximumAge: 200000}
+            {enableHighAccuracy: false, timeout: 200000, maximumAge: 36000, distanceFilter: 1000}
         );
+    };
 
-        this.watchID = navigator.geolocation.watchPosition(position => {
-            let userLocation = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            this.props.actions.saveUserLocation(userLocation);
-            this.props.actions.fetchSortingPlaces(userLocation);
-        });
+    componentWillMount() {
+        if (Platform.OS === 'android') {
+            LocationServicesDialogBox.checkLocationServicesIsEnabled({
+                message: "<h2>Käytä sijaintia?</h2> Sovellus haluaa käyttää asetuksiasi:<br/><br/>Käytä GPSää, Wi-Fiä ja mobiilidataa sijaintiin",
+                ok: "KÄYTÄ",
+                cancel: "PERUUTA",
+                enableHighAccuracy: false, // true => GPS and network provider, false => only GPS
+                showDialog: true, // false => Opens the Location access page directly.
+                openLocationServices: true // false => Directly catch method is called if location services are turned off
+            }).then(success => {
+                this.watchPosition();
+            })
+        } else {
+            this.watchPosition();
+        }
     };
 
     componentWillUnmount() {
