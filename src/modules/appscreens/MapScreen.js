@@ -63,7 +63,7 @@ export class MapScreen extends Component {
     componentWillMount() {
         if (Platform.OS === 'android') {
             LocationServicesDialogBox.checkLocationServicesIsEnabled({
-                message: "<h2>Käytä sijaintia?</h2> Sovellus haluaa käyttää asetuksiasi:<br/><br/>Käytä GPSää, Wi-Fiä ja mobiilidataa sijaintiin",
+                message: "<h2>Käytä sijaintia?</h2> Sovellus haluaa muuttaa asetuksiasi:<br/><br/>Käytä GPS sijaintia",
                 ok: "KÄYTÄ",
                 cancel: "PERUUTA",
                 enableHighAccuracy: false, // true => GPS and network provider, false => only GPS

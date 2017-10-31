@@ -16,12 +16,32 @@ import * as colors from '../../res/colors.json';
 import * as errorActions from '../../actions/error.actions';
 import * as actions from '../../actions/appscreens/mapScreen.actions';
 import content from '../../res/categories';
+import categoryNames from "../../res/categoryNames";
 
 export class CategoryFilterScreen extends Component {
+    state = {
+        filters: this.props.map.selectedFilters
+    };
+
+    componentWillUnmount() {
+        this.props.actions.updateFilters(this.state.filters);
+    }
+
     updateFilters = categoryId => {
-        this.props.map.selectedFilters.includes(categoryId) ?
-            this.props.actions.removeFilter(categoryId) :
-            this.props.actions.addFilter(categoryId)
+        if (this.state.filters.includes(categoryId)) {
+            let array = this.state.filters.filter(id => id !== categoryId);
+            this.setState({
+                filters: array
+            })
+        } else {
+            let array = [...this.state.filters];
+            array.push(categoryId);
+
+            this.setState({
+                    filters: array
+                },
+                console.log(this.state.filters))
+        }
     };
 
     render() {
@@ -33,10 +53,11 @@ export class CategoryFilterScreen extends Component {
                             return <ListItem style={mainStyle.listItem}
                                              key={category.id}
                                              onPress={() => this.updateFilters(category.id)}>
-                                <CheckBox checked={this.props.map.selectedFilters.includes(category.id)}
-                                color={colors.primary}/>
+                                <CheckBox
+                                    checked={this.state.filters.includes(category.id)}
+                                    color={colors.primary}/>
                                 <Body>
-                                    <Text>{category.name}</Text>
+                                <Text>{category.name}</Text>
                                 </Body>
                             </ListItem>
                         })

@@ -12,17 +12,10 @@ export const saveUserLocation = res => {
     }
 };
 
-export const addFilter = id => {
+export const updateFilters = filterArray => {
     return {
-        type: types.ADD_FILTER,
-        payload: id
-    }
-};
-
-export const removeFilter = id => {
-    return {
-        type: types.REMOVE_FILTER,
-        payload: id
+        type: types.UPDATE_FILTERS,
+        payload: filterArray
     }
 };
 

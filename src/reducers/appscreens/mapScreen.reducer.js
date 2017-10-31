@@ -11,22 +11,10 @@ export const sortingPlaces = (state = initialState.map.sortingPlaces, action) =>
         action.payload :
         state;
 
-export const selectedFilters = (state = initialState.map.selectedFilters, action) => {
-    switch(action.type) {
-        case types.ADD_FILTER:
-            return [
-                ...state,
-                action.payload
-            ];
-
-        case types.REMOVE_FILTER:
-            return state.filter(id => id !== action.payload);
-
-        default:
-            return state;
-    }
-};
-
+export const selectedFilters = (state = initialState.map.selectedFilters, action) =>
+    (action.type === types.UPDATE_FILTERS) ?
+        action.payload :
+        state;
 
 export const fetchingPlaces = (state = initialState.map.fetchingPlaces, action) => {
     switch(action.type) {
