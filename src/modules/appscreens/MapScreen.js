@@ -31,14 +31,16 @@ export class MapScreen extends Component {
         super(props);
         this.state = {
             showToast: false,
-            region: {
+            region: new MapView.AnimatedRegion({
                 latitude: 61.49911,
                 longitude: 23.78712,
                 latitudeDelta: this.latitudeDelta,
                 longitudeDelta: this.longitudeDelta
-            },
+            }),
             sortingPlaces: []
-        }
+        };
+
+        this.mapRef = null;
     }
 
     watchID: ?number = null;
@@ -100,12 +102,12 @@ export class MapScreen extends Component {
         // Update map region.
         if (nextProps.map.userLocation !== this.props.map.userLocation) {
             this.setState({
-                region: {
+                region: new MapView.AnimatedRegion({
                     latitude: nextProps.map.userLocation.lat,
                     longitude: nextProps.map.userLocation.lng,
                     latitudeDelta: this.latitudeDelta,
                     longitudeDelta: this.longitudeDelta
-                }
+                })
             })
         }
 
@@ -140,15 +142,24 @@ export class MapScreen extends Component {
         })
     };
 
+    fitToMarkerCoordinates = () => {
+        const coordinatesArray = this.state.sortingPlaces.map(marker => {
+
+        });
+        this.mapRef.fitToCoordinates()
+    };
+
     render() {
         return (
             <Root>
                 <View style={mainStyle.screenContainer}>
-                    <MapView
+                    <MapView.Animated
+                        ref={ref => {this.mapRef = ref}}
                         style={mainStyle.mapContainer}
                         showsUserLocation
                         showsMyLocationButton
-                        initialRegion={this.state.region}>
+                        InitialRegion={this.state.region}
+                    onLayout={this.fitToMarkerCoordinates}>
                         {
                             this.state.sortingPlaces.length > 0 &&
                             this.state.sortingPlaces.map((marker, index) => {
@@ -181,7 +192,7 @@ export class MapScreen extends Component {
                                 </MapView.Marker>
                             })
                         }
-                    </MapView>
+                    </MapView.Animated>
                     <Fab
                         style={mainStyle.fab}
                         position='bottomRight'
