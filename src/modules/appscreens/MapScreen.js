@@ -60,7 +60,7 @@ export class MapScreen extends Component {
         );
     };
 
-    componentWillMount() {
+    componentDidMount() {
         if (Platform.OS === 'android') {
             LocationServicesDialogBox.checkLocationServicesIsEnabled({
                 message: "<h2>Käytä sijaintia?</h2> Sovellus haluaa muuttaa asetuksiasi:<br/><br/>Käytä GPS sijaintia",
@@ -83,7 +83,7 @@ export class MapScreen extends Component {
 
     componentWillReceiveProps(nextProps) {
         // Update state's sortingPlaces.
-        if (nextProps.map.selectedFilters.length > 0) {
+        if (nextProps.map.selectedFilters.length > 0 && nextProps.map.selectedFilters !== this.props.map.selectedFilters) {
             let places = nextProps.map.sortingPlaces.filter(place => {
                 return nextProps.map.selectedFilters.includes(parseInt(place.$.laji_id));
             });
@@ -118,11 +118,6 @@ export class MapScreen extends Component {
             });
 
             this.props.errorActions.removeError(nextProps.errors.length - 1);
-        }
-
-        // Fetch filtered sorting places.
-        if (nextProps.map.selectedFilters !== this.props.map.selectedFilters) {
-            this.props.actions.fetchSortingPlaces(nextProps.map.userLocation);
         }
     }
 

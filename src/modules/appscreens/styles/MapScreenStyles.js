@@ -24,12 +24,14 @@ export const MapScreenStyles = {
     calloutText: {
         color: colors.textDark,
         fontSize: dimensions.fontNormal,
-        padding: 4
+        padding: 2
     },
     calloutLink: {
         flexDirection: 'row',
         alignItems: 'center',
-        padding: 4
+        paddingHorizontal: 2,
+        paddingTop: 8,
+        paddingBottom: 2
     },
     calloutLinkText: {
         color: colors.primary,
