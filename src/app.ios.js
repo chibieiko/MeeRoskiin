@@ -15,16 +15,12 @@ const store = configureStore();
 registerScreens(store, Provider);
 
 const navigatorStyle = {
-    statusBarColor: colors.primaryDark,
     navigationBarColor: 'black',
     navBarBackgroundColor: colors.primary,
     navBarTextColor: colors.textLight,
     navBarButtonColor: colors.textLight,
     statusBarTextColorScheme: 'light',
-    navBarHidden: true,
-    tabBarButtonColor: colors.primaryLight,
-    tabBarSelectedButtonColor: colors.primary,
-    tabBarBackgroundColor: colors.primary
+    navBarHidden: false
 };
 
 let listIcon;
@@ -35,7 +31,6 @@ export default class App extends Component{
         super(props);
 
         this.loadIcons().then(() => {
-            console.log('icons loaded');
             this.startApp();
         }).catch(error => {
             console.error(error);
@@ -65,23 +60,22 @@ export default class App extends Component{
             tabs: [
                 {
                     label: strings.categoryTab,
-                    screen: 'app.CategoryScreen',
+                    screen: strings.categoryScreen,
                     title: strings.title,
                     icon: listIcon,
                     navigatorStyle
                 },
                 {
                     label: strings.mapTab,
-                    screen: 'app.MapScreen',
+                    screen: strings.mapScreen,
                     title: strings.title,
                     icon: mapIcon,
                     navigatorStyle
                 }
             ],
             tabsStyle: {
-                tabBarBackgroundColor: colors.primary,
-                tabBarButtonColor: colors.textSecondary,
-                tabBarSelectedButtonColor: colors.textLight
+                tabBarBackgroundColor: colors.backgroundColor,
+                tabBarSelectedButtonColor: colors.primary
             }
         });
     }

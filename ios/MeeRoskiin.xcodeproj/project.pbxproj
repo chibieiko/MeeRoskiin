@@ -578,6 +578,17 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		3C112E311FA8D145005C7E30 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				3BB575CB84114405B7A28C8E /* libReactNativeConfig.a */,
+				331BADD1013840CA8AF2CC21 /* libAirMaps.a */,
+				D8DA55561DE54E0DB56F1893 /* libReactNativeNavigation.a */,
+				8FD55A2C086B48809655DCB5 /* libRNVectorIcons.a */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		3C4B138C1F8EAE3B00EC55EC /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -669,6 +680,7 @@
 				00E356EF1AD99517003FC87E /* MeeRoskiinTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				37F4EA56B5004DA2A868587E /* Resources */,
+				3C112E311FA8D145005C7E30 /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -782,6 +794,10 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 54HZHYU282;
+						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1345,8 +1361,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 54HZHYU282;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)..",
@@ -1369,6 +1388,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = MeeRoskiin;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1377,7 +1397,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 54HZHYU282;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)..",
@@ -1400,6 +1423,7 @@
 					"-lc++",
 				);
 				PRODUCT_NAME = MeeRoskiin;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
