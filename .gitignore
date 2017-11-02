@@ -27,9 +27,11 @@ project.xcworkspace
 build/
 .idea
 .gradle
+
+/android/gradle.properties
+
 local.properties
 *.iml
-gradle.properties
 
 # node.js
 #
