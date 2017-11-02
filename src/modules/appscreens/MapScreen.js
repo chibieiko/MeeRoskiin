@@ -24,19 +24,23 @@ import * as errorActions from '../../actions/error.actions';
 import * as strings from '../../res/strings.json';
 
 export class MapScreen extends Component {
-    latitudeDelta = 0.122;
-    longitudeDelta = 0.021;
+    latitudeDelta = 4.5;
+    longitudeDelta = 4.5;
 
     constructor(props) {
         super(props);
+
+
+        const initialRegion = {
+            latitude: 71.49911,
+            longitude: 23.78712,
+            latitudeDelta: this.latitudeDelta,
+            longitudeDelta: this.longitudeDelta
+        };
+
         this.state = {
             showToast: false,
-            region: new MapView.AnimatedRegion({
-                latitude: 61.49911,
-                longitude: 23.78712,
-                latitudeDelta: this.latitudeDelta,
-                longitudeDelta: this.longitudeDelta
-            }),
+            region: initialRegion,
             sortingPlaces: []
         };
 
@@ -58,7 +62,12 @@ export class MapScreen extends Component {
             (error) => {
                 console.log(error);
             },
-            {enableHighAccuracy: false, timeout: 200000, maximumAge: 36000, distanceFilter: 1000}
+            {
+                enableHighAccuracy: false,
+                timeout: 200000,
+                maximumAge: 36000,
+                distanceFilter: 2000
+            }
         );
     };
 
@@ -90,24 +99,24 @@ export class MapScreen extends Component {
                 return nextProps.map.selectedFilters.includes(parseInt(place.$.laji_id));
             });
 
+            this.fitToMarkerCoordinates(places);
             this.setState({
                 sortingPlaces: places
             });
         } else {
+            this.fitToMarkerCoordinates(nextProps.map.sortingPlaces);
             this.setState({
                 sortingPlaces: nextProps.map.sortingPlaces
             });
         }
 
-        // Update map region.
+        // Update map region to user's location.
         if (nextProps.map.userLocation !== this.props.map.userLocation) {
-            this.setState({
-                region: new MapView.AnimatedRegion({
-                    latitude: nextProps.map.userLocation.lat,
-                    longitude: nextProps.map.userLocation.lng,
-                    latitudeDelta: this.latitudeDelta,
-                    longitudeDelta: this.longitudeDelta
-                })
+            this.mapRef.animateToRegion({
+                latitude: nextProps.map.userLocation.lat,
+                longitude: nextProps.map.userLocation.lng,
+                latitudeDelta: this.latitudeDelta,
+                longitudeDelta: this.longitudeDelta
             })
         }
 
@@ -142,24 +151,38 @@ export class MapScreen extends Component {
         })
     };
 
-    fitToMarkerCoordinates = () => {
-        const coordinatesArray = this.state.sortingPlaces.map(marker => {
-
-        });
-        this.mapRef.fitToCoordinates()
+    fitToMarkerCoordinates = places => {
+        if (places.length > 0) {
+            const coordinatesArray = places.map(marker => {
+                return {
+                    latitude: parseFloat(marker.$.lat),
+                    longitude: parseFloat(marker.$.lng)
+                }
+            });
+            coordinatesArray.push({
+                latitude: this.props.map.userLocation.lat,
+                longitude: this.props.map.userLocation.lng
+            });
+            this.mapRef.fitToCoordinates(coordinatesArray,
+                {
+                    animated: true, edgePadding: mainStyle.edgepadding
+                }
+            )
+        }
     };
 
     render() {
         return (
             <Root>
                 <View style={mainStyle.screenContainer}>
-                    <MapView.Animated
-                        ref={ref => {this.mapRef = ref}}
+                    <MapView
+                        ref={ref => {
+                            this.mapRef = ref
+                        }}
                         style={mainStyle.mapContainer}
                         showsUserLocation
                         showsMyLocationButton
-                        InitialRegion={this.state.region}
-                    onLayout={this.fitToMarkerCoordinates}>
+                        initialRegion={this.state.region}>
                         {
                             this.state.sortingPlaces.length > 0 &&
                             this.state.sortingPlaces.map((marker, index) => {
@@ -192,7 +215,7 @@ export class MapScreen extends Component {
                                 </MapView.Marker>
                             })
                         }
-                    </MapView.Animated>
+                    </MapView>
                     <Fab
                         style={mainStyle.fab}
                         position='bottomRight'
