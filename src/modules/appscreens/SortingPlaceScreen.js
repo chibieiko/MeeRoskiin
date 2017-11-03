@@ -12,11 +12,13 @@ import {
     Body,
     Card,
     CardItem,
-    Toast
-} from 'native-base';
-import {
+    Toast,
+    Form,
+    Item,
+    Input,
+    Picker,
     View
-} from 'react-native'
+} from 'native-base';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
@@ -28,8 +30,14 @@ import categoryNames from '../../res/categoryNames';
 import {ExamplesList} from "../global/ExamplesList";
 
 export class SortingPlaceScreen extends Component {
+    state = {
+        selectedType: null,
+        rate: 1,
+        comment: "",
+        types: []
+    };
+
     componentWillMount() {
-        console.log("SortingPlaceScreen mounting");
         const currentPlace = this.props.sortingPlaces.infos.find(place => {
             return place.paikka_id === this.props.siteId
         });
@@ -46,6 +54,22 @@ export class SortingPlaceScreen extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        if (nextProps.sortingPlaces.currentPlace !== this.props.sortingPlaces.currentPlace) {
+            // Check which trash types currentPlace accepts and save it's key to types list
+            const types = Object.keys(nextProps.sortingPlaces.currentPlace).filter(key => {
+                return nextProps.sortingPlaces.currentPlace[key] === '1' && categoryNames[key];
+            });
+
+            const typeObjects = types.map(typeKey =>
+                categoryNames[typeKey]
+            );
+
+            this.setState({
+                types: typeObjects,
+                selectedType: typeObjects[0].id
+            })
+        }
+
         if (nextProps.errors && nextProps.errors.length > 0) {
             Toast.show({
                 text: nextProps.errors[nextProps.errors.length - 1],
@@ -57,20 +81,21 @@ export class SortingPlaceScreen extends Component {
         }
     }
 
-    buildAcceptsList = currentPlace => {
-        if (currentPlace) {
-            // Check if currentPlace accepts trash type and save it's name to types list.
-            let types = Object.keys(currentPlace).filter(key => {
-                return currentPlace[key] === '1' && categoryNames[key];
-            });
+    onValueChange(value) {
+        this.setState({
+            selectedType: value
+        })
+    };
 
-            types = types.map(typeKey => categoryNames[typeKey]);
+    buildAcceptsList = currentPlace => {
+        if (currentPlace && this.state.types) {
+            const typeNames = this.state.types.map(type => type.name);
 
             // Modify data so ExamplesList is happy.
             const accepts = [
                 {
                     type: null,
-                    examples: types,
+                    examples: typeNames,
                 }
             ];
 
@@ -131,14 +156,45 @@ export class SortingPlaceScreen extends Component {
 
                         {
                             this.buildAcceptsList(currentPlace)
-
-                            /*
-                                Card here for feedback:
-
-                                Anna palautetta
-                                [thumbs up]  [thumbs down]
-                             */
                         }
+
+                        {
+                            this.state.selectedType &&
+                            <Card>
+                                <CardItem header style={mainStyle.cardHeader}>
+                                    <Text style={mainStyle.cardHeaderText}>
+                                        {strings.feedbackTitle.toUpperCase()}
+                                    </Text>
+                                </CardItem>
+                                <CardItem>
+                                    <View style={mainStyle.formWrapper}>
+                                        <Form style={mainStyle.form}>
+                                            <Picker
+                                                iosHeader='palaute koskee'
+                                                mode='dropdown'
+                                                selectedValue={this.state.selectedType}
+                                                onValueChange={this.onValueChange.bind(this)}>
+                                                {
+                                                    this.state.types.map((type, index) => {
+                                                        return <Item
+                                                            key={index}
+                                                            label={type.name}
+                                                            value={type.id}/>
+                                                    })
+                                                }
+                                            </Picker>
+
+                                            <Item style={mainStyle.textInput}>
+                                                <Input
+                                                    placeholder={strings.feedbackPlaceHolder}/>
+                                            </Item>
+                                        </Form>
+                                    </View>
+
+                                </CardItem>
+                            </Card>
+                        }
+
                     </Content>
                 }
 

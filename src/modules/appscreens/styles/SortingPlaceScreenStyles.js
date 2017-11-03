@@ -24,5 +24,14 @@ export const SortingPlaceScreenStyles = {
         fontSize: dimensions.fontBig,
         color: colors.primary,
         marginBottom: 4
+    },
+    formWrapper: {
+        flex: 1
+    },
+    form: {
+        alignSelf: 'stretch'
+    },
+    textInput: {
+        marginLeft: 0
     }
 };

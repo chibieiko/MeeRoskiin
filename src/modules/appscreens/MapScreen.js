@@ -32,7 +32,7 @@ export class MapScreen extends Component {
 
 
         const initialRegion = {
-            latitude: 71.49911,
+            latitude: 61.49911,
             longitude: 23.78712,
             latitudeDelta: this.latitudeDelta,
             longitudeDelta: this.longitudeDelta
