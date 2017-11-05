@@ -33,5 +33,20 @@ export const SortingPlaceScreenStyles = {
     },
     textInput: {
         marginLeft: 0
+    },
+    likeContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginVertical: 32
+    },
+    feedbackButton: {
+        backgroundColor: colors.primary,
+        flex: 1,
+        marginHorizontal: 4,
+        flexDirection: 'row',
+        justifyContent: 'center'
+    },
+    nonActiveButton: {
+        backgroundColor: colors.textSecondary
     }
 };

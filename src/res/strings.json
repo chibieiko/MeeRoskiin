@@ -16,7 +16,9 @@
   "acceptsTitle": "Vastaanottaa",
   "basicInformationTitle": "Yhteystiedot",
   "feedbackTitle": "Anna palautetta",
-  "feedbackPlaceHolder": "Kirjoita palautteesi tähän",
+  "feedbackPlaceHolder": "Kirjoita palautteesi tähän (max. 255 merkkiä)",
+  "feedbackIosPickerHeader": "Palaute koskee",
+  "feedbackSend": "Lähetä",
   "description": "Kuvaus",
   "maintainedBy": "Ylläpitäjä",
 

@@ -17,7 +17,8 @@ import {
     Item,
     Input,
     Picker,
-    View
+    View,
+    Button
 } from 'native-base';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -31,9 +32,17 @@ import {ExamplesList} from "../global/ExamplesList";
 
 export class SortingPlaceScreen extends Component {
     state = {
+        fields: [
+            {
+                name: 'rate',
+                value: 1
+            },
+            {
+                name: 'comment',
+                value: ''
+            }
+        ],
         selectedType: null,
-        rate: 1,
-        comment: "",
         types: []
     };
 
@@ -85,6 +94,35 @@ export class SortingPlaceScreen extends Component {
         this.setState({
             selectedType: value
         })
+    };
+
+    onChange = (value, key) => {
+        let fields = this.state.fields.map(field => {
+            if (field.name === key) {
+                field.value = value
+            }
+
+            return field;
+        });
+
+        this.setState({
+            fields: fields
+        })
+    };
+
+    defineActiveButton = value => {
+        let active = false;
+        this.state.fields.forEach(field => {
+            if (field.name === 'rate' && field.value === value) {
+                active = true;
+            }
+        });
+
+        return active;
+    };
+
+    sendFeedback = () => {
+        console.log(this.state);
     };
 
     buildAcceptsList = currentPlace => {
@@ -170,7 +208,7 @@ export class SortingPlaceScreen extends Component {
                                     <View style={mainStyle.formWrapper}>
                                         <Form style={mainStyle.form}>
                                             <Picker
-                                                iosHeader='palaute koskee'
+                                                iosHeader={strings.feedbackIosPickerHeader}
                                                 mode='dropdown'
                                                 selectedValue={this.state.selectedType}
                                                 onValueChange={this.onValueChange.bind(this)}>
@@ -184,10 +222,42 @@ export class SortingPlaceScreen extends Component {
                                                 }
                                             </Picker>
 
+                                            <View
+                                                style={mainStyle.likeContainer}>
+                                                <Button
+                                                    onPress={() => this.onChange(1, 'rate')}
+                                                    style={this.defineActiveButton(1) ? mainStyle.feedbackButton : [mainStyle.feedbackButton, mainStyle.nonActiveButton]}>
+                                                    <Icon android='md-thumbs-up'
+                                                          ios='ios-thumbs-up'/>
+                                                </Button>
+                                                <Button
+                                                    onPress={() => this.onChange(0, 'rate')}
+                                                    style={this.defineActiveButton(0) ? mainStyle.feedbackButton : [mainStyle.feedbackButton, mainStyle.nonActiveButton]}>
+                                                    <Icon
+                                                        android='md-thumbs-down'
+                                                        ios='ios-thumbs-down'/>
+                                                </Button>
+                                            </View>
+
                                             <Item style={mainStyle.textInput}>
                                                 <Input
-                                                    placeholder={strings.feedbackPlaceHolder}/>
+                                                    placeholder={strings.feedbackPlaceHolder}
+                                                    onChangeText={text => this.onChange(text, 'comment')}
+                                                    autoCapitalize='sentences'
+                                                    maxLength={255}
+                                                />
                                             </Item>
+
+                                            <View
+                                                style={mainStyle.likeContainer}>
+                                                <Button
+                                                    style={mainStyle.feedbackButton}
+                                                    onPress={this.sendFeedback}>
+                                                    <Text>
+                                                        {strings.feedbackSend}
+                                                    </Text>
+                                                </Button>
+                                            </View>
                                         </Form>
                                     </View>
 

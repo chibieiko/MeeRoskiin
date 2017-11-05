@@ -94,7 +94,7 @@ export class MapScreen extends Component {
 
     componentWillReceiveProps(nextProps) {
         // Update state's sortingPlaces.
-        if (nextProps.map.selectedFilters.length > 0 && nextProps.map.selectedFilters !== this.props.map.selectedFilters) {
+        if (nextProps.map.selectedFilters.length > 0) {
             let places = nextProps.map.sortingPlaces.filter(place => {
                 return nextProps.map.selectedFilters.includes(parseInt(place.$.laji_id));
             });
