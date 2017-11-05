@@ -22,6 +22,7 @@ import {
 } from 'native-base';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import xml2js from 'react-native-xml2js';
 
 import {SortingPlaceScreenStyles as mainStyle} from "./styles/SortingPlaceScreenStyles";
 import * as sortingPlaceScreenActions from '../../actions/appscreens/sortingPlaceScreen.actions'
@@ -29,6 +30,7 @@ import * as errorActions from '../../actions/error.actions';
 import * as strings from '../../res/strings.json';
 import categoryNames from '../../res/categoryNames';
 import {ExamplesList} from "../global/ExamplesList";
+import * as api from '../../constants/api';
 
 export class SortingPlaceScreen extends Component {
     state = {
@@ -122,7 +124,52 @@ export class SortingPlaceScreen extends Component {
     };
 
     sendFeedback = () => {
-        console.log(this.state);
+        let comment = '';
+        let rate = 1;
+
+        this.state.fields.forEach(field => {
+            if (field.name === 'comment') {
+                comment = field.value;
+            } else {
+                rate = field.value
+            }
+        });
+
+        let url = api.KIVO_API_URL + '/rating.php?site_id=' + this.props.siteId + '&type_id=' + this.state.selectedType + '&rate=' + rate + '&comment=' + comment;
+        console.log("url", url);
+
+        fetch(url, {
+            method: 'GET',
+        })
+            .then(response => response.text())
+            .then(responseXML => {
+                return xml2js.parseString(responseXML, (err, result) => {
+                    if (!err && result.response.status[0] === 'ok') {
+                        console.log('feedback result', result);
+
+                        this.setState({
+                            fields: [
+                                {
+                                    name: 'rate',
+                                    value: 1
+                                },
+                                {
+                                    name: 'comment',
+                                    value: ''
+                                }
+                            ]
+                        })
+                        // todo snackbar with thanks
+                    } else {
+                        // todo snackbar with error
+                        console.error(err);
+                    }
+                })
+            })
+            .catch(error => {
+                // todo snackbar with error
+                console.error(error);
+            });
     };
 
     buildAcceptsList = currentPlace => {
@@ -231,8 +278,8 @@ export class SortingPlaceScreen extends Component {
                                                           ios='ios-thumbs-up'/>
                                                 </Button>
                                                 <Button
-                                                    onPress={() => this.onChange(0, 'rate')}
-                                                    style={this.defineActiveButton(0) ? mainStyle.feedbackButton : [mainStyle.feedbackButton, mainStyle.nonActiveButton]}>
+                                                    onPress={() => this.onChange(-1, 'rate')}
+                                                    style={this.defineActiveButton(-1) ? mainStyle.feedbackButton : [mainStyle.feedbackButton, mainStyle.nonActiveButton]}>
                                                     <Icon
                                                         android='md-thumbs-down'
                                                         ios='ios-thumbs-down'/>
@@ -242,6 +289,7 @@ export class SortingPlaceScreen extends Component {
                                             <Item style={mainStyle.textInput}>
                                                 <Input
                                                     placeholder={strings.feedbackPlaceHolder}
+                                                    value={this.defineActiveButton()}
                                                     onChangeText={text => this.onChange(text, 'comment')}
                                                     autoCapitalize='sentences'
                                                     maxLength={255}

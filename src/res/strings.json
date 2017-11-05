@@ -28,5 +28,6 @@
 
   "locationFetchFailed": "Sijainnin saaminen epäonnistui",
   "fetchSortingPlaceFailed": "Lajittelupaikkojen haku epäonnistui",
-  "fetchSortingPlaceInfoFailed": "Lajittelupaikan tietojen haku epäonnistui"
+  "fetchSortingPlaceInfoFailed": "Lajittelupaikan tietojen haku epäonnistui",
+  "sendFeedbackFailed": "Palautteen lähettäminen epäonnistui"
 }
