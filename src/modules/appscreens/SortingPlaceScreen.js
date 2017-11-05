@@ -34,16 +34,15 @@ import * as api from '../../constants/api';
 
 export class SortingPlaceScreen extends Component {
     state = {
-        fields: [
-            {
-                name: 'rate',
+        fields: {
+            rate: {
                 value: 1
             },
-            {
-                name: 'comment',
-                value: ''
+            comment: {
+                value: '',
+                placeHolder: strings.feedbackPlaceHolder
             }
-        ],
+        },
         selectedType: null,
         types: []
     };
@@ -99,12 +98,12 @@ export class SortingPlaceScreen extends Component {
     };
 
     onChange = (value, key) => {
-        let fields = this.state.fields.map(field => {
-            if (field.name === key) {
-                field.value = value
-            }
+        let fields = this.state.fields;
 
-            return field;
+        Object.keys(fields).forEach(fieldKey => {
+            if (fieldKey === key) {
+                fields[fieldKey].value = value;
+            }
         });
 
         this.setState({
@@ -112,30 +111,11 @@ export class SortingPlaceScreen extends Component {
         })
     };
 
-    defineActiveButton = value => {
-        let active = false;
-        this.state.fields.forEach(field => {
-            if (field.name === 'rate' && field.value === value) {
-                active = true;
-            }
-        });
-
-        return active;
-    };
-
     sendFeedback = () => {
-        let comment = '';
-        let rate = 1;
-
-        this.state.fields.forEach(field => {
-            if (field.name === 'comment') {
-                comment = field.value;
-            } else {
-                rate = field.value
-            }
-        });
-
-        let url = api.KIVO_API_URL + '/rating.php?site_id=' + this.props.siteId + '&type_id=' + this.state.selectedType + '&rate=' + rate + '&comment=' + comment;
+        let url = api.KIVO_API_URL + '/rating.php?site_id=' + this.props.siteId +
+            '&type_id=' + this.state.selectedType +
+            '&rate=' + this.state.fields.rate.value +
+            '&comment=' + this.state.fields.comment.value;
         console.log("url", url);
 
         fetch(url, {
@@ -145,19 +125,17 @@ export class SortingPlaceScreen extends Component {
             .then(responseXML => {
                 return xml2js.parseString(responseXML, (err, result) => {
                     if (!err && result.response.status[0] === 'ok') {
-                        console.log('feedback result', result);
-
+                        // todo clear comment
                         this.setState({
-                            fields: [
-                                {
-                                    name: 'rate',
+                            fields: {
+                                rate: {
                                     value: 1
                                 },
-                                {
-                                    name: 'comment',
-                                    value: ''
+                                comment: {
+                                    value: '',
+                                    placeHolder: strings.feedbackPlaceHolder
                                 }
-                            ]
+                            }
                         })
                         // todo snackbar with thanks
                     } else {
@@ -273,13 +251,13 @@ export class SortingPlaceScreen extends Component {
                                                 style={mainStyle.likeContainer}>
                                                 <Button
                                                     onPress={() => this.onChange(1, 'rate')}
-                                                    style={this.defineActiveButton(1) ? mainStyle.feedbackButton : [mainStyle.feedbackButton, mainStyle.nonActiveButton]}>
+                                                    style={this.state.fields.rate.value === 1 ? mainStyle.feedbackButton : [mainStyle.feedbackButton, mainStyle.nonActiveButton]}>
                                                     <Icon android='md-thumbs-up'
                                                           ios='ios-thumbs-up'/>
                                                 </Button>
                                                 <Button
                                                     onPress={() => this.onChange(-1, 'rate')}
-                                                    style={this.defineActiveButton(-1) ? mainStyle.feedbackButton : [mainStyle.feedbackButton, mainStyle.nonActiveButton]}>
+                                                    style={this.state.fields.rate.value === -1 ? mainStyle.feedbackButton : [mainStyle.feedbackButton, mainStyle.nonActiveButton]}>
                                                     <Icon
                                                         android='md-thumbs-down'
                                                         ios='ios-thumbs-down'/>
@@ -289,7 +267,7 @@ export class SortingPlaceScreen extends Component {
                                             <Item style={mainStyle.textInput}>
                                                 <Input
                                                     placeholder={strings.feedbackPlaceHolder}
-                                                    value={this.defineActiveButton()}
+                                                    value={this.state.fields.comment.value}
                                                     onChangeText={text => this.onChange(text, 'comment')}
                                                     autoCapitalize='sentences'
                                                     maxLength={255}
