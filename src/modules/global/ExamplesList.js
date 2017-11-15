@@ -6,7 +6,7 @@ import {
     List,
     ListItem,
     Text,
-    Icon,
+    Icon as BaseIcon,
     Right,
     Left,
     Body,
@@ -14,6 +14,7 @@ import {
     CardItem,
 } from "native-base";
 import {View} from "react-native";
+import Icon from 'react-native-vector-icons/Octicons';
 
 import {ExamplesListStyles as mainStyle} from "./styles/ExamplesListStyles";
 
@@ -44,10 +45,6 @@ export class ExamplesList extends Component {
                                 item.examples && item.examples.map((example, i) => {
                                     return <CardItem key={index + i}
                                                      style={mainStyle.example}>
-                                        <Icon active
-                                              android={this.props.androidIcon}
-                                              ios={this.props.iosIcon}
-                                              style={styleProp}/>
                                         {
                                             Array.isArray(example) ?
                                                 <List>
@@ -56,14 +53,24 @@ export class ExamplesList extends Component {
                                                             return <ListItem
                                                                 key={index + i + j}
                                                                 style={mainStyle.listItem}>
-                                                                <Text>{value}</Text>
+                                                                <Icon
+                                                                    name='primitive-dot'
+                                                                    style={styleProp}/>
+                                                                <Text style={mainStyle.innerExample}>{value}</Text>
                                                             </ListItem>
                                                         })
                                                     }
                                                 </List>
                                                 :
-                                                <Text
-                                                    style={mainStyle.example}>{example}</Text>
+                                                <View
+                                                    style={mainStyle.itemContainer}>
+                                                    <BaseIcon active
+                                                              android={this.props.androidIcon}
+                                                              ios={this.props.iosIcon}
+                                                              style={styleProp}/>
+                                                    <Text
+                                                        style={mainStyle.example}>{example}</Text>
+                                                </View>
                                         }
                                     </CardItem>
                                 })

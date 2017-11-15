@@ -92,8 +92,8 @@ export default {
                     examples: [
                         "Nuolikolmion sisällä olevalla numerotunnuksella 01, 02, 04, 05 ja 06 merkityt muovit",
                         "Nuolikolmion sisällä olevalla numerotunnuksella 07 merkityt pakkausmuovit",
+                        "Esimerkiksi seuraavat tuotteet:",
                         [
-                            "Esimerkiksi seuraavat tuotteet:",
                             "Elintarvikkeiden, kuten juustojen ja leikkeleiden, muovikääreet",
                             "Elintarvikkeiden muoviset pakkaukset huuhdeltuina, kuten kuten viili- ja jogurttipurkit, voi- ja margariinirasiat",
                             "Kiriste- ja kutistemuovit",

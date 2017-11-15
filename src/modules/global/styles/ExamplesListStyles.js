@@ -10,6 +10,14 @@ export const ExamplesListStyles = {
     example: {
         paddingRight: dimensions.cardMargin
     },
+    innerExample: {
+        marginLeft: 4
+    },
+    itemContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        marginRight: 4
+    },
     cardHeader: {
         flexDirection: 'column',
         justifyContent: 'center'
