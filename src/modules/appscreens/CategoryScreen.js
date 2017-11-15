@@ -8,7 +8,10 @@ import {
     Text,
     Icon,
     Right,
-    Body
+    Body,
+    Root,
+    Button,
+    Toast
 } from "native-base";
 
 import {CategoryScreenStyles as mainStyle} from "./styles/CategoryScreenStyles";
@@ -32,31 +35,31 @@ export class CategoryScreen extends Component {
 
     render() {
         return (
-            <Container style={mainStyle.container}>
-                <Content>
-                    <List>
-                        {
-                            _.sortBy(content.categories, 'name').map(category => {
-                                if (category.showOnCategoryPage) {
-                                    return <ListItem key={category.id} icon
-                                                     style={mainStyle.listItem}
-                                                     onPress={() => this.openCategory(category.id)}>
-                                        <Body style={mainStyle.itemBody}>
+                <Container style={mainStyle.container}>
+                    <Content>
+                        <List>
+                            {
+                                _.sortBy(content.categories, 'name').map(category => {
+                                    if (category.showOnCategoryPage) {
+                                        return <ListItem key={category.id} icon
+                                                         style={mainStyle.listItem}
+                                                         onPress={() => this.openCategory(category.id)}>
+                                            <Body style={mainStyle.itemBody}>
                                             <Text>
                                                 {category.name}
                                             </Text>
-                                        </Body>
-                                        <Right>
-                                            <Icon ios='ios-arrow-forward'
-                                                  android='md-arrow-forward'/>
-                                        </Right>
-                                    </ListItem>
-                                }
-                            })
-                        }
-                    </List>
-                </Content>
-            </Container>
+                                            </Body>
+                                            <Right>
+                                                <Icon ios='ios-arrow-forward'
+                                                      android='md-arrow-forward'/>
+                                            </Right>
+                                        </ListItem>
+                                    }
+                                })
+                            }
+                        </List>
+                    </Content>
+                </Container>
         );
     }
 }

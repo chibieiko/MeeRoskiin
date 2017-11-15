@@ -12,7 +12,6 @@ import {
     Body,
     Card,
     CardItem,
-    Toast,
     Form,
     Item,
     Input,
@@ -20,6 +19,7 @@ import {
     View,
     Button
 } from 'native-base';
+import Snackbar from 'react-native-snackbar';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import xml2js from 'react-native-xml2js';
@@ -44,7 +44,8 @@ export class SortingPlaceScreen extends Component {
             }
         },
         selectedType: null,
-        types: []
+        types: [],
+        showToast: false
     };
 
     componentWillMount() {
@@ -81,10 +82,12 @@ export class SortingPlaceScreen extends Component {
         }
 
         if (nextProps.errors && nextProps.errors.length > 0) {
-            Toast.show({
-                text: nextProps.errors[nextProps.errors.length - 1],
-                position: 'bottom',
-                buttonText: strings.toastButtonText
+            Snackbar.show({
+                title: nextProps.errors[nextProps.errors.length - 1],
+                duration: Snackbar.LENGTH_LONG,
+                action: {
+                    title: strings.snackbarButtonText
+                }
             });
 
             this.props.errorActions.removeError(nextProps.errors.length - 1);
@@ -116,7 +119,6 @@ export class SortingPlaceScreen extends Component {
             '&type_id=' + this.state.selectedType +
             '&rate=' + this.state.fields.rate.value +
             '&comment=' + this.state.fields.comment.value;
-        console.log("url", url);
 
         fetch(url, {
             method: 'GET',
@@ -125,7 +127,6 @@ export class SortingPlaceScreen extends Component {
             .then(responseXML => {
                 return xml2js.parseString(responseXML, (err, result) => {
                     if (!err && result.response.status[0] === 'ok') {
-                        // todo clear comment
                         this.setState({
                             fields: {
                                 rate: {
@@ -136,16 +137,20 @@ export class SortingPlaceScreen extends Component {
                                     placeHolder: strings.feedbackPlaceHolder
                                 }
                             }
+                        });
+
+                        Snackbar.show({
+                            title: strings.thankYouForFeedback,
+                            duration: Snackbar.LENGTH_LONG
                         })
-                        // todo snackbar with thanks
                     } else {
-                        // todo snackbar with error
+                        this.props.errorActions.addError(strings.sendFeedbackFailed);
                         console.error(err);
                     }
                 })
             })
             .catch(error => {
-                // todo snackbar with error
+                this.props.errorActions.addError(strings.sendFeedbackFailed);
                 console.error(error);
             });
     };
@@ -179,7 +184,8 @@ export class SortingPlaceScreen extends Component {
                     <Content style={mainStyle.content}>
 
                         <Card>
-                            <CardItem header style={mainStyle.cardHeader}>
+                            <CardItem header
+                                      style={mainStyle.cardHeader}>
                                 <Text style={mainStyle.cardHeaderText}>
                                     {strings.basicInformationTitle.toUpperCase()}
                                 </Text>
@@ -224,8 +230,10 @@ export class SortingPlaceScreen extends Component {
                         {
                             this.state.selectedType &&
                             <Card>
-                                <CardItem header style={mainStyle.cardHeader}>
-                                    <Text style={mainStyle.cardHeaderText}>
+                                <CardItem header
+                                          style={mainStyle.cardHeader}>
+                                    <Text
+                                        style={mainStyle.cardHeaderText}>
                                         {strings.feedbackTitle.toUpperCase()}
                                     </Text>
                                 </CardItem>
@@ -252,8 +260,9 @@ export class SortingPlaceScreen extends Component {
                                                 <Button
                                                     onPress={() => this.onChange(1, 'rate')}
                                                     style={this.state.fields.rate.value === 1 ? mainStyle.feedbackButton : [mainStyle.feedbackButton, mainStyle.nonActiveButton]}>
-                                                    <Icon android='md-thumbs-up'
-                                                          ios='ios-thumbs-up'/>
+                                                    <Icon
+                                                        android='md-thumbs-up'
+                                                        ios='ios-thumbs-up'/>
                                                 </Button>
                                                 <Button
                                                     onPress={() => this.onChange(-1, 'rate')}
@@ -264,13 +273,16 @@ export class SortingPlaceScreen extends Component {
                                                 </Button>
                                             </View>
 
-                                            <Item style={mainStyle.textInput}>
+                                            <Item
+                                                style={mainStyle.textInput}>
                                                 <Input
                                                     placeholder={strings.feedbackPlaceHolder}
                                                     value={this.state.fields.comment.value}
                                                     onChangeText={text => this.onChange(text, 'comment')}
                                                     autoCapitalize='sentences'
                                                     maxLength={255}
+                                                    returnKeyType='go'
+                                                    onSubmitEditing={this.sendFeedback}
                                                 />
                                             </Item>
 
@@ -290,10 +302,8 @@ export class SortingPlaceScreen extends Component {
                                 </CardItem>
                             </Card>
                         }
-
                     </Content>
                 }
-
             </Container>
         );
     }

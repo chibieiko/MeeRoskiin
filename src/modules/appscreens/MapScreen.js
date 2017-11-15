@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
 import MapView from 'react-native-maps';
 import {
-    Root,
-    Toast,
     Icon as BaseIcon,
-    Fab
+    Fab,
+    Button
 } from 'native-base';
 import {
     View,
     Text,
     Platform
 } from 'react-native';
+import Snackbar from 'react-native-snackbar';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {ActivityIndicator} from "react-native";
 import {MapScreenStyles as mainStyle} from "./styles/MapScreenStyles";
@@ -29,7 +29,6 @@ export class MapScreen extends Component {
 
     constructor(props) {
         super(props);
-
 
         const initialRegion = {
             latitude: 61.49911,
@@ -74,9 +73,9 @@ export class MapScreen extends Component {
     componentDidMount() {
         if (Platform.OS === 'android') {
             LocationServicesDialogBox.checkLocationServicesIsEnabled({
-                message: "<h2>Käytä sijaintia?</h2> Sovellus haluaa muuttaa asetuksiasi:<br/><br/>Käytä GPS sijaintia",
-                ok: "KÄYTÄ",
-                cancel: "PERUUTA",
+                message: strings.gpsWanted,
+                ok: strings.use,
+                cancel: strings.cancel,
                 enableHighAccuracy: false, // true => GPS and network provider, false => only GPS
                 showDialog: true, // false => Opens the Location access page directly.
                 openLocationServices: true // false => Directly catch method is called if location services are turned off
@@ -122,10 +121,12 @@ export class MapScreen extends Component {
 
         // Update errors.
         if (nextProps.errors && nextProps.errors.length > 0) {
-            Toast.show({
-                text: nextProps.errors[nextProps.errors.length - 1],
-                position: 'bottom',
-                buttonText: strings.toastButtonText
+            Snackbar.show({
+                title: nextProps.errors[nextProps.errors.length - 1],
+                duration: Snackbar.LENGTH_LONG,
+                action: {
+                    title: strings.snackbarButtonText
+                }
             });
 
             this.props.errorActions.removeError(nextProps.errors.length - 1);
@@ -173,63 +174,61 @@ export class MapScreen extends Component {
 
     render() {
         return (
-            <Root>
-                <View style={mainStyle.screenContainer}>
-                    <MapView
-                        ref={ref => {
-                            this.mapRef = ref
-                        }}
-                        style={mainStyle.mapContainer}
-                        showsUserLocation
-                        showsMyLocationButton
-                        initialRegion={this.state.region}>
-                        {
-                            this.state.sortingPlaces.length > 0 &&
-                            this.state.sortingPlaces.map((marker, index) => {
-                                return <MapView.Marker key={index}
-                                                       coordinate={{
-                                                           latitude: parseFloat(marker.$.lat),
-                                                           longitude: parseFloat(marker.$.lng)
-                                                       }}>
-                                    <Icon name='recycle'
-                                          style={mainStyle.markerIcon}/>
-                                    <MapView.Callout
-                                        onPress={() => this.openSortingPlaceScreen(marker)}>
-                                        <View style={mainStyle.markerCallout}>
-                                            <Text style={mainStyle.calloutText}>
-                                                {marker.$.nimi}
-                                            </Text>
-                                            <Text style={mainStyle.calloutText}>
-                                                {marker.$.osoite}
-                                            </Text>
-                                            <View style={mainStyle.calloutLink}>
-                                                <Text
-                                                    style={mainStyle.calloutLinkText}>Lisätietoja</Text>
-                                                <BaseIcon
-                                                    style={mainStyle.calloutLinkIcon}
-                                                    ios='ios-arrow-forward'
-                                                    android='md-arrow-forward'/>
-                                            </View>
+            <View style={mainStyle.screenContainer}>
+                <MapView
+                    ref={ref => {
+                        this.mapRef = ref
+                    }}
+                    style={mainStyle.mapContainer}
+                    showsUserLocation
+                    showsMyLocationButton
+                    initialRegion={this.state.region}>
+                    {
+                        this.state.sortingPlaces.length > 0 &&
+                        this.state.sortingPlaces.map((marker, index) => {
+                            return <MapView.Marker key={index}
+                                                   coordinate={{
+                                                       latitude: parseFloat(marker.$.lat),
+                                                       longitude: parseFloat(marker.$.lng)
+                                                   }}>
+                                <Icon name='recycle'
+                                      style={mainStyle.markerIcon}/>
+                                <MapView.Callout
+                                    onPress={() => this.openSortingPlaceScreen(marker)}>
+                                    <View style={mainStyle.markerCallout}>
+                                        <Text style={mainStyle.calloutText}>
+                                            {marker.$.nimi}
+                                        </Text>
+                                        <Text style={mainStyle.calloutText}>
+                                            {marker.$.osoite}
+                                        </Text>
+                                        <View style={mainStyle.calloutLink}>
+                                            <Text
+                                                style={mainStyle.calloutLinkText}>Lisätietoja</Text>
+                                            <BaseIcon
+                                                style={mainStyle.calloutLinkIcon}
+                                                ios='ios-arrow-forward'
+                                                android='md-arrow-forward'/>
                                         </View>
-                                    </MapView.Callout>
-                                </MapView.Marker>
-                            })
-                        }
-                    </MapView>
-                    <Fab
-                        style={mainStyle.fab}
-                        position='bottomRight'
-                        onPress={this.openCategoryFilter}>
-                        <BaseIcon name='md-list'
-                                  style={mainStyle.fabIcon}/>
-                    </Fab>
-                    <ActivityIndicator
-                        animating={this.props.map.fetchingPlaces}
-                        size="large"
-                        style={mainStyle.loadingSpinner}
-                    />
-                </View>
-            </Root>
+                                    </View>
+                                </MapView.Callout>
+                            </MapView.Marker>
+                        })
+                    }
+                </MapView>
+                <Fab
+                    style={mainStyle.fab}
+                    position='bottomRight'
+                    onPress={this.openCategoryFilter}>
+                    <BaseIcon name='md-list'
+                              style={mainStyle.fabIcon}/>
+                </Fab>
+                <ActivityIndicator
+                    animating={this.props.map.fetchingPlaces}
+                    size="large"
+                    style={mainStyle.loadingSpinner}
+                />
+            </View>
         );
     }
 }

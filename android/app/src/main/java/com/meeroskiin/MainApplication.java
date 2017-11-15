@@ -3,6 +3,7 @@ package com.meeroskiin;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.azendoo.reactnativesnackbar.SnackbarPackage;
 import com.showlocationservicesdialogbox.LocationServicesDialogBoxPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
@@ -31,7 +32,8 @@ public class MainApplication extends NavigationApplication {
                 new VectorIconsPackage(),
                 new MapsPackage(),
                 new ReactNativeConfigPackage(),
-                new LocationServicesDialogBoxPackage()
+                new LocationServicesDialogBoxPackage(),
+                new SnackbarPackage()
           );
         }
       };
@@ -43,7 +45,8 @@ public class MainApplication extends NavigationApplication {
               new MapsPackage(),
               new ReactNativeConfigPackage(),
               new VectorIconsPackage(),
-              new LocationServicesDialogBoxPackage()
+              new LocationServicesDialogBoxPackage(),
+              new SnackbarPackage()
           );
      }
 

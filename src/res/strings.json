@@ -13,6 +13,10 @@
   "noTitle": "Ei",
   "rememberTitle": "Huom",
 
+  "gpsWanted": "<h2>Käytä sijaintia?</h2> Sovellus haluaa muuttaa asetuksiasi:<br/><br/>Käytä GPS sijaintia",
+  "use": "KÄYTÄ",
+  "cancel": "PERUUTA",
+
   "acceptsTitle": "Vastaanottaa",
   "basicInformationTitle": "Yhteystiedot",
   "feedbackTitle": "Anna palautetta",
@@ -22,9 +26,11 @@
   "description": "Kuvaus",
   "maintainedBy": "Ylläpitäjä",
 
+  "thankYouForFeedback": "Kiitos palautteesta!",
+
   "categoryFilterScreenTitle": "Suodata paikkoja",
 
-  "toastButtonText": "OK",
+  "snackbarButtonText": "OK",
 
   "locationFetchFailed": "Sijainnin saaminen epäonnistui",
   "fetchSortingPlaceFailed": "Lajittelupaikkojen haku epäonnistui",
