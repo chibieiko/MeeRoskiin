@@ -57,9 +57,9 @@ export const MapScreenStyles = {
         left: Dimensions.get('window').width / 2 - 18
     },
     edgepadding: {
-        top: 5,
-        bottom: 5,
-        left: 5,
-        right: 5
+        top: 20,
+        bottom: 20,
+        left: 20,
+        right: 20
     }
 };

@@ -9,7 +9,6 @@ import {
     Icon as BaseIcon,
     Right,
     Left,
-    Body,
     Card,
     CardItem,
 } from "native-base";

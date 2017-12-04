@@ -8,6 +8,7 @@
   "mapScreen": "meeRoskiin.MapScreen",
   "sortingPlaceScreen": "meeRoskiin.SortingPlaceScreen",
   "categoryFilterScreen": "meeRoskiin.CategoryFilterScreen",
+  "settingsScreen": "meeRoskiin.SettingsScreen",
   
   "yesTitle": "Kyllä",
   "noTitle": "Ei",
@@ -16,6 +17,8 @@
   "gpsWanted": "<h2>Käytä sijaintia?</h2> Sovellus haluaa muuttaa asetuksiasi:<br/><br/>Käytä GPS sijaintia",
   "use": "KÄYTÄ",
   "cancel": "PERUUTA",
+
+  "settingsTitle": "Tietoja",
 
   "acceptsTitle": "Vastaanottaa",
   "basicInformationTitle": "Yhteystiedot",

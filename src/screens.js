@@ -7,6 +7,7 @@ import MapScreen from "./modules/appscreens/MapScreen";
 import {CategoryInformationScreen} from "./modules/appscreens/CategoryInformationScreen";
 import SortingPlaceScreen from "./modules/appscreens/SortingPlaceScreen";
 import CategoryFilterScreen from "./modules/appscreens/CategoryFilterScreen";
+import SettingsScreen from "./modules/appscreens/SettingsScreen";
 
 import * as strings from './res/strings.json';
 
@@ -16,4 +17,5 @@ export function registerScreens(store, Provider) {
     Navigation.registerComponent(strings.mapScreen, () => MapScreen, store, Provider);
     Navigation.registerComponent(strings.sortingPlaceScreen, () => SortingPlaceScreen, store, Provider);
     Navigation.registerComponent(strings.categoryFilterScreen, () => CategoryFilterScreen, store, Provider);
+    Navigation.registerComponent(strings.settingsScreen, () => SettingsScreen, store, Provider);
 }

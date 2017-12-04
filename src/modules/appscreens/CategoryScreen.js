@@ -13,14 +13,45 @@ import {
     Button,
     Toast
 } from "native-base";
+import entypo from 'react-native-vector-icons/Entypo';
 
 import {CategoryScreenStyles as mainStyle} from "./styles/CategoryScreenStyles";
 import content from '../../res/categories';
 import {globalStyles} from "../global/styles/globalStyles";
 
 import * as strings from '../../res/strings.json';
+import * as colors from '../../res/colors.json';
 
 export class CategoryScreen extends Component {
+    static navigatorButtons = {
+        rightButtons: [
+            {
+                title: strings.settingsTitle,
+                id: 'settings',
+                buttonColor: colors.backgroundColor,
+                buttonFontSize: '14'
+            }
+        ]
+    };
+
+    constructor(props) {
+        super(props);
+        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+    }
+
+    onNavigatorEvent(event) {
+        if (event.type === 'NavBarButtonPress') {
+            if (event.id === 'settings') {
+                this.props.navigator.push({
+                    screen: strings.settingsScreen,
+                    title: strings.settingsTitle,
+                    animated: true,
+                    navigatorStyle: globalStyles.navStyle
+                })
+            }
+        }
+    }
+
     openCategory = id => {
         let category = content.categories.find(category => category.id === id);
 
