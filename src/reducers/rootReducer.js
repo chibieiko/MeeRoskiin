@@ -1,14 +1,25 @@
 import {combineReducers} from 'redux';
-import {userLocation, sortingPlaces, selectedFilters, fetchingPlaces} from './appscreens/mapScreen.reducer';
+import {
+    userLocation,
+    sortingPlaces,
+    selectedFilters,
+    fetchingPlaces,
+    numberOfPlacesToShowPerCategory
+} from './appscreens/mapScreen.reducer';
 import {errors} from './error.reducer';
-import {currentPlace, infos, fetchingInfo} from './appscreens/sortingPlaceScreen.reducer';
+import {
+    currentPlace,
+    infos,
+    fetchingInfo
+} from './appscreens/sortingPlaceScreen.reducer';
 
 const rootReducer = combineReducers({
     map: combineReducers({
         userLocation,
         sortingPlaces,
         selectedFilters,
-        fetchingPlaces
+        fetchingPlaces,
+        numberOfPlacesToShowPerCategory
     }),
     sortingPlacesInfo: combineReducers({
         currentPlace,

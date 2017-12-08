@@ -19,6 +19,13 @@ export const updateFilters = filterArray => {
     }
 };
 
+export const updateNumberOfPlacesShown = num => {
+    return {
+        type: types.UPDATE_NUMBER_OF_PLACES,
+        payload: num
+    }
+};
+
 export const fetchSortingPlaces = (userLocation, limit = 3) => (dispatch, getState) => {
     dispatch({
         type: types.FETCHING_PLACES

@@ -16,6 +16,11 @@ export const selectedFilters = (state = initialState.map.selectedFilters, action
         action.payload :
         state;
 
+export const numberOfPlacesToShowPerCategory = (state = initialState.map.numberOfPlacesToShowPerCategory, action) =>
+    (action.type === types.UPDATE_NUMBER_OF_PLACES) ?
+        action.payload :
+        state;
+
 export const fetchingPlaces = (state = initialState.map.fetchingPlaces, action) => {
     switch(action.type) {
         case types.FETCHING_PLACES:

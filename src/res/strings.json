@@ -19,6 +19,9 @@
   "cancel": "PERUUTA",
 
   "settingsTitle": "Tietoja",
+  "information": "Tietoa",
+  "licences": "Lisenssit",
+  "setNumberOfSortingPlaces": "Kuinka monta yksittäistä lajittelupaikkaa per kategoria näytetään?",
 
   "acceptsTitle": "Vastaanottaa",
   "basicInformationTitle": "Yhteystiedot",

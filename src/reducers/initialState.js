@@ -3,7 +3,8 @@ export default {
         sortingPlaces: [],
         selectedFilters: [],
         userLocation: {},
-        fetchingPlaces: true
+        fetchingPlaces: true,
+        numberOfPlacesToShowPerCategory: 3
     },
     sortingPlacesInfo: {
         infos: [],
