@@ -9,6 +9,8 @@
   "sortingPlaceScreen": "meeRoskiin.SortingPlaceScreen",
   "categoryFilterScreen": "meeRoskiin.CategoryFilterScreen",
   "settingsScreen": "meeRoskiin.SettingsScreen",
+  "infoScreen": "meeRoskiin.InfoScreen",
+  "licenseScreen": "meeRoskiin.LicenceScreen",
   
   "yesTitle": "Kyllä",
   "noTitle": "Ei",
@@ -18,7 +20,7 @@
   "use": "KÄYTÄ",
   "cancel": "PERUUTA",
 
-  "settingsTitle": "Tietoja",
+  "settingsTitle": "Asetukset",
   "information": "Tietoa",
   "licences": "Lisenssit",
   "setNumberOfSortingPlaces": "Kuinka monta yksittäistä lajittelupaikkaa per kategoria näytetään?",

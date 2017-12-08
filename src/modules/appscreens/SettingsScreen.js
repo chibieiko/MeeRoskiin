@@ -18,6 +18,7 @@ import * as errorActions from '../../actions/error.actions';
 import * as actions from '../../actions/appscreens/mapScreen.actions';
 import * as strings from '../../res/strings.json';
 import * as dimensions from '../../res/dimensions.json';
+import {globalStyles} from "../global/styles/globalStyles";
 
 export class SettingsScreen extends Component {
     state = {
@@ -34,14 +35,24 @@ export class SettingsScreen extends Component {
         this.props.actions.updateNumberOfPlacesShown(this.state.numberOfPlaces);
     }
 
+    openScreen = (screen, title) => {
+        this.props.navigator.push({
+            screen: screen,
+            title: title,
+            animated: true,
+            navigatorStyle: globalStyles.navStyle
+        })
+    };
+
     render() {
-        console.log(this.state.numberOfPlaces);
         return (
             <Container style={mainStyle.container}>
                 <Content>
                     <View style={mainStyle.infoContainer}>
                         <List>
-                            <ListItem style={mainStyle.listItem} icon>
+                            <ListItem style={mainStyle.listItem}
+                                      icon
+                                      onPress={() => this.openScreen(strings.licenseScreen, strings.licences)}>
                                 <Body style={mainStyle.itemBody}>
                                 <Text>{strings.licences}</Text>
                                 </Body>
@@ -50,7 +61,9 @@ export class SettingsScreen extends Component {
                                           android='md-arrow-forward'/>
                                 </Right>
                             </ListItem>
-                            <ListItem style={mainStyle.listItem} icon>
+                            <ListItem style={mainStyle.listItem}
+                                      icon
+                                      onPress={() => this.openScreen(strings.infoScreen, strings.information)}>
                                 <Body style={mainStyle.itemBody}>
                                 <Text>{strings.information}</Text>
                                 </Body>

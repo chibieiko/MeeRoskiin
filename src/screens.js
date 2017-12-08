@@ -8,6 +8,8 @@ import {CategoryInformationScreen} from "./modules/appscreens/CategoryInformatio
 import SortingPlaceScreen from "./modules/appscreens/SortingPlaceScreen";
 import CategoryFilterScreen from "./modules/appscreens/CategoryFilterScreen";
 import SettingsScreen from "./modules/appscreens/SettingsScreen";
+import InfoScreen from './modules/appscreens/InfoScreen';
+import LicenseScreen from './modules/appscreens/LicenceScreen';
 
 import * as strings from './res/strings.json';
 
@@ -18,4 +20,6 @@ export function registerScreens(store, Provider) {
     Navigation.registerComponent(strings.sortingPlaceScreen, () => SortingPlaceScreen, store, Provider);
     Navigation.registerComponent(strings.categoryFilterScreen, () => CategoryFilterScreen, store, Provider);
     Navigation.registerComponent(strings.settingsScreen, () => SettingsScreen, store, Provider);
+    Navigation.registerComponent(strings.infoScreen, () => InfoScreen, store, Provider);
+    Navigation.registerComponent(strings.licenseScreen, () => LicenseScreen, store, Provider);
 }
