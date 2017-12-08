@@ -56,7 +56,7 @@ export class MapScreen extends Component {
                     lng: position.coords.longitude
                 };
                 this.props.actions.saveUserLocation(userLocation);
-                this.props.actions.fetchSortingPlaces(userLocation);
+                this.props.actions.fetchSortingPlaces(userLocation, this.props.map.numberOfPlacesToShowPerCategory);
             },
             (error) => {
                 console.log(error);
@@ -107,6 +107,10 @@ export class MapScreen extends Component {
             this.setState({
                 sortingPlaces: nextProps.map.sortingPlaces
             });
+        }
+
+        if (nextProps.map.numberOfPlacesToShowPerCategory !== this.props.map.numberOfPlacesToShowPerCategory) {
+            this.props.actions.fetchSortingPlaces(nextProps.map.userLocation, nextProps.map.numberOfPlacesToShowPerCategory)
         }
 
         // Update map region to user's location.

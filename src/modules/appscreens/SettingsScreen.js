@@ -13,22 +13,32 @@ import {View, Slider} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {CategoryFilterScreenStyles as mainStyle} from "./styles/CategoryFilterScreenStyles";
+import {SettingsScreenStyles as mainStyle} from "./styles/SettingsScreenStyles";
 import * as errorActions from '../../actions/error.actions';
 import * as actions from '../../actions/appscreens/mapScreen.actions';
 import * as strings from '../../res/strings.json';
 import * as dimensions from '../../res/dimensions.json';
 
 export class SettingsScreen extends Component {
-    updateNumberOfPlacesShown = (value) => {
-        console.log("new value: ", value);
-        this.props.actions.updateNumberOfPlacesShown(value);
+    state = {
+        numberOfPlaces: this.props.map.numberOfPlacesToShowPerCategory
     };
 
+    updateNumberOfPlacesShown = value => {
+        this.setState({
+            numberOfPlaces: value
+        });
+    };
+
+    componentWillUnmount() {
+        this.props.actions.updateNumberOfPlacesShown(this.state.numberOfPlaces);
+    }
+
     render() {
+        console.log(this.state.numberOfPlaces);
         return (
             <Container style={mainStyle.container}>
-                <Content style={mainStyle.content}>
+                <Content>
                     <View style={mainStyle.infoContainer}>
                         <List>
                             <ListItem style={mainStyle.listItem} icon>
@@ -55,13 +65,16 @@ export class SettingsScreen extends Component {
                         <Text>
                             {strings.setNumberOfSortingPlaces}
                         </Text>
+                        <Text style={mainStyle.sliderValue}>
+                            {this.state.numberOfPlaces}
+                        </Text>
                         <Slider
                             style={mainStyle.slider}
                             minimumValue={dimensions.sliderMinValue}
                             maximumValue={dimensions.sliderMaxValue}
                             onSlidingComplete={this.updateNumberOfPlacesShown}
                             step={dimensions.sliderStep}
-                            value={this.props.map.numberOfPlacesToShowPerCategory}
+                            value={this.state.numberOfPlaces}
                         />
                     </View>
                 </Content>
