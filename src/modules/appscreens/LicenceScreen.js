@@ -23,7 +23,7 @@ export default class LicenseScreen extends Component {
                     {
                         licences.map((license, index) => {
                             return <View key={index} style={mainStyle.textView}>
-                                <Text style={mainStyle.title}>
+                                <Text style={mainStyle.title} selectable>
                                     {license.title}
                                 </Text>
                                 <MyText>
@@ -54,7 +54,7 @@ export default class LicenseScreen extends Component {
 
 class MyText extends Component {
     render() {
-        return <Text style={mainStyle.myText}>{this.props.children}</Text>
+        return <Text selectable style={mainStyle.myText}>{this.props.children}</Text>
     }
 }
 

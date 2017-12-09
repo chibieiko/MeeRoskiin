@@ -18,10 +18,10 @@ export default class InfoScreen extends Component {
         return (
             <Container style={mainStyle.container}>
                 <Content>
-                    <Text style={mainStyle.text}>
+                    <Text style={mainStyle.text} selectable>
                         {strings.recyclingInfo}
                     </Text>
-                    <Text>
+                    <Text selectable>
                         {strings.sortingPlaceInfo}
                     </Text>
                 </Content>

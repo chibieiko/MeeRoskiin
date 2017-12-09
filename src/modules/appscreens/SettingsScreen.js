@@ -85,7 +85,7 @@ export class SettingsScreen extends Component {
                             style={mainStyle.slider}
                             minimumValue={dimensions.sliderMinValue}
                             maximumValue={dimensions.sliderMaxValue}
-                            onSlidingComplete={this.updateNumberOfPlacesShown}
+                            onValueChange={this.updateNumberOfPlacesShown}
                             step={dimensions.sliderStep}
                             value={this.state.numberOfPlaces}
                         />

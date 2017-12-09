@@ -23,7 +23,7 @@
   "settingsTitle": "Asetukset",
   "information": "Tietoa",
   "licences": "Lisenssit",
-  "setNumberOfSortingPlaces": "Kuinka monta yksittäistä lajittelupaikkaa per kategoria näytetään?",
+  "setNumberOfSortingPlaces": "Kuinka monta lähintä lajittelupaikkaa per kategoria näytetään?",
   "recyclingInfo": "Sovelluksen kierrätykseen liittyvä tieto on peräisin KIVO:n sivulta https://www.kierratys.info",
   "sortingPlaceInfo": "Kierrätyspaikkojen hakuun sovellus käyttää KIVO:n tarjoamaa rajapintaa http://kierratys.info/2.0",
 
