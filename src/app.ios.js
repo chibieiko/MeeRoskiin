@@ -8,9 +8,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import * as colors from './res/colors.json';
 import * as strings from './res/strings.json';
 
-const list = require('./img/ic_list_white_24px.svg');
-const map = require('./img/ic_map_white_24px.svg');
-
 const store = configureStore();
 registerScreens(store, Provider);
 

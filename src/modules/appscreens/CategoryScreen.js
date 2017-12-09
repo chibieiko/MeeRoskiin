@@ -13,7 +13,7 @@ import {
     Button,
     Toast
 } from "native-base";
-import entypo from 'react-native-vector-icons/Entypo';
+import materialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import {CategoryScreenStyles as mainStyle} from "./styles/CategoryScreenStyles";
 import content from '../../res/categories';
@@ -23,19 +23,20 @@ import * as strings from '../../res/strings.json';
 import * as colors from '../../res/colors.json';
 
 export class CategoryScreen extends Component {
-    static navigatorButtons = {
-        rightButtons: [
-            {
-                title: strings.settingsTitle,
-                id: 'settings',
-                buttonColor: colors.backgroundColor,
-                buttonFontSize: '14'
-            }
-        ]
-    };
-
     constructor(props) {
         super(props);
+
+        materialIcons.getImageSource('info-outline', 26).then(icon => {
+            this.props.navigator.setButtons({
+                rightButtons: [
+                    {
+                        id: 'settings',
+                        icon: icon
+                    }
+                ]
+            })
+        });
+
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
     }
 
@@ -66,31 +67,31 @@ export class CategoryScreen extends Component {
 
     render() {
         return (
-                <Container style={mainStyle.container}>
-                    <Content>
-                        <List>
-                            {
-                                _.sortBy(content.categories, 'name').map(category => {
-                                    if (category.showOnCategoryPage) {
-                                        return <ListItem key={category.id} icon
-                                                         style={mainStyle.listItem}
-                                                         onPress={() => this.openCategory(category.id)}>
-                                            <Body style={mainStyle.itemBody}>
-                                            <Text>
-                                                {category.name}
-                                            </Text>
-                                            </Body>
-                                            <Right>
-                                                <Icon ios='ios-arrow-forward'
-                                                      android='md-arrow-forward'/>
-                                            </Right>
-                                        </ListItem>
-                                    }
-                                })
-                            }
-                        </List>
-                    </Content>
-                </Container>
+            <Container style={mainStyle.container}>
+                <Content>
+                    <List>
+                        {
+                            _.sortBy(content.categories, 'name').map(category => {
+                                if (category.showOnCategoryPage) {
+                                    return <ListItem key={category.id} icon
+                                                     style={mainStyle.listItem}
+                                                     onPress={() => this.openCategory(category.id)}>
+                                        <Body style={mainStyle.itemBody}>
+                                        <Text>
+                                            {category.name}
+                                        </Text>
+                                        </Body>
+                                        <Right>
+                                            <Icon ios='ios-arrow-forward'
+                                                  android='md-arrow-forward'/>
+                                        </Right>
+                                    </ListItem>
+                                }
+                            })
+                        }
+                    </List>
+                </Content>
+            </Container>
         );
     }
 }
