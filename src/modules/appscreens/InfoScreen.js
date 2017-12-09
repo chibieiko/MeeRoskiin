@@ -12,15 +12,17 @@ import {
 
 import {InfoScreenStyles as mainStyle} from "./styles/InfoScreenStyles";
 import * as strings from '../../res/strings.json';
-import * as dimensions from '../../res/dimensions.json';
 
 export default class InfoScreen extends Component {
     render() {
         return (
             <Container style={mainStyle.container}>
                 <Content>
+                    <Text style={mainStyle.text}>
+                        {strings.recyclingInfo}
+                    </Text>
                     <Text>
-                        Info here
+                        {strings.sortingPlaceInfo}
                     </Text>
                 </Content>
             </Container>
