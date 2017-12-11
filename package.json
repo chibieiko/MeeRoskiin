@@ -13,6 +13,7 @@
     "react-native": "0.48.1",
     "react-native-android-location-services-dialog-box": "^2.3.2",
     "react-native-config": "^0.6.1",
+    "react-native-htmlview": "^0.12.1",
     "react-native-maps": "^0.16.4",
     "react-native-navigation": "^1.1.213",
     "react-native-snackbar": "^0.4.4",

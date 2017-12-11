@@ -62,7 +62,7 @@ export class MapScreen extends Component {
                 console.log(error);
             },
             {
-                enableHighAccuracy: false,
+                enableHighAccuracy: true,
                 timeout: 200000,
                 maximumAge: 36000,
                 distanceFilter: 2000
@@ -76,7 +76,7 @@ export class MapScreen extends Component {
                 message: strings.gpsWanted,
                 ok: strings.use,
                 cancel: strings.cancel,
-                enableHighAccuracy: false, // true => GPS and network provider, false => only GPS
+                enableHighAccuracy: true, // true => GPS and network provider, false => only GPS
                 showDialog: true, // false => Opens the Location access page directly.
                 openLocationServices: true // false => Directly catch method is called if location services are turned off
             }).then(success => {

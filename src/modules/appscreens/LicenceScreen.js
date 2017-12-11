@@ -2,18 +2,14 @@ import React, {Component} from 'react';
 import {
     Container,
     Content,
-    List,
-    ListItem,
     Text,
-    Right,
-    Body,
-    Icon
 } from "native-base";
 import {View} from 'react-native';
+import HTMLView from 'react-native-htmlview';
 
 import {LicenseScreenStyles as mainStyle} from "./styles/LicenseScreenStyles";
-import * as strings from '../../res/strings.json';
 import licences from '../../res/licences';
+import {mitLicense, apacheLicense, bsdLicense} from "../../res/licences";
 
 export default class LicenseScreen extends Component {
     render() {
@@ -26,22 +22,20 @@ export default class LicenseScreen extends Component {
                                 <Text style={mainStyle.title} selectable>
                                     {license.title}
                                 </Text>
-                                <MyText>
+                                <Text selectable style={mainStyle.myText}>
                                     {license.copyright}
-                                </MyText>
+                                </Text>
                                 {
-                                    license.license === 'mit' ?
-                                        <View>
-                                            <MyText>{strings.mitLicensePart1}</MyText>
-                                            <MyText>{strings.mitLicensePart2}</MyText>
-                                            <MyText>{strings.mitLicensePart3}</MyText>
-                                        </View>
-                                        :
-                                        <View>
-                                            <MyText>{strings.apacheLicensePart1}</MyText>
-                                            <MyText>{strings.apacheLicenseUrl}</MyText>
-                                            <MyText>{strings.apacheLicensePart2}</MyText>
-                                        </View>
+                                    license.license === 'mit' &&
+                                        <HTMLView value={mitLicense}/>
+                                }
+                                {
+                                    license.license === 'apache' &&
+                                        <HTMLView value={apacheLicense}/>
+                                }
+                                {
+                                    license.license === 'bsd' &&
+                                        <HTMLView value={bsdLicense}/>
                                 }
                             </View>
                         })
@@ -49,12 +43,6 @@ export default class LicenseScreen extends Component {
                 </Content>
             </Container>
         );
-    }
-}
-
-class MyText extends Component {
-    render() {
-        return <Text selectable style={mainStyle.myText}>{this.props.children}</Text>
     }
 }
 

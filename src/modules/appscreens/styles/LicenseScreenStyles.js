@@ -10,11 +10,12 @@ export const LicenseScreenStyles = {
     },
     title: {
         fontSize: dimensions.fontBig,
-        color: colors.primary,
+        color: colors.primaryDark,
         marginTop: 10
     },
     myText: {
-        marginVertical: 8 ,
+        marginVertical: 8,
+        color: colors.primary,
         fontSize: dimensions.fontNormal
     }
 };

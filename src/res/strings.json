@@ -24,7 +24,7 @@
   "information": "Tietoa",
   "licences": "Lisenssit",
   "setNumberOfSortingPlaces": "Kuinka monta lähintä lajittelupaikkaa per kategoria näytetään?",
-  "recyclingInfo": "Sovelluksen kierrätykseen liittyvä tieto on peräisin KIVO:n sivulta https://www.kierratys.info",
+  "recyclingInfo": "Sovelluksen kierrätykseen liittyvä tieto on peräisin KIVO:n (Suomen kiertovoima ry) sivulta https://www.kierratys.info",
   "sortingPlaceInfo": "Kierrätyspaikkojen hakuun sovellus käyttää KIVO:n tarjoamaa rajapintaa http://kierratys.info/2.0",
 
   "acceptsTitle": "Vastaanottaa",
@@ -53,5 +53,9 @@
 
   "apacheLicensePart1": "Licensed under the Apache License, Version 2.0 (the 'License'); you may not use this file except in compliance with the License. You may obtain a copy of the License at",
   "apacheLicenseUrl": "http://www.apache.org/licenses/LICENSE-2.0",
-  "apacheLicensePart2": "Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."
+  "apacheLicensePart2": "Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an 'AS IS' BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.",
+
+  "bsdLicensePart1": "Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:",
+  "bsdLicensePart2": "* Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.",
+  "bsdLicensePart3": ""
 }
