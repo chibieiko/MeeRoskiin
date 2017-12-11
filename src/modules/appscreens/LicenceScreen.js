@@ -9,7 +9,7 @@ import HTMLView from 'react-native-htmlview';
 
 import {LicenseScreenStyles as mainStyle} from "./styles/LicenseScreenStyles";
 import licences from '../../res/licences';
-import {mitLicense, apacheLicense, bsdLicense} from "../../res/licences";
+import {mitLicense, apacheLicense, bsdLicense, iscLicense} from "../../res/licences";
 
 export default class LicenseScreen extends Component {
     render() {
@@ -36,6 +36,10 @@ export default class LicenseScreen extends Component {
                                 {
                                     license.license === 'bsd' &&
                                         <HTMLView value={bsdLicense}/>
+                                }
+                                {
+                                    license.license === 'isc' &&
+                                        <HTMLView value={iscLicense}/>
                                 }
                             </View>
                         })
